@@ -14,8 +14,16 @@ app.use(fileUpload({
     useTempFiles: true
 }))
 
-app.use('/', (req, res, next) => {
-    res.json({msg: "Hello Everyone"})
+//connect to mongodb
+const URI = process.env.MONGODB_URL
+mongoose.connect(URI, {
+    useCreateIndex: true,
+    useFindAndModify: false,
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}, err => {
+    if(err) throw err;     
+    console.log("Connected to mongodb");
 })
 
 const PORT = process.env.PORT || 5000
