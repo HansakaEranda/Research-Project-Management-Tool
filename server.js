@@ -14,11 +14,14 @@ app.use(fileUpload({
     useTempFiles: true
 }))
 
+//Routes
+app.use('/student', require('./routes/studentRouter'))
+
 //connect to mongodb
 const URI = process.env.MONGODB_URL
 mongoose.connect(URI, {
-    useCreateIndex: true,
-    useFindAndModify: false,
+    // useCreateIndex: true,
+    // useFindAndModify: false,
     useNewUrlParser: true,
     useUnifiedTopology: true
 }, err => {
