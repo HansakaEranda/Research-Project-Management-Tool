@@ -1,6 +1,7 @@
 const Students = require('../models/studentModel')
 const bycrypt = require('bcrypt') 
 const jwt = require('jsonwebtoken')
+const sendMail = require('./sendMail')
 
 
 const {CLIENT_URL} = process.env
@@ -30,7 +31,7 @@ const studentCtrl = {
             const activation_token = createActivationToken(newStudent)
 
             const url = `${CLIENT_URL}/student/activate/${activation_token}`
-            // sendMail(email, url)
+            sendMail(email, url)
 
 
             res.json({msg: "Register Success! Please activate your email to start."})
