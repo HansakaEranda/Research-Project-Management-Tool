@@ -1,4 +1,5 @@
 const express = require('express');
+const topic = require('../models/topic');
 const Topics = require('../models/topic');
 
 const router = express.Router();
@@ -28,6 +29,20 @@ router.get('/topic', (req,res) => {
         return res.status(200).json({
             success:true,
             existingTopics:topic
+        });
+    });
+});
+
+router.get("/topic/:id", (req,res) => {
+    let topicId = req.params.id;
+
+    Topics.findById(topicId, (err,topic) => {
+        if(err){
+            return res.status(400).json({success:false, err});
+        }
+        return res.status(200).json({
+            success:true,
+            topic
         });
     });
 });
