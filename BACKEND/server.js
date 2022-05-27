@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
 
@@ -8,21 +9,21 @@ const app = express();
 const studentRoutes = require('./routes/students');
 const topicRoutes = require('./routes/topic');
 
-//app middleware
 app.use(bodyParser.json());
+app.use(cors());
 
 app.use(studentRoutes);
 app.use(topicRoutes);
 
 const PORT = 8000;
-const DB_URL='mongodb+srv://rpmt:rpmt321@cluster0.kvck9.mongodb.net/rpmtDB?retryWrites=true&w=majority';
+const URL = "mongodb+srv://rpmt:rpmt321@cluster0.kvck9.mongodb.net/rpmtDB?retryWrites=true&w=majority";
 
-mongoose.connect(DB_URL)
+mongoose.connect(URL)
 .then(() => {
-    console.log('DB connected');
+    console.log('MongoDB Connection Success!');
 })
-.catch((err) => console.log('DB connection error',err));
+.catch((err) => console.log('DB Connection ERROR!', err));
 
-app.listen(PORT, () => {
-    console.log(`App is running on ${PORT}`);
-});
+app.listen(PORT, () =>{
+    console.log(`Application is running successfully on ${PORT}`);
+})
