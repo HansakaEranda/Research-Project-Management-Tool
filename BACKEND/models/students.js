@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const topicSchema = new mongoose.Schema({
+const studentSchema = new mongoose.Schema({
 
     groupId:{
         type:String,
@@ -29,4 +29,4 @@ const topicSchema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('Topics', topicSchema);
+module.exports = mongoose.model('Students', studentSchema);
