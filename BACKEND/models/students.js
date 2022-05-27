@@ -2,27 +2,23 @@ const mongoose = require('mongoose');
 
 const studentSchema = new mongoose.Schema({
 
-    groupId:{
+    stname:{
         type:String,
         required:true
     },
-    groupLeader:{
+    regNo:{
         type:String,
         required:true
     },
-    member1:{
+    stemail:{
         type:String,
         required:true
     },
-    member2:{
+    stuserName:{
         type:String,
         required:true
     },
-    member3:{
-        type:String,
-        required:true
-    },
-    topic:{
+    stpwd:{
         type:String,
         required:true
     }
