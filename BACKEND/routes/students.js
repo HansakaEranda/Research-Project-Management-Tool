@@ -1,4 +1,5 @@
 const express = require('express');
+const students = require('../models/students');
 const Students = require('../models/students');
 
 const router = express.Router();
@@ -20,7 +21,7 @@ router.post('/students/save',(req,res)=>{
 });
 
 //get students
-router.get('/students',(res)=>{
+router.get('/students',(req,res)=>{
     Students.find().exec((err,students) => {
         if(err){
             return res.status(400).json({
