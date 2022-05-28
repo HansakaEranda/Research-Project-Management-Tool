@@ -2,23 +2,23 @@ const mongoose = require('mongoose');
 
 const topicSchema = new mongoose.Schema({
 
-    groupId:{
+    gId:{
         type:String,
         required:true
     },
-    groupLeader:{
+    gLeader:{
         type:String,
         required:true
     },
-    member1:{
+    mem1:{
         type:String,
         required:true
     },
-    member2:{
+    mem2:{
         type:String,
         required:true
     },
-    member3:{
+    mem3:{
         type:String,
         required:true
     },
