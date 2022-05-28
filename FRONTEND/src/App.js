@@ -1,36 +1,22 @@
-import React, {Component} from "react";
-import axios from 'axios';
+import React, {Component} from 'react';
+import {BrowserRouter, Route} from 'react-router-dom';
 
-export default class App extends Component {
+//Topic Details Pages
+import InsertTopicDtl from './Pages/InsertTopicDtl';
+import ViewStTopicDtl from './Pages/ViewStTopicDtl';
 
-constructor(props){
-    super(props);
-
-    this.state={
-        students:[]
-    };
-}
-
-componentDidMount(){
-    this.retrieveStudents();
-}
-
-retrieveStudents(){
-    axios.get("http://localhost:8000/students").then(res => {
-        if (res.data.success) {
-            this.setState({
-                students:res.data.existingStudents
-            });
-            console.log(this.state.students)
-        }
-    });
-}
-
+export default class App extends Component{
     render(){
-        return (
-            <div>
-                <h1>Research Management Tool</h1>
-            </div>
+        return(
+            <BrowserRouter>
+                <div>
+                    <Route path="" exact Component={}></Route>
+
+                    <Route path="/addTDtl" Component={InsertTopicDtl}></Route>
+                    <Route path="/addTDtl" Component={ViewStTopicDtl}></Route>
+
+                </div>
+            </BrowserRouter>
         )
     }
 }
