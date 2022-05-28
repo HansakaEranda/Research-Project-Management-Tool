@@ -12,7 +12,7 @@ const topicRoutes = require('./routes/topic');
 app.use(bodyParser.json());
 app.use(cors());
 
-app.use(studentRoutes);
+app.use("/",studentRoutes);
 app.use(topicRoutes);
 
 const PORT = 8000;

@@ -35,6 +35,22 @@ router.get('/students',(req,res)=>{
     });
 });
 
+//get a specific student details
+router.get('/students/:id',(req,res) => {
+    let studentId = req.params.id;
+
+    Students.findById(studentId,(err,student) => {
+        if(err){
+            return res.status(400).json({success:false, err});
+        }
+
+        return res.status(200).json({
+            success:true,
+            student
+        });
+    });
+});
+
 //update students
 router.put('/students/update/:id',(req,res)=>{
     Students.findByIdAndUpdate(
