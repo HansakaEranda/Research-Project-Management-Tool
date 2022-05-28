@@ -10,7 +10,7 @@ export default class App extends Component{
         return(
             <BrowserRouter>
                 <div>
-                    <Route path="" exact Component={}></Route>
+                    
 
                     <Route path="/addTDtl" Component={InsertTopicDtl}></Route>
                     <Route path="/addTDtl" Component={ViewStTopicDtl}></Route>
