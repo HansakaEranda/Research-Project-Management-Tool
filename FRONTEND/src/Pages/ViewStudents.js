@@ -1,4 +1,6 @@
 import React, {Component} from "react";
+import { BrowserRouter as  Link } from 'react-router-dom';
+import App from "../App";
 import axios from 'axios';
 
 export default class ViewStudents extends Component {
@@ -31,7 +33,7 @@ export default class ViewStudents extends Component {
                 <div className="container">
                     <h1>Research Management Tool</h1>
                     <p>All Students</p>
-                    <table class="table">
+                    <table className="table">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -45,21 +47,21 @@ export default class ViewStudents extends Component {
                         </thead>
                         <tbody>
                         {this.state.students.map((students,index) => (
-                            <tr>
+                            <tr key={index}>
                                     <th scope="row">{index+1}</th>
-                                    <td>{students.stname}</td>
+                                    <td><a href={`/student/${students._id}`} style={{textDecoration:"none"}}><Link to={`/editStudents/${students._id}`} >{students.stname}</Link></a></td>
                                     <td>{students.regNo}</td>
                                     <td>{students.stemail}</td>
                                     <td>{students.stuserName}</td>
                                     <td>{students.stpwd}</td>
                                     <td>
-                                        <a className="btn btn-warning" href="#">
-                                            <i className="fas fa-edit"></i>&nbsp;Edit
-                                        </a>
+                                    <Link to={`/editStudents/${students._id}`} ><button className="btn btn-warning"><i className="fas fa-edit"></i>&nbsp;Edit</button></Link>
+                                    
                                         &nbsp;
-                                        <a className="btn btn-danger" href="#">
-                                            <i className="far fa-trash-alt"></i>&nbsp;Delete
-                                        </a>
+                                        <button className="btn btn-delete" onClick={() => onDeletePayment(students.id)}><i className="far fa-trash-alt"></i>&nbsp;
+                                        Delete
+                                    </button> &nbsp;
+                                        <Link to={`/student/${students._id}`} ><button className="btn btn-danger">View</button></Link>
                                     </td>
                             </tr>
                         ))}
