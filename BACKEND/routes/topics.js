@@ -1,6 +1,6 @@
 const express = require('express');
-const topic = require('../models/topic');
-const Topics = require('../models/topic');
+//const topic = require('../models/topics');
+const Topics = require('../models/topics');
 
 const router = express.Router();
 
@@ -20,7 +20,7 @@ router.post('/topic/insert', (req,res) => {
 });
 
 router.get('/topic', (req,res) => {
-    Topics.find().exec((err, topic) => {
+    Topics.find().exec((err, topics) => {
         if(err){
             return res.status(400).json({
                 error:err
@@ -28,7 +28,7 @@ router.get('/topic', (req,res) => {
         }
         return res.status(200).json({
             success:true,
-            existingTopics:topic
+            existingTopics:topics
         });
     });
 });
@@ -36,13 +36,13 @@ router.get('/topic', (req,res) => {
 router.get("/topic/:id", (req,res) => {
     let topicId = req.params.id;
 
-    Topics.findById(topicId, (err,topic) => {
+    Topics.findById(topicId, (err,topics) => {
         if(err){
             return res.status(400).json({success:false, err});
         }
         return res.status(200).json({
             success:true,
-            topic
+            topics
         });
     });
 });

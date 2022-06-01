@@ -7,7 +7,7 @@ const app = express();
 
 //import routes
 const studentRoutes = require('./routes/students');
-const topicRoutes = require('./routes/topic');
+const topicRoutes = require('./routes/topics');
 
 app.use(bodyParser.json());
 app.use(cors());

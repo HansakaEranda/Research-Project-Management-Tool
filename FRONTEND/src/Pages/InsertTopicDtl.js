@@ -1,21 +1,66 @@
 import React, {Component} from 'react';
+import axios from 'axios';
+
+const dState = {
+    gId:"",
+    gLeader:"",
+    mem1:"",
+    mem2:"",
+    mem3:"",
+    topic:"",
+    gIdError:"",
+    gLeaderError:"",
+    mem1Error:"",
+    mem2Error:"",
+    mem3Error:"",
+    topicError:""
+}
 
 export default class InsertTopicDtl extends Component{
+    state = dState;
+    
+    validate = () => {
+        let gIdError = "";
+        let gLeaderError = "";
+        let mem1Error = "";
+        let mem2Error = "";
+        let mem3Error = "";
+        let topicError = "";
 
-    constructor(props){
-        super(props);
-        this.state={
-            gId:"",
-            gLeader:"",
-            mem1:"",
-            mem2:"",
-            mem3:"",
-            topic:""
+        if(!this.state.gId){
+            gIdError = 'Group ID field cannot be empty!';
         }
+
+        if(!this.state.gLeader){
+            gLeaderError = 'Group Leaders\' field cannot be empty!';
+        }
+
+        if(!this.state.mem1){
+            mem1Error = 'Member 1 field cannot be empty!';
+        }
+
+        if(!this.state.mem2){
+            mem2Error = 'Member 2 field cannot be empty!';
+        }
+
+        if(!this.state.mem3){
+            mem3Error = 'Member 3 field cannot be empty!';
+        }
+
+        if(!this.state.topic){
+            topicError = 'Topic field cannot be empty!';
+        }
+
+        if(gIdError || gLeaderError || mem1Error || mem2Error ||mem3Error || topicError){
+            this.setState({gIdError, gLeaderError, mem1Error, mem2Error, mem3Error, topicError});
+            return false;
+        }
+
+        return true;
     }
 
-    InputChange = (e) => {
-        const {name, value} = e.target;
+    InputChange =(e) =>{
+        const {name,value} = e.target;
 
         this.setState({
             ...this.state,
@@ -23,12 +68,12 @@ export default class InsertTopicDtl extends Component{
         })
     }
 
-    onSubmit = (e) => {
+
+    onSubmit = (e) =>{
         e.preventDefault();
+        const{gId, gLeader, mem1, mem2, mem3, topic} = this.state;
 
-        const [gId, gLeader, mem1, mem2, mem3, topic] = this. state;
-
-        const data = {
+        const tpDtl = {
             gId:gId,
             gLeader:gLeader,
             mem1:mem1,
@@ -37,27 +82,37 @@ export default class InsertTopicDtl extends Component{
             topic:topic
         }
 
-        axios.post("/topic/insert", data).then((res) =>{
+        //console.log(customer)
+        const isValid = this.validate();
+        if (isValid) {
+            console.log(this.state);
+            this.setState(dState);
+    
+        axios.post("http://localhost:8000/topic/insert",tpDtl).then((res) => {               
+            alert("Details added successfully!");
             if(res.data.success){
-                this.setState(
-                    {
-                        gId:"",
+                this.setState({
+                    gId:"",
                         gLeader:"",
                         mem1:"",
                         mem2:"",
                         mem3:"",
                         topic:""
-                    }
-                )
+                })
             }
+        }).catch((err)=>{
+            alert(err)
         })
+    };
     }
 
     render(){
-        return(
+        return (
             <div>
-                <form class="container">               
-                    <h1>Insert Topic Details</h1>
+                <form class="container">
+                    <button className="abtn" type="button"><a href="/viewTDtl" style={{textDecoration:'none',color:'black'}} required>View Details</a></button>
+                    <h2>Insert Topic Details</h2>
+
                     <div>
                         <label name="gId">Group ID</label><br/>
                         <input type="text" 
@@ -66,10 +121,10 @@ export default class InsertTopicDtl extends Component{
                             placeholder="Eg:G001" 
                             value={this.state.gId} 
                             onChange={this.InputChange}/>
-                        </div>
-                        <div style={{color: "red"}}>{this.state.gIdError}</div>
-
-                        <div>
+                    </div>
+                    <div style={{color: "red"}}>{this.state.gIdError}</div>
+                    
+                    <div>
                         <label name="gLeader">Group Leader</label><br/>
                         <input type="text" 
                             name='gLeader' 
@@ -77,10 +132,10 @@ export default class InsertTopicDtl extends Component{
                             placeholder="Eg:Perera K.L." 
                             value={this.state.gLeader} 
                             onChange={this.InputChange}/>
-                        </div>
-                        <div style={{color: "red"}}>{this.state.gLeaderError}</div>
+                    </div>
+                    <div style={{color: "red"}}>{this.state.gLeaderError}</div>
 
-                        <div>
+                    <div>
                         <label name="mem1">Member 1</label><br/>
                         <input type="text" 
                             name='mem1' 
@@ -88,10 +143,10 @@ export default class InsertTopicDtl extends Component{
                             placeholder="Eg:Perera K.L." 
                             value={this.state.mem1} 
                             onChange={this.InputChange}/>
-                        </div>
-                        <div style={{color: "red"}}>{this.state.mem1Error}</div>
+                    </div>
+                    <div style={{color: "red"}}>{this.state.mem1Error}</div>
 
-                        <div>
+                    <div>
                         <label name="mem2">Member 2</label><br/>
                         <input type="text" 
                             name='mem2' 
@@ -99,10 +154,10 @@ export default class InsertTopicDtl extends Component{
                             placeholder="Eg:Perera K.L." 
                             value={this.state.mem2} 
                             onChange={this.InputChange}/>
-                        </div>
-                        <div style={{color: "red"}}>{this.state.mem2Error}</div>
+                    </div>
+                    <div style={{color: "red"}}>{this.state.mem2Error}</div>
 
-                        <div>
+                    <div>
                         <label name="mem3">Member 3</label><br/>
                         <input type="text" 
                             name='mem3' 
@@ -110,23 +165,23 @@ export default class InsertTopicDtl extends Component{
                             placeholder="Eg:Perera K.L." 
                             value={this.state.mem3} 
                             onChange={this.InputChange}/>
-                        </div>
-                        <div style={{color: "red"}}>{this.state.mem3Error}</div>
+                    </div>
+                    <div style={{color: "red"}}>{this.state.mem3Error}</div>
 
-                        <div>
+                    <div>
                         <label name="topic">Topic</label><br/>
                         <input type="text" 
                             name='topic' 
                             id='topic' 
-                            placeholder="Eg:Perera K.L." 
+                            placeholder="Eg:Management Tool" 
                             value={this.state.topic} 
                             onChange={this.InputChange}/>
-                        </div>
-                        <div style={{color: "red"}}>{this.state.topicError}</div>
-
-                        <button type="submit" onClick={this.onSubmit} >Submit</button><br/>
-                
-                </form>
+                    </div>
+                    <div style={{color: "red"}}>{this.state.topicError}</div>
+                    <br/><br/>
+                    <button type="submit" onClick={this.onSubmit} >Save</button><br/>
+                           
+                </form> 
             </div>
         )
     }
