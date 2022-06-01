@@ -32,7 +32,7 @@ class SuperGetTopic extends Component{
                     {this.state.topics.map((topics,index) => (
                  
                 <div>                       
-                <label><b>Group ID</b></label>{topics.gId}<button type="button" ><a href="/sviewtdtl" style={{textDecoration:'none',color:'black'}}>View</a></button><br/>
+                <label><b>Group ID</b></label>{topics.gId}<button type="button" ><a href={`/topic/${topics._id}`}>View</a></button><br/>
                     </div>
                     ))} 
                 <br/>
