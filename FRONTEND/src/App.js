@@ -81,6 +81,7 @@ export default class App extends Component {
     import ViewStTopicDtl from './Pages/ViewStTopicDtl';
     import SuperGetTopic from './Pages/SuperGetTopic';
     import SuperViewTopic from './Pages/SuperViewTopic';
+    import ViewSingleTopic from './Pages/ViewSingleTopic';
 
     //Student Details Pages
     import ViewStudents from './Pages/ViewStudents';
@@ -117,6 +118,7 @@ export default class App extends Component {
                   <Route path='/viewTDtl' component={ViewStTopicDtl}/>
                   <Route path='/sgettopic' component={SuperGetTopic}/>
                   <Route path="/sviewtdtl" component={SuperViewTopic}/>
+                  <Route path="/sinviewtdtl" component={ViewSingleTopic}/>
                                   
               </Switch>
             </div>
