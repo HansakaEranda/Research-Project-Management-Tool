@@ -71,12 +71,12 @@ class ViewStTopicDtl extends Component{
                         {this.state.topics.map((topics,index) => (
                             <tr key={index}>
                                 <th scope="row">{index+1}</th>
-                                <td><a href={`/topic/${topics._id}`}>{topics.gId}</a></td>
-                                <td><a href={`/topic/${topics._id}`}>{topics.gLeader}</a></td>
-                                <td><a href={`/topic/${topics._id}`}>{topics.mem1}</a></td>
-                                <td><a href={`/topic/${topics._id}`}>{topics.mem2}</a></td>
-                                <td><a href={`/topic/${topics._id}`}>{topics.mem3}</a></td>
-                                <td><a href={`/topic/${topics._id}`}>{topics.topic}</a></td>
+                                <td><a href={`/sinviewtdtl/${topics._id}`}>{topics.gId}</a></td>
+                                <td><a href={`/sinviewtdtl/${topics._id}`}>{topics.gLeader}</a></td>
+                                <td><a href={`/sinviewtdtl/${topics._id}`}>{topics.mem1}</a></td>
+                                <td><a href={`/sinviewtdtl/${topics._id}`}>{topics.mem2}</a></td>
+                                <td><a href={`/sinviewtdtl/${topics._id}`}>{topics.mem3}</a></td>
+                                <td><a href={`/sinviewtdtl/${topics._id}`}>{topics.topic}</a></td>
                             </tr>
                         ))}
                     </tbody>

@@ -5,7 +5,7 @@ class SuperViewTopic extends Component{
     constructor(props){
         super(props)
         this.state = {
-            topics:[]
+            topics:{}
         };
     }
 
@@ -14,10 +14,11 @@ class SuperViewTopic extends Component{
     }
 
     displayTopic(){
-        axios.get("/topic/:id").then((res) => {
+        const id = this.props.match.params.id;
+        axios.get(`http://localhost:8000/topic/${id}`).then((res) => {
             if(res.data.success){
                 this.setState({
-                    topics:res.data.existingTopics
+                    topics:res.data.topics
                 });
                 console.log(this.state.topics);
             }
@@ -25,40 +26,30 @@ class SuperViewTopic extends Component{
     }
     
     render(){
+        const {gId, gLeader, mem1, mem2, mem3, topic} = this.state.topics;
         return(
             
                 <div >
                 <div >
-                <div class="cont"><h2>Topic Details</h2></div>                         
-                <div>
-                
-                <table>
-                        <tr>
-                            <th scope="col">Group ID</th>
-                            <th scope="col">Group Leader</th>
-                            <th scope="col">Member 1</th>
-                            <th scope="col">Member 2</th>
-                            <th scope="col">Member 3</th>
-                            <th scope="col">Topic</th>
-                            
-                        </tr>
-                    <tbody>
-                        {this.state.topics.map((topics,index) => (
-                            <tr>
-                                <td>{topics.gId}</td>
-                                <td>{topics.gLeader}</td>
-                                <td>{topics.mem1}</td>
-                                <td>{topics.mem2}</td>
-                                <td>{topics.mem3}</td>
-                                <td>{topics.topic}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+                <div class="cont"><h2>Topic Details</h2></div>
+                                                 
+           <div>
+               <label><b>Group ID - </b></label> {gId}<br/>
+
+               <label><b>Group Leader - </b></label> {gLeader}<br/>
+
+               <label><b>Member 1 - </b></label> {mem1}<br/>
+
+               <label><b>Member 2 - </b></label> {mem2}<br/>
+
+               <label><b>Member 3 - </b></label> {mem3}<br/>
+
+               <label><b>Topic - </b></label> {topic}<br/>
+
+           </div>
                 <button>Accept    </button><button>Decline</button><br/><br/>
                 <button type="button" ><a href="/sgettopic" style={{textDecoration:'none',color:'black'}}>Back</a></button><br/>
                 <br/><br/></div>
-            </div>
             </div>
         ); 
     }

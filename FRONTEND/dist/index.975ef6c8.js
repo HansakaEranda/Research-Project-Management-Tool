@@ -26139,6 +26139,10 @@ var _superViewTopic = require("./Pages/SuperViewTopic");
 var _superViewTopicDefault = parcelHelpers.interopDefault(_superViewTopic);
 var _viewSingleTopic = require("./Pages/ViewSingleTopic");
 var _viewSingleTopicDefault = parcelHelpers.interopDefault(_viewSingleTopic);
+var _csuperGet = require("./Pages/CSuperGet");
+var _csuperGetDefault = parcelHelpers.interopDefault(_csuperGet);
+var _csuperView = require("./Pages/CSuperView");
+var _csuperViewDefault = parcelHelpers.interopDefault(_csuperView);
 //Student Details Pages
 var _viewStudents = require("./Pages/ViewStudents");
 var _viewStudentsDefault = parcelHelpers.interopDefault(_viewStudents);
@@ -26153,7 +26157,7 @@ class App extends (0, _react.Component) {
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navBarDefault.default), {}, void 0, false, {
                         fileName: "src/App.js",
-                        lineNumber: 25,
+                        lineNumber: 28,
                         columnNumber: 15
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Switch), {
@@ -26164,7 +26168,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _homeDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 27,
+                                lineNumber: 30,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26172,7 +26176,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _viewStudentsDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 29,
+                                lineNumber: 32,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26180,7 +26184,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _studentDetailsDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 30,
+                                lineNumber: 33,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26188,7 +26192,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _editStudentDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 31,
+                                lineNumber: 34,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26197,7 +26201,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _insertTopicDtlDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 33,
+                                lineNumber: 36,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26205,7 +26209,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _viewStTopicDtlDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 34,
+                                lineNumber: 37,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26213,40 +26217,56 @@ class App extends (0, _react.Component) {
                                 component: (0, _superGetTopicDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 35,
+                                lineNumber: 38,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                                path: "/sviewtdtl",
+                                path: "/sviewtdtl/:id",
                                 component: (0, _superViewTopicDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 36,
+                                lineNumber: 39,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                                path: "/sinviewtdtl",
+                                path: "/sinviewtdtl/:id",
                                 component: (0, _viewSingleTopicDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 37,
+                                lineNumber: 40,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/csgtdtl",
+                                component: (0, _csuperGetDefault.default)
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 41,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/csvtdtl/:id",
+                                component: (0, _csuperViewDefault.default)
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 42,
                                 columnNumber: 19
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/App.js",
-                        lineNumber: 26,
+                        lineNumber: 29,
                         columnNumber: 15
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/App.js",
-                lineNumber: 24,
+                lineNumber: 27,
                 columnNumber: 13
             }, this)
         }, void 0, false, {
             fileName: "src/App.js",
-            lineNumber: 23,
+            lineNumber: 26,
             columnNumber: 9
         }, this);
     }
@@ -26258,7 +26278,7 @@ exports.default = App;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","react-router-dom":"cHIiW","./Pages/Home":"3ABAM","./Pages/InsertTopicDtl":"8CjXa","./Pages/ViewStTopicDtl":"9sGNH","./Pages/SuperGetTopic":"hp91B","./Pages/SuperViewTopic":"8J7Kv","./Pages/ViewSingleTopic":"1iXc0","./Pages/ViewStudents":"3KRlG","./Pages/EditStudent":"hdVSo","./Pages/StudentDetails":"foIzQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj","./Pages/NavBar":"8ajGy"}],"cHIiW":[function(require,module,exports) {
+},{"react":"21dqq","react-router-dom":"cHIiW","./Pages/Home":"3ABAM","./Pages/InsertTopicDtl":"8CjXa","./Pages/ViewStTopicDtl":"9sGNH","./Pages/SuperGetTopic":"hp91B","./Pages/SuperViewTopic":"8J7Kv","./Pages/ViewSingleTopic":"1iXc0","./Pages/ViewStudents":"3KRlG","./Pages/EditStudent":"hdVSo","./Pages/StudentDetails":"foIzQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj","./Pages/NavBar":"8ajGy","./Pages/CSuperGet":"izG8o","./Pages/CSuperView":"ij2Ae"}],"cHIiW":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MemoryRouter", ()=>(0, _reactRouter.MemoryRouter));
@@ -34083,7 +34103,7 @@ class ViewStTopicDtl extends (0, _react.Component) {
                                                     }, this),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                                            href: `/topic/${topics._id}`,
+                                                            href: `/sinviewtdtl/${topics._id}`,
                                                             children: topics.gId
                                                         }, void 0, false, {
                                                             fileName: "src/Pages/ViewStTopicDtl.js",
@@ -34097,7 +34117,7 @@ class ViewStTopicDtl extends (0, _react.Component) {
                                                     }, this),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                                            href: `/topic/${topics._id}`,
+                                                            href: `/sinviewtdtl/${topics._id}`,
                                                             children: topics.gLeader
                                                         }, void 0, false, {
                                                             fileName: "src/Pages/ViewStTopicDtl.js",
@@ -34111,7 +34131,7 @@ class ViewStTopicDtl extends (0, _react.Component) {
                                                     }, this),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                                            href: `/topic/${topics._id}`,
+                                                            href: `/sinviewtdtl/${topics._id}`,
                                                             children: topics.mem1
                                                         }, void 0, false, {
                                                             fileName: "src/Pages/ViewStTopicDtl.js",
@@ -34125,7 +34145,7 @@ class ViewStTopicDtl extends (0, _react.Component) {
                                                     }, this),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                                            href: `/topic/${topics._id}`,
+                                                            href: `/sinviewtdtl/${topics._id}`,
                                                             children: topics.mem2
                                                         }, void 0, false, {
                                                             fileName: "src/Pages/ViewStTopicDtl.js",
@@ -34139,7 +34159,7 @@ class ViewStTopicDtl extends (0, _react.Component) {
                                                     }, this),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                                            href: `/topic/${topics._id}`,
+                                                            href: `/sinviewtdtl/${topics._id}`,
                                                             children: topics.mem3
                                                         }, void 0, false, {
                                                             fileName: "src/Pages/ViewStTopicDtl.js",
@@ -34153,7 +34173,7 @@ class ViewStTopicDtl extends (0, _react.Component) {
                                                     }, this),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                                            href: `/topic/${topics._id}`,
+                                                            href: `/sinviewtdtl/${topics._id}`,
                                                             children: topics.topic
                                                         }, void 0, false, {
                                                             fileName: "src/Pages/ViewStTopicDtl.js",
@@ -34312,7 +34332,7 @@ class SuperGetTopic extends (0, _react.Component) {
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                 type: "button",
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                    href: `/topic/${topics._id}`,
+                                    href: `/sviewtdtl/${topics._id}`,
                                     children: "View"
                                 }, void 0, false, {
                                     fileName: "src/Pages/SuperGetTopic.js",
@@ -34327,7 +34347,7 @@ class SuperGetTopic extends (0, _react.Component) {
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                 fileName: "src/Pages/SuperGetTopic.js",
                                 lineNumber: 35,
-                                columnNumber: 132
+                                columnNumber: 136
                             }, this)
                         ]
                     }, void 0, true, {
@@ -34378,23 +34398,25 @@ class SuperViewTopic extends (0, _react.Component) {
     constructor(props){
         super(props);
         this.state = {
-            topics: []
+            topics: {}
         };
     }
     componentDidMount() {
         this.displayTopic();
     }
     displayTopic() {
-        (0, _axiosDefault.default).get("/topic/:id").then((res)=>{
+        const id = this.props.match.params.id;
+        (0, _axiosDefault.default).get(`http://localhost:8000/topic/${id}`).then((res)=>{
             if (res.data.success) {
                 this.setState({
-                    topics: res.data.existingTopics
+                    topics: res.data.topics
                 });
                 console.log(this.state.topics);
             }
         });
     }
     render() {
+        const { gId , gLeader , mem1 , mem2 , mem3 , topic  } = this.state.topics;
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: [
@@ -34404,209 +34426,209 @@ class SuperViewTopic extends (0, _react.Component) {
                             children: "Topic Details"
                         }, void 0, false, {
                             fileName: "src/Pages/SuperViewTopic.js",
-                            lineNumber: 32,
+                            lineNumber: 34,
                             columnNumber: 35
                         }, this)
                     }, void 0, false, {
                         fileName: "src/Pages/SuperViewTopic.js",
-                        lineNumber: 32,
+                        lineNumber: 34,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("table", {
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
-                                        children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
-                                                scope: "col",
-                                                children: "Group ID"
-                                            }, void 0, false, {
-                                                fileName: "src/Pages/SuperViewTopic.js",
-                                                lineNumber: 37,
-                                                columnNumber: 29
-                                            }, this),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
-                                                scope: "col",
-                                                children: "Group Leader"
-                                            }, void 0, false, {
-                                                fileName: "src/Pages/SuperViewTopic.js",
-                                                lineNumber: 38,
-                                                columnNumber: 29
-                                            }, this),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
-                                                scope: "col",
-                                                children: "Member 1"
-                                            }, void 0, false, {
-                                                fileName: "src/Pages/SuperViewTopic.js",
-                                                lineNumber: 39,
-                                                columnNumber: 29
-                                            }, this),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
-                                                scope: "col",
-                                                children: "Member 2"
-                                            }, void 0, false, {
-                                                fileName: "src/Pages/SuperViewTopic.js",
-                                                lineNumber: 40,
-                                                columnNumber: 29
-                                            }, this),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
-                                                scope: "col",
-                                                children: "Member 3"
-                                            }, void 0, false, {
-                                                fileName: "src/Pages/SuperViewTopic.js",
-                                                lineNumber: 41,
-                                                columnNumber: 29
-                                            }, this),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
-                                                scope: "col",
-                                                children: "Topic"
-                                            }, void 0, false, {
-                                                fileName: "src/Pages/SuperViewTopic.js",
-                                                lineNumber: 42,
-                                                columnNumber: 29
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "src/Pages/SuperViewTopic.js",
-                                        lineNumber: 36,
-                                        columnNumber: 25
-                                    }, this),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tbody", {
-                                        children: this.state.topics.map((topics, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
-                                                children: [
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
-                                                        children: topics.gId
-                                                    }, void 0, false, {
-                                                        fileName: "src/Pages/SuperViewTopic.js",
-                                                        lineNumber: 48,
-                                                        columnNumber: 33
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
-                                                        children: topics.gLeader
-                                                    }, void 0, false, {
-                                                        fileName: "src/Pages/SuperViewTopic.js",
-                                                        lineNumber: 49,
-                                                        columnNumber: 33
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
-                                                        children: topics.mem1
-                                                    }, void 0, false, {
-                                                        fileName: "src/Pages/SuperViewTopic.js",
-                                                        lineNumber: 50,
-                                                        columnNumber: 33
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
-                                                        children: topics.mem2
-                                                    }, void 0, false, {
-                                                        fileName: "src/Pages/SuperViewTopic.js",
-                                                        lineNumber: 51,
-                                                        columnNumber: 33
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
-                                                        children: topics.mem3
-                                                    }, void 0, false, {
-                                                        fileName: "src/Pages/SuperViewTopic.js",
-                                                        lineNumber: 52,
-                                                        columnNumber: 33
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
-                                                        children: topics.topic
-                                                    }, void 0, false, {
-                                                        fileName: "src/Pages/SuperViewTopic.js",
-                                                        lineNumber: 53,
-                                                        columnNumber: 33
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "src/Pages/SuperViewTopic.js",
-                                                lineNumber: 47,
-                                                columnNumber: 29
-                                            }, this))
-                                    }, void 0, false, {
-                                        fileName: "src/Pages/SuperViewTopic.js",
-                                        lineNumber: 45,
-                                        columnNumber: 21
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/Pages/SuperViewTopic.js",
-                                lineNumber: 35,
-                                columnNumber: 17
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                children: "Accept    "
-                            }, void 0, false, {
-                                fileName: "src/Pages/SuperViewTopic.js",
-                                lineNumber: 58,
-                                columnNumber: 17
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                children: "Decline"
-                            }, void 0, false, {
-                                fileName: "src/Pages/SuperViewTopic.js",
-                                lineNumber: 58,
-                                columnNumber: 44
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
-                                fileName: "src/Pages/SuperViewTopic.js",
-                                lineNumber: 58,
-                                columnNumber: 68
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
-                                fileName: "src/Pages/SuperViewTopic.js",
-                                lineNumber: 58,
-                                columnNumber: 73
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                type: "button",
-                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                    href: "/sgettopic",
-                                    style: {
-                                        textDecoration: "none",
-                                        color: "black"
-                                    },
-                                    children: "Back"
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                                    children: "Group ID - "
                                 }, void 0, false, {
                                     fileName: "src/Pages/SuperViewTopic.js",
-                                    lineNumber: 59,
-                                    columnNumber: 40
+                                    lineNumber: 37,
+                                    columnNumber: 23
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/Pages/SuperViewTopic.js",
-                                lineNumber: 59,
-                                columnNumber: 17
+                                lineNumber: 37,
+                                columnNumber: 16
                             }, this),
+                            " ",
+                            gId,
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                 fileName: "src/Pages/SuperViewTopic.js",
-                                lineNumber: 59,
-                                columnNumber: 124
+                                lineNumber: 37,
+                                columnNumber: 55
                             }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                                    children: "Group Leader - "
+                                }, void 0, false, {
+                                    fileName: "src/Pages/SuperViewTopic.js",
+                                    lineNumber: 39,
+                                    columnNumber: 23
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "src/Pages/SuperViewTopic.js",
+                                lineNumber: 39,
+                                columnNumber: 16
+                            }, this),
+                            " ",
+                            gLeader,
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                 fileName: "src/Pages/SuperViewTopic.js",
-                                lineNumber: 60,
-                                columnNumber: 17
+                                lineNumber: 39,
+                                columnNumber: 63
                             }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                                    children: "Member 1 - "
+                                }, void 0, false, {
+                                    fileName: "src/Pages/SuperViewTopic.js",
+                                    lineNumber: 41,
+                                    columnNumber: 23
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "src/Pages/SuperViewTopic.js",
+                                lineNumber: 41,
+                                columnNumber: 16
+                            }, this),
+                            " ",
+                            mem1,
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                 fileName: "src/Pages/SuperViewTopic.js",
-                                lineNumber: 60,
-                                columnNumber: 22
+                                lineNumber: 41,
+                                columnNumber: 56
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                                    children: "Member 2 - "
+                                }, void 0, false, {
+                                    fileName: "src/Pages/SuperViewTopic.js",
+                                    lineNumber: 43,
+                                    columnNumber: 23
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "src/Pages/SuperViewTopic.js",
+                                lineNumber: 43,
+                                columnNumber: 16
+                            }, this),
+                            " ",
+                            mem2,
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                                fileName: "src/Pages/SuperViewTopic.js",
+                                lineNumber: 43,
+                                columnNumber: 56
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                                    children: "Member 3 - "
+                                }, void 0, false, {
+                                    fileName: "src/Pages/SuperViewTopic.js",
+                                    lineNumber: 45,
+                                    columnNumber: 23
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "src/Pages/SuperViewTopic.js",
+                                lineNumber: 45,
+                                columnNumber: 16
+                            }, this),
+                            " ",
+                            mem3,
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                                fileName: "src/Pages/SuperViewTopic.js",
+                                lineNumber: 45,
+                                columnNumber: 56
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                                    children: "Topic - "
+                                }, void 0, false, {
+                                    fileName: "src/Pages/SuperViewTopic.js",
+                                    lineNumber: 47,
+                                    columnNumber: 23
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "src/Pages/SuperViewTopic.js",
+                                lineNumber: 47,
+                                columnNumber: 16
+                            }, this),
+                            " ",
+                            topic,
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                                fileName: "src/Pages/SuperViewTopic.js",
+                                lineNumber: 47,
+                                columnNumber: 54
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/Pages/SuperViewTopic.js",
-                        lineNumber: 33,
+                        lineNumber: 36,
+                        columnNumber: 12
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        children: "Accept    "
+                    }, void 0, false, {
+                        fileName: "src/Pages/SuperViewTopic.js",
+                        lineNumber: 50,
                         columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        children: "Decline"
+                    }, void 0, false, {
+                        fileName: "src/Pages/SuperViewTopic.js",
+                        lineNumber: 50,
+                        columnNumber: 44
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                        fileName: "src/Pages/SuperViewTopic.js",
+                        lineNumber: 50,
+                        columnNumber: 68
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                        fileName: "src/Pages/SuperViewTopic.js",
+                        lineNumber: 50,
+                        columnNumber: 73
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        type: "button",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                            href: "/sgettopic",
+                            style: {
+                                textDecoration: "none",
+                                color: "black"
+                            },
+                            children: "Back"
+                        }, void 0, false, {
+                            fileName: "src/Pages/SuperViewTopic.js",
+                            lineNumber: 51,
+                            columnNumber: 40
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "src/Pages/SuperViewTopic.js",
+                        lineNumber: 51,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                        fileName: "src/Pages/SuperViewTopic.js",
+                        lineNumber: 51,
+                        columnNumber: 124
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                        fileName: "src/Pages/SuperViewTopic.js",
+                        lineNumber: 52,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                        fileName: "src/Pages/SuperViewTopic.js",
+                        lineNumber: 52,
+                        columnNumber: 22
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/Pages/SuperViewTopic.js",
-                lineNumber: 31,
+                lineNumber: 33,
                 columnNumber: 17
             }, this)
         }, void 0, false, {
             fileName: "src/Pages/SuperViewTopic.js",
-            lineNumber: 30,
+            lineNumber: 32,
             columnNumber: 17
         }, this);
     }
@@ -34619,8 +34641,183 @@ exports.default = SuperViewTopic;
   window.$RefreshSig$ = prevRefreshSig;
 }
 },{"axios":"jo6P5","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj"}],"1iXc0":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$31dd = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$31dd.prelude(module);
 
-},{}],"3KRlG":[function(require,module,exports) {
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+class ViewSingleTopic extends (0, _react.Component) {
+    constructor(props){
+        super(props);
+        this.state = {
+            topics: {}
+        };
+    }
+    componentDidMount() {
+        const id = this.props.match.params.id;
+        (0, _axiosDefault.default).get(`http://localhost:8000/topic/${id}`).then((res)=>{
+            if (res.data.success) {
+                this.setState({
+                    topics: res.data.topics
+                });
+                console.log(this.state.topics);
+            }
+        });
+    }
+    render() {
+        const { gId , gLeader , mem1 , mem2 , mem3 , topic  } = this.state.topics;
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                            children: "Group ID - "
+                        }, void 0, false, {
+                            fileName: "src/Pages/ViewSingleTopic.js",
+                            lineNumber: 30,
+                            columnNumber: 23
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "src/Pages/ViewSingleTopic.js",
+                        lineNumber: 30,
+                        columnNumber: 16
+                    }, this),
+                    " ",
+                    gId,
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                        fileName: "src/Pages/ViewSingleTopic.js",
+                        lineNumber: 30,
+                        columnNumber: 55
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                            children: "Group Leader - "
+                        }, void 0, false, {
+                            fileName: "src/Pages/ViewSingleTopic.js",
+                            lineNumber: 32,
+                            columnNumber: 23
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "src/Pages/ViewSingleTopic.js",
+                        lineNumber: 32,
+                        columnNumber: 16
+                    }, this),
+                    " ",
+                    gLeader,
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                        fileName: "src/Pages/ViewSingleTopic.js",
+                        lineNumber: 32,
+                        columnNumber: 63
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                            children: "Member 1 - "
+                        }, void 0, false, {
+                            fileName: "src/Pages/ViewSingleTopic.js",
+                            lineNumber: 34,
+                            columnNumber: 23
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "src/Pages/ViewSingleTopic.js",
+                        lineNumber: 34,
+                        columnNumber: 16
+                    }, this),
+                    " ",
+                    mem1,
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                        fileName: "src/Pages/ViewSingleTopic.js",
+                        lineNumber: 34,
+                        columnNumber: 56
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                            children: "Member 2 - "
+                        }, void 0, false, {
+                            fileName: "src/Pages/ViewSingleTopic.js",
+                            lineNumber: 36,
+                            columnNumber: 23
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "src/Pages/ViewSingleTopic.js",
+                        lineNumber: 36,
+                        columnNumber: 16
+                    }, this),
+                    " ",
+                    mem2,
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                        fileName: "src/Pages/ViewSingleTopic.js",
+                        lineNumber: 36,
+                        columnNumber: 56
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                            children: "Member 3 - "
+                        }, void 0, false, {
+                            fileName: "src/Pages/ViewSingleTopic.js",
+                            lineNumber: 38,
+                            columnNumber: 23
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "src/Pages/ViewSingleTopic.js",
+                        lineNumber: 38,
+                        columnNumber: 16
+                    }, this),
+                    " ",
+                    mem3,
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                        fileName: "src/Pages/ViewSingleTopic.js",
+                        lineNumber: 38,
+                        columnNumber: 56
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                            children: "Topic - "
+                        }, void 0, false, {
+                            fileName: "src/Pages/ViewSingleTopic.js",
+                            lineNumber: 40,
+                            columnNumber: 23
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "src/Pages/ViewSingleTopic.js",
+                        lineNumber: 40,
+                        columnNumber: 16
+                    }, this),
+                    " ",
+                    topic,
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                        fileName: "src/Pages/ViewSingleTopic.js",
+                        lineNumber: 40,
+                        columnNumber: 54
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/Pages/ViewSingleTopic.js",
+                lineNumber: 29,
+                columnNumber: 12
+            }, this)
+        }, void 0, false, {
+            fileName: "src/Pages/ViewSingleTopic.js",
+            lineNumber: 27,
+            columnNumber: 9
+        }, this);
+    }
+}
+exports.default = ViewSingleTopic;
+
+  $parcel$ReactRefreshHelpers$31dd.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3KRlG":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$08f6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -35137,6 +35334,384 @@ exports.default = NavBar;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"cHIiW"}]},["1xC6H","85bBE","8lqZg"], "8lqZg", "parcelRequire2de7")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"cHIiW"}],"izG8o":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$1e0d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$1e0d.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+class CSuperGet extends (0, _react.Component) {
+    constructor(props){
+        super(props);
+        this.state = {
+            topics: []
+        };
+    }
+    componentDidMount() {
+        this.displayTopic();
+    }
+    displayTopic() {
+        (0, _axiosDefault.default).get("http://localhost:8000/topic").then((res)=>{
+            if (res.data.success) {
+                this.setState({
+                    topics: res.data.existingTopics
+                });
+                console.log(this.state.topics);
+            }
+        });
+    }
+    render() {
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    class: "cont",
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                        children: "Research Requests"
+                    }, void 0, false, {
+                        fileName: "src/Pages/CSuperGet.js",
+                        lineNumber: 31,
+                        columnNumber: 39
+                    }, this)
+                }, void 0, false, {
+                    fileName: "src/Pages/CSuperGet.js",
+                    lineNumber: 31,
+                    columnNumber: 21
+                }, this),
+                this.state.topics.map((topics, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                                    children: "Group ID"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/CSuperGet.js",
+                                    lineNumber: 35,
+                                    columnNumber: 24
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "src/Pages/CSuperGet.js",
+                                lineNumber: 35,
+                                columnNumber: 17
+                            }, this),
+                            topics.gId,
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                type: "button",
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                    href: `/sviewtdtl/${topics._id}`,
+                                    children: "View"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/CSuperGet.js",
+                                    lineNumber: 35,
+                                    columnNumber: 82
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "src/Pages/CSuperGet.js",
+                                lineNumber: 35,
+                                columnNumber: 59
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                                fileName: "src/Pages/CSuperGet.js",
+                                lineNumber: 35,
+                                columnNumber: 136
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/Pages/CSuperGet.js",
+                        lineNumber: 34,
+                        columnNumber: 17
+                    }, this)),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                    fileName: "src/Pages/CSuperGet.js",
+                    lineNumber: 38,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                    fileName: "src/Pages/CSuperGet.js",
+                    lineNumber: 39,
+                    columnNumber: 17
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/Pages/CSuperGet.js",
+            lineNumber: 30,
+            columnNumber: 17
+        }, this);
+    }
+}
+exports.default = CSuperGet;
+
+  $parcel$ReactRefreshHelpers$1e0d.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","axios":"jo6P5","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"ij2Ae":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$452b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$452b.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+class CSuperView extends (0, _react.Component) {
+    constructor(props){
+        super(props);
+        this.state = {
+            topics: {}
+        };
+    }
+    componentDidMount() {
+        this.displayTopic();
+    }
+    displayTopic() {
+        const id = this.props.match.params.id;
+        (0, _axiosDefault.default).get(`http://localhost:8000/topic/${id}`).then((res)=>{
+            if (res.data.success) {
+                this.setState({
+                    topics: res.data.topics
+                });
+                console.log(this.state.topics);
+            }
+        });
+    }
+    render() {
+        const { gId , gLeader , mem1 , mem2 , mem3 , topic  } = this.state.topics;
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        class: "cont",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                            children: "Topic Details"
+                        }, void 0, false, {
+                            fileName: "src/Pages/CSuperView.js",
+                            lineNumber: 34,
+                            columnNumber: 35
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "src/Pages/CSuperView.js",
+                        lineNumber: 34,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                                    children: "Group ID - "
+                                }, void 0, false, {
+                                    fileName: "src/Pages/CSuperView.js",
+                                    lineNumber: 37,
+                                    columnNumber: 23
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "src/Pages/CSuperView.js",
+                                lineNumber: 37,
+                                columnNumber: 16
+                            }, this),
+                            " ",
+                            gId,
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                                fileName: "src/Pages/CSuperView.js",
+                                lineNumber: 37,
+                                columnNumber: 55
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                                    children: "Group Leader - "
+                                }, void 0, false, {
+                                    fileName: "src/Pages/CSuperView.js",
+                                    lineNumber: 39,
+                                    columnNumber: 23
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "src/Pages/CSuperView.js",
+                                lineNumber: 39,
+                                columnNumber: 16
+                            }, this),
+                            " ",
+                            gLeader,
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                                fileName: "src/Pages/CSuperView.js",
+                                lineNumber: 39,
+                                columnNumber: 63
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                                    children: "Member 1 - "
+                                }, void 0, false, {
+                                    fileName: "src/Pages/CSuperView.js",
+                                    lineNumber: 41,
+                                    columnNumber: 23
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "src/Pages/CSuperView.js",
+                                lineNumber: 41,
+                                columnNumber: 16
+                            }, this),
+                            " ",
+                            mem1,
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                                fileName: "src/Pages/CSuperView.js",
+                                lineNumber: 41,
+                                columnNumber: 56
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                                    children: "Member 2 - "
+                                }, void 0, false, {
+                                    fileName: "src/Pages/CSuperView.js",
+                                    lineNumber: 43,
+                                    columnNumber: 23
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "src/Pages/CSuperView.js",
+                                lineNumber: 43,
+                                columnNumber: 16
+                            }, this),
+                            " ",
+                            mem2,
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                                fileName: "src/Pages/CSuperView.js",
+                                lineNumber: 43,
+                                columnNumber: 56
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                                    children: "Member 3 - "
+                                }, void 0, false, {
+                                    fileName: "src/Pages/CSuperView.js",
+                                    lineNumber: 45,
+                                    columnNumber: 23
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "src/Pages/CSuperView.js",
+                                lineNumber: 45,
+                                columnNumber: 16
+                            }, this),
+                            " ",
+                            mem3,
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                                fileName: "src/Pages/CSuperView.js",
+                                lineNumber: 45,
+                                columnNumber: 56
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                                    children: "Topic - "
+                                }, void 0, false, {
+                                    fileName: "src/Pages/CSuperView.js",
+                                    lineNumber: 47,
+                                    columnNumber: 23
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "src/Pages/CSuperView.js",
+                                lineNumber: 47,
+                                columnNumber: 16
+                            }, this),
+                            " ",
+                            topic,
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                                fileName: "src/Pages/CSuperView.js",
+                                lineNumber: 47,
+                                columnNumber: 54
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/Pages/CSuperView.js",
+                        lineNumber: 36,
+                        columnNumber: 12
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        children: "Accept    "
+                    }, void 0, false, {
+                        fileName: "src/Pages/CSuperView.js",
+                        lineNumber: 50,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        children: "Decline"
+                    }, void 0, false, {
+                        fileName: "src/Pages/CSuperView.js",
+                        lineNumber: 50,
+                        columnNumber: 44
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                        fileName: "src/Pages/CSuperView.js",
+                        lineNumber: 50,
+                        columnNumber: 68
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                        fileName: "src/Pages/CSuperView.js",
+                        lineNumber: 50,
+                        columnNumber: 73
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        type: "button",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                            href: "/csgtdtl",
+                            style: {
+                                textDecoration: "none",
+                                color: "black"
+                            },
+                            children: "Back"
+                        }, void 0, false, {
+                            fileName: "src/Pages/CSuperView.js",
+                            lineNumber: 51,
+                            columnNumber: 40
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "src/Pages/CSuperView.js",
+                        lineNumber: 51,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                        fileName: "src/Pages/CSuperView.js",
+                        lineNumber: 51,
+                        columnNumber: 122
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                        fileName: "src/Pages/CSuperView.js",
+                        lineNumber: 52,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                        fileName: "src/Pages/CSuperView.js",
+                        lineNumber: 52,
+                        columnNumber: 22
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/Pages/CSuperView.js",
+                lineNumber: 33,
+                columnNumber: 17
+            }, this)
+        }, void 0, false, {
+            fileName: "src/Pages/CSuperView.js",
+            lineNumber: 32,
+            columnNumber: 17
+        }, this);
+    }
+}
+exports.default = CSuperView;
+
+  $parcel$ReactRefreshHelpers$452b.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","axios":"jo6P5","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["1xC6H","85bBE","8lqZg"], "8lqZg", "parcelRequire2de7")
 
 //# sourceMappingURL=index.975ef6c8.js.map

@@ -10,6 +10,9 @@
     import SuperGetTopic from './Pages/SuperGetTopic';
     import SuperViewTopic from './Pages/SuperViewTopic';
     import ViewSingleTopic from './Pages/ViewSingleTopic';
+    import CSuperGet from './Pages/CSuperGet';
+    import CSuperView from './Pages/CSuperView';
+
 
     //Student Details Pages
     import ViewStudents from './Pages/ViewStudents';
@@ -33,8 +36,10 @@
                   <Route exact path='/addTDtl' component={InsertTopicDtl}/>
                   <Route path='/viewTDtl' component={ViewStTopicDtl}/>
                   <Route path='/sgettopic' component={SuperGetTopic}/>
-                  <Route path="/sviewtdtl" component={SuperViewTopic}/>
-                  <Route path="/sinviewtdtl" component={ViewSingleTopic}/>
+                  <Route path="/sviewtdtl/:id" component={SuperViewTopic}/>
+                  <Route path="/sinviewtdtl/:id" component={ViewSingleTopic}/>
+                  <Route path="/csgtdtl" component={CSuperGet}/>
+                  <Route path="/csvtdtl/:id" component={CSuperView}/>
                                   
               </Switch>
             </div>
