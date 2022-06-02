@@ -4,30 +4,29 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "parcel": "^2.6.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-router-dom": "^5.3.3"
+    "react-router-dom": "^5.3.3",
+    "style-loader": "^3.3.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack serve --config webpack.config.js"
+    "start": "parcel src/index.html"
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",
-    "@babel/plugin-proposal-class-properties": "^7.17.12",
     "@babel/preset-react": "^7.17.12",
     "axios": "^0.27.2",
-    "babel-preset-react": "^6.24.1",
-    "css-loader": "^6.7.1",
-    "html-webpack-plugin": "^5.5.0",
-    "style-loader": "^3.3.1",
-    "webpack": "^5.72.1",
-    "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.9.0"
+    "buffer": "^6.0.3",
+    "eslint": "^8.16.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.30.0",
+    "process": "^0.11.10"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "proxy": "http://localhost:8080/"
+  "proxy": "http://localhost:8000/"
 }

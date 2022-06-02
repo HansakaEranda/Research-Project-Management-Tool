@@ -72,8 +72,9 @@ export default class App extends Component {
     }*/
 
     import React, { Component } from 'react';
-    import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+    import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
     import Home from './Pages/Home';
+    import NavBar from './Pages/NavBar';
     
 
     //Topic Details Pages
@@ -94,19 +95,7 @@ export default class App extends Component {
         return (
         <Router>
             <div>
-              <h2>Project Management Tool</h2>
-              <nav className="navbar navbar-expand-lg navbar-light bg-light">
-              <ul className="navbar-nav mr-auto">
-                <li><Link to={'/'} className="nav-link"> Home </Link></li>
-                <li><Link to={'/viewstudents'} className="nav-link">ViewStudents</Link></li>
-                <li><Link to={'/addTDtl'} className="nav-link">Topic Details</Link></li>
-                <li><Link to={'/viewTDtl'} className="nav-link">View Topic Details</Link></li>
-                <li><Link to={'/sgettopic'} className="nav-link">Research Requests</Link></li>
-                <li><Link to={'/sviewtdtl'} className="nav-link">View Research Requests</Link></li>
-                
-              </ul>
-              </nav>
-              <hr />
+              <NavBar />
               <Switch>
                   <Route exact path='/' component={Home} />
 
@@ -128,42 +117,3 @@ export default class App extends Component {
     }
     
     export default App;
-
-/*import React, {Component} from 'react';
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
-
-import Home from './Pages/Home';
-import NavBar from './Pages/NavBar';
-
-//Topic Details Pages
-import InsertTopicDtl from './Pages/InsertTopicDtl';
-import ViewStTopicDtl from './Pages/ViewStTopicDtl';
-
-//Student Details Pages
-import ViewStudents from './Pages/ViewStudents';
-import EditStudent from './Pages/EditStudent';
-import StudentDetails from './Pages/StudentDetails';
-
-function App()  {
-    
-        return(
-            <BrowserRouter>
-                <div className="container">
-                    
-                    <NavBar />
-                    <Routes>
-                    <Route path="/" exact component={<Home/>}></Route>
-                    <Route path="/addTDtl" component={<InsertTopicDtl/>}></Route>
-                    <Route path="/addTDtl" component={<ViewStTopicDtl/>}></Route>
-
-                    <Route path="/viewstudents" component={<ViewStudents/>}></Route>
-                    <Route path="/editStudents/:id" component={<EditStudent/>}></Route>
-                    <Route path="/student/:id" component={<StudentDetails/>}></Route>
-                    </Routes>
-                </div>
-            </BrowserRouter>
-        )
-    }
-
-    export default App;*/
-
