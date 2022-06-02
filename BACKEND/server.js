@@ -19,6 +19,7 @@ app.use(studentRoutes);
 app.use(topicRoutes);
 app.use(stGroupRoutes);
 app.use(staffRoutes);
+app.use('/api/goals', require('./routes/goalRoutes'))
 
 
 const PORT = 8000;
