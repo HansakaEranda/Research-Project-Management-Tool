@@ -2503,7 +2503,7 @@ process.umask = function() {
     return 0;
 };
 
-},{}],"1RB6v":[function(require,module,exports) {
+},{}],"85bBE":[function(require,module,exports) {
 "use strict";
 var global = arguments[3];
 var HMR_HOST = null;
@@ -26121,78 +26121,7 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-/*import React, {Component} from "react";
-import App from "../App";
-import axios from 'axios';
-
-export default class App extends Component {
-
-    constructor(props){
-        super(props);
-    
-        this.state={
-            students:[]
-        };
-    }
-    
-    componentDidMount(){
-        this.retrieveStudents();
-    }
-    
-    retrieveStudents(){
-        axios.get("http://localhost:8000/students").then(res => {
-            if (res.data.success) {
-                this.setState({
-                    students:res.data.existingStudents
-                });
-                console.log(this.state.students)
-            }
-        });
-    }
-    
-        render(){
-            return (
-                <div className="container">
-                    <h1>Research Management Tool</h1>
-                    <p>All Students</p>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Student Name</th>
-                                <th scope="col">Register Number</th>
-                                <th scope="col">Student Email</th>
-                                <th scope="col">Username</th>
-                                <th scope="col">Password</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {this.state.students.map((students,index) => (
-                            <tr>
-                                    <th scope="row">{index+1}</th>
-                                    <td><a href={`/student/${students._id}`} style={{textDecoration:"none"}}>{students.stname}</a></td>
-                                    <td>{students.regNo}</td>
-                                    <td>{students.stemail}</td>
-                                    <td>{students.stuserName}</td>
-                                    <td>{students.stpwd}</td>
-                                    <td>
-                                        <a className="btn btn-warning" href="#">
-                                            <i className="fas fa-edit"></i>&nbsp;Edit
-                                        </a>
-                                        &nbsp;
-                                        <a className="btn btn-danger" href="#">
-                                            <i className="far fa-trash-alt"></i>&nbsp;Delete
-                                        </a>
-                                    </td>
-                            </tr>
-                        ))}
-                        </tbody>
-                    </table>
-                </div>
-            )
-        }
-    }*/ var _react = require("react");
+var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
 var _home = require("./Pages/Home");
@@ -26224,7 +26153,7 @@ class App extends (0, _react.Component) {
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navBarDefault.default), {}, void 0, false, {
                         fileName: "src/App.js",
-                        lineNumber: 98,
+                        lineNumber: 25,
                         columnNumber: 15
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Switch), {
@@ -26235,7 +26164,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _homeDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 100,
+                                lineNumber: 27,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26243,7 +26172,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _viewStudentsDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 102,
+                                lineNumber: 29,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26251,7 +26180,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _studentDetailsDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 103,
+                                lineNumber: 30,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26259,7 +26188,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _editStudentDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 104,
+                                lineNumber: 31,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26268,7 +26197,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _insertTopicDtlDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 106,
+                                lineNumber: 33,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26276,7 +26205,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _viewStTopicDtlDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 107,
+                                lineNumber: 34,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26284,7 +26213,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _superGetTopicDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 108,
+                                lineNumber: 35,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26292,7 +26221,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _superViewTopicDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 109,
+                                lineNumber: 36,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26300,24 +26229,24 @@ class App extends (0, _react.Component) {
                                 component: (0, _viewSingleTopicDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 110,
+                                lineNumber: 37,
                                 columnNumber: 19
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/App.js",
-                        lineNumber: 99,
+                        lineNumber: 26,
                         columnNumber: 15
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/App.js",
-                lineNumber: 97,
+                lineNumber: 24,
                 columnNumber: 13
             }, this)
         }, void 0, false, {
             fileName: "src/App.js",
-            lineNumber: 96,
+            lineNumber: 23,
             columnNumber: 9
         }, this);
     }
@@ -35208,6 +35137,6 @@ exports.default = NavBar;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"cHIiW"}]},["1xC6H","1RB6v","8lqZg"], "8lqZg", "parcelRequire2de7")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"cHIiW"}]},["1xC6H","85bBE","8lqZg"], "8lqZg", "parcelRequire2de7")
 
 //# sourceMappingURL=index.975ef6c8.js.map
