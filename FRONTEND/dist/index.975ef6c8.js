@@ -26150,6 +26150,13 @@ var _editStudent = require("./Pages/EditStudent");
 var _editStudentDefault = parcelHelpers.interopDefault(_editStudent);
 var _studentDetails = require("./Pages/StudentDetails");
 var _studentDetailsDefault = parcelHelpers.interopDefault(_studentDetails);
+//Staff Details Pages
+var _viewStaff = require("./Pages/ViewStaff");
+var _viewStaffDefault = parcelHelpers.interopDefault(_viewStaff);
+var _editStaffMem = require("./Pages/EditStaffMem");
+var _editStaffMemDefault = parcelHelpers.interopDefault(_editStaffMem);
+var _staffMemberDet = require("./Pages/StaffMemberDet");
+var _staffMemberDetDefault = parcelHelpers.interopDefault(_staffMemberDet);
 class App extends (0, _react.Component) {
     render() {
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
@@ -26157,7 +26164,7 @@ class App extends (0, _react.Component) {
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navBarDefault.default), {}, void 0, false, {
                         fileName: "src/App.js",
-                        lineNumber: 28,
+                        lineNumber: 32,
                         columnNumber: 15
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Switch), {
@@ -26168,7 +26175,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _homeDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 30,
+                                lineNumber: 34,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26176,7 +26183,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _viewStudentsDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 32,
+                                lineNumber: 36,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26184,7 +26191,31 @@ class App extends (0, _react.Component) {
                                 component: (0, _studentDetailsDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 33,
+                                lineNumber: 37,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/editStaff/:id",
+                                component: (0, _editStaffMemDefault.default)
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 38,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/viewstaff",
+                                component: (0, _viewStaffDefault.default)
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 40,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/staffmem/:id",
+                                component: (0, _staffMemberDetDefault.default)
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 41,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26192,7 +26223,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _editStudentDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 34,
+                                lineNumber: 42,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26201,7 +26232,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _insertTopicDtlDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 36,
+                                lineNumber: 44,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26209,7 +26240,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _viewStTopicDtlDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 37,
+                                lineNumber: 45,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26217,7 +26248,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _superGetTopicDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 38,
+                                lineNumber: 46,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26225,7 +26256,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _superViewTopicDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 39,
+                                lineNumber: 47,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26233,7 +26264,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _viewSingleTopicDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 40,
+                                lineNumber: 48,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26241,7 +26272,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _csuperGetDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 41,
+                                lineNumber: 49,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26249,24 +26280,24 @@ class App extends (0, _react.Component) {
                                 component: (0, _csuperViewDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 42,
+                                lineNumber: 50,
                                 columnNumber: 19
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/App.js",
-                        lineNumber: 29,
+                        lineNumber: 33,
                         columnNumber: 15
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/App.js",
-                lineNumber: 27,
+                lineNumber: 31,
                 columnNumber: 13
             }, this)
         }, void 0, false, {
             fileName: "src/App.js",
-            lineNumber: 26,
+            lineNumber: 30,
             columnNumber: 9
         }, this);
     }
@@ -26278,7 +26309,7 @@ exports.default = App;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","react-router-dom":"cHIiW","./Pages/Home":"3ABAM","./Pages/InsertTopicDtl":"8CjXa","./Pages/ViewStTopicDtl":"9sGNH","./Pages/SuperGetTopic":"hp91B","./Pages/SuperViewTopic":"8J7Kv","./Pages/ViewSingleTopic":"1iXc0","./Pages/ViewStudents":"3KRlG","./Pages/EditStudent":"hdVSo","./Pages/StudentDetails":"foIzQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj","./Pages/NavBar":"8ajGy","./Pages/CSuperGet":"izG8o","./Pages/CSuperView":"ij2Ae"}],"cHIiW":[function(require,module,exports) {
+},{"react":"21dqq","react-router-dom":"cHIiW","./Pages/Home":"3ABAM","./Pages/InsertTopicDtl":"8CjXa","./Pages/ViewStTopicDtl":"9sGNH","./Pages/SuperGetTopic":"hp91B","./Pages/SuperViewTopic":"8J7Kv","./Pages/ViewSingleTopic":"1iXc0","./Pages/ViewStudents":"3KRlG","./Pages/EditStudent":"hdVSo","./Pages/StudentDetails":"foIzQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj","./Pages/NavBar":"8ajGy","./Pages/CSuperGet":"izG8o","./Pages/CSuperView":"ij2Ae","./Pages/ViewStaff":"98fQf","./Pages/EditStaffMem":"b2VSX","./Pages/StaffMemberDet":"iuWnC"}],"cHIiW":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MemoryRouter", ()=>(0, _reactRouter.MemoryRouter));
@@ -35589,9 +35620,9 @@ class NavBar extends (0, _react.Component) {
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                    to: "/addTDtl",
+                                    to: "/viewstaff",
                                     className: "nav-link",
-                                    children: "Topic Details"
+                                    children: "ViewStaff"
                                 }, void 0, false, {
                                     fileName: "src/Pages/NavBar.js",
                                     lineNumber: 13,
@@ -35604,9 +35635,9 @@ class NavBar extends (0, _react.Component) {
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                    to: "/viewTDtl",
+                                    to: "/addTDtl",
                                     className: "nav-link",
-                                    children: "View Topic Details"
+                                    children: "Topic Details"
                                 }, void 0, false, {
                                     fileName: "src/Pages/NavBar.js",
                                     lineNumber: 14,
@@ -35619,9 +35650,9 @@ class NavBar extends (0, _react.Component) {
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                    to: "/sgettopic",
+                                    to: "/viewTDtl",
                                     className: "nav-link",
-                                    children: "Research Requests"
+                                    children: "View Topic Details"
                                 }, void 0, false, {
                                     fileName: "src/Pages/NavBar.js",
                                     lineNumber: 15,
@@ -35634,9 +35665,9 @@ class NavBar extends (0, _react.Component) {
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                    to: "/sviewtdtl",
+                                    to: "/sgettopic",
                                     className: "nav-link",
-                                    children: "View Research Requests"
+                                    children: "Research Requests"
                                 }, void 0, false, {
                                     fileName: "src/Pages/NavBar.js",
                                     lineNumber: 16,
@@ -35645,6 +35676,21 @@ class NavBar extends (0, _react.Component) {
                             }, void 0, false, {
                                 fileName: "src/Pages/NavBar.js",
                                 lineNumber: 16,
+                                columnNumber: 17
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                    to: "/sviewtdtl",
+                                    className: "nav-link",
+                                    children: "View Research Requests"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/NavBar.js",
+                                    lineNumber: 17,
+                                    columnNumber: 21
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "src/Pages/NavBar.js",
+                                lineNumber: 17,
                                 columnNumber: 17
                             }, this)
                         ]
@@ -35660,7 +35706,7 @@ class NavBar extends (0, _react.Component) {
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                     fileName: "src/Pages/NavBar.js",
-                    lineNumber: 20,
+                    lineNumber: 21,
                     columnNumber: 15
                 }, this)
             ]
@@ -36056,6 +36102,853 @@ exports.default = CSuperView;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","axios":"jo6P5","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["1xC6H","85bBE","8lqZg"], "8lqZg", "parcelRequire2de7")
+},{"react/jsx-dev-runtime":"iTorj","axios":"jo6P5","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"98fQf":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$a1fc = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$a1fc.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRouterDom = require("react-router-dom");
+var _app = require("../App");
+var _appDefault = parcelHelpers.interopDefault(_app);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+class ViewStaff extends (0, _react.Component) {
+    constructor(props){
+        super(props);
+        this.state = {
+            staff: []
+        };
+    }
+    componentDidMount() {
+        this.retrieveStaff();
+    }
+    retrieveStaff() {
+        (0, _axiosDefault.default).get("http://localhost:8000/staff").then((res)=>{
+            if (res.data.success) {
+                this.setState({
+                    staff: res.data.existingStaff
+                });
+                console.log(this.state.staff);
+            }
+        });
+    }
+    render() {
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "container",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                    children: "Research Management Tool"
+                }, void 0, false, {
+                    fileName: "src/Pages/ViewStaff.js",
+                    lineNumber: 33,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                    children: "All Staff Members"
+                }, void 0, false, {
+                    fileName: "src/Pages/ViewStaff.js",
+                    lineNumber: 34,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("table", {
+                    className: "table",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("thead", {
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        scope: "col",
+                                        children: "#"
+                                    }, void 0, false, {
+                                        fileName: "src/Pages/ViewStaff.js",
+                                        lineNumber: 38,
+                                        columnNumber: 29
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        scope: "col",
+                                        children: "Name"
+                                    }, void 0, false, {
+                                        fileName: "src/Pages/ViewStaff.js",
+                                        lineNumber: 39,
+                                        columnNumber: 29
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        scope: "col",
+                                        children: "Register Number"
+                                    }, void 0, false, {
+                                        fileName: "src/Pages/ViewStaff.js",
+                                        lineNumber: 40,
+                                        columnNumber: 29
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        scope: "col",
+                                        children: "Email"
+                                    }, void 0, false, {
+                                        fileName: "src/Pages/ViewStaff.js",
+                                        lineNumber: 41,
+                                        columnNumber: 29
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        scope: "col",
+                                        children: "Contact Number"
+                                    }, void 0, false, {
+                                        fileName: "src/Pages/ViewStaff.js",
+                                        lineNumber: 42,
+                                        columnNumber: 29
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        scope: "col",
+                                        children: "Type"
+                                    }, void 0, false, {
+                                        fileName: "src/Pages/ViewStaff.js",
+                                        lineNumber: 43,
+                                        columnNumber: 29
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        scope: "col",
+                                        children: "Username"
+                                    }, void 0, false, {
+                                        fileName: "src/Pages/ViewStaff.js",
+                                        lineNumber: 44,
+                                        columnNumber: 29
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        scope: "col",
+                                        children: "Password"
+                                    }, void 0, false, {
+                                        fileName: "src/Pages/ViewStaff.js",
+                                        lineNumber: 45,
+                                        columnNumber: 29
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        scope: "col",
+                                        children: "Action"
+                                    }, void 0, false, {
+                                        fileName: "src/Pages/ViewStaff.js",
+                                        lineNumber: 46,
+                                        columnNumber: 29
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/Pages/ViewStaff.js",
+                                lineNumber: 37,
+                                columnNumber: 25
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "src/Pages/ViewStaff.js",
+                            lineNumber: 36,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tbody", {
+                            children: this.state.staff.map((staff, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                            scope: "row",
+                                            children: index + 1
+                                        }, void 0, false, {
+                                            fileName: "src/Pages/ViewStaff.js",
+                                            lineNumber: 52,
+                                            columnNumber: 33
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                                href: `/staffmem/${staff._id}`,
+                                                style: {
+                                                    textDecoration: "none"
+                                                },
+                                                children: staff.lname
+                                            }, void 0, false, {
+                                                fileName: "src/Pages/ViewStaff.js",
+                                                lineNumber: 53,
+                                                columnNumber: 37
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "src/Pages/ViewStaff.js",
+                                            lineNumber: 53,
+                                            columnNumber: 33
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: staff.lregNo
+                                        }, void 0, false, {
+                                            fileName: "src/Pages/ViewStaff.js",
+                                            lineNumber: 54,
+                                            columnNumber: 33
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: staff.lemail
+                                        }, void 0, false, {
+                                            fileName: "src/Pages/ViewStaff.js",
+                                            lineNumber: 55,
+                                            columnNumber: 33
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: staff.lcontactNo
+                                        }, void 0, false, {
+                                            fileName: "src/Pages/ViewStaff.js",
+                                            lineNumber: 56,
+                                            columnNumber: 33
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: staff.staff
+                                        }, void 0, false, {
+                                            fileName: "src/Pages/ViewStaff.js",
+                                            lineNumber: 57,
+                                            columnNumber: 33
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: staff.luserName
+                                        }, void 0, false, {
+                                            fileName: "src/Pages/ViewStaff.js",
+                                            lineNumber: 58,
+                                            columnNumber: 33
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: staff.lpwd
+                                        }, void 0, false, {
+                                            fileName: "src/Pages/ViewStaff.js",
+                                            lineNumber: 59,
+                                            columnNumber: 33
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                                    href: `/editStaff/${staff._id}`,
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                        className: "btn btn-warning btn-sm",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                                                                className: "fas fa-edit"
+                                                            }, void 0, false, {
+                                                                fileName: "src/Pages/ViewStaff.js",
+                                                                lineNumber: 61,
+                                                                columnNumber: 113
+                                                            }, this),
+                                                            "\xa0Edit"
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "src/Pages/ViewStaff.js",
+                                                        lineNumber: 61,
+                                                        columnNumber: 70
+                                                    }, this)
+                                                }, void 0, false, {
+                                                    fileName: "src/Pages/ViewStaff.js",
+                                                    lineNumber: 61,
+                                                    columnNumber: 33
+                                                }, this),
+                                                "\xa0",
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                    className: "btn btn-danger btn-sm",
+                                                    onClick: ()=>onDeletePayment(students.id),
+                                                    children: [
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                                                            className: "far fa-trash-alt"
+                                                        }, void 0, false, {
+                                                            fileName: "src/Pages/ViewStaff.js",
+                                                            lineNumber: 64,
+                                                            columnNumber: 120
+                                                        }, this),
+                                                        "\xa0 Delete"
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "src/Pages/ViewStaff.js",
+                                                    lineNumber: 64,
+                                                    columnNumber: 33
+                                                }, this),
+                                                " \xa0",
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                                    href: `/staffmem/${staff._id}`,
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                        className: "btn btn-secondary btn-sm",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                                                                className: "fa fa-info-circle"
+                                                            }, void 0, false, {
+                                                                fileName: "src/Pages/ViewStaff.js",
+                                                                lineNumber: 67,
+                                                                columnNumber: 114
+                                                            }, this),
+                                                            "\xa0View"
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "src/Pages/ViewStaff.js",
+                                                        lineNumber: 67,
+                                                        columnNumber: 69
+                                                    }, this)
+                                                }, void 0, false, {
+                                                    fileName: "src/Pages/ViewStaff.js",
+                                                    lineNumber: 67,
+                                                    columnNumber: 33
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/Pages/ViewStaff.js",
+                                            lineNumber: 60,
+                                            columnNumber: 33
+                                        }, this)
+                                    ]
+                                }, index, true, {
+                                    fileName: "src/Pages/ViewStaff.js",
+                                    lineNumber: 51,
+                                    columnNumber: 25
+                                }, this))
+                        }, void 0, false, {
+                            fileName: "src/Pages/ViewStaff.js",
+                            lineNumber: 49,
+                            columnNumber: 21
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/Pages/ViewStaff.js",
+                    lineNumber: 35,
+                    columnNumber: 17
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/Pages/ViewStaff.js",
+            lineNumber: 32,
+            columnNumber: 13
+        }, this);
+    }
+}
+exports.default = ViewStaff;
+
+  $parcel$ReactRefreshHelpers$a1fc.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"cHIiW","../App":"2kQhy","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"b2VSX":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$1ece = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$1ece.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+class EditStaffMem extends (0, _react.Component) {
+    constructor(props){
+        super(props);
+        this.state = {
+            lname: "",
+            lregNo: "",
+            lemail: "",
+            lcontactNo: "",
+            staff: "",
+            luserName: "",
+            lpwd: ""
+        };
+    }
+    handleinputChange = (e)=>{
+        const { name , value  } = e.target;
+        this.setState({
+            ...this.state,
+            [name]: value
+        });
+    };
+    onSubmit = (e)=>{
+        e.preventDefault();
+        const id = this.props.match.params.id;
+        const { lname , lregNo , lemail , lcontactNo , staff , luserName , lpwd  } = this.state;
+        const data = {
+            lname: lname,
+            lregNo: lregNo,
+            lemail: lemail,
+            lcontactNo: lcontactNo,
+            staff: staff,
+            luserName: luserName,
+            lpwd: lpwd
+        };
+        console.log(data);
+        (0, _axiosDefault.default).put(`/staff/update/${id}`, data).then((res)=>{
+            if (res.data.success) {
+                alert("Details Updated Successfully");
+                this.setState({
+                    lname: "",
+                    lregNo: "",
+                    lemail: "",
+                    lcontactNo: "",
+                    staff: "",
+                    luserName: "",
+                    lpwd: ""
+                });
+            }
+        });
+    };
+    componentDidMount() {
+        const id = this.props.match.params.id;
+        (0, _axiosDefault.default).get(`http://localhost:8000/staff/${id}`).then((res)=>{
+            if (res.data.success) {
+                this.setState({
+                    lname: res.data.staff.lname,
+                    lregNo: res.data.staff.lregNo,
+                    lemail: res.data.staff.lemail,
+                    lcontactNo: res.data.staff.lcontactNo,
+                    staff: res.data.staff.staff,
+                    luserName: res.data.staff.luserName,
+                    lpwd: res.data.staff.lpwd
+                });
+                console.log(this.state.staff);
+            }
+        });
+    }
+    render() {
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "col-md-8 mt-4 mx-auto",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                    className: "h3 mb-3 font-weight-normal",
+                    children: "Edit Staff Member Details"
+                }, void 0, false, {
+                    fileName: "src/Pages/EditStaffMem.js",
+                    lineNumber: 87,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                    className: "needs-validation",
+                    noValidate: true,
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Name"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStaffMem.js",
+                                    lineNumber: 90,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    name: "lname",
+                                    placeholder: "Enter Name",
+                                    value: this.state.lname,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStaffMem.js",
+                                    lineNumber: 91,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStaffMem.js",
+                            lineNumber: 89,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Register Number"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStaffMem.js",
+                                    lineNumber: 100,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    name: "lregNo",
+                                    placeholder: "ITxxxxxxxx",
+                                    value: this.state.lregNo,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStaffMem.js",
+                                    lineNumber: 101,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStaffMem.js",
+                            lineNumber: 99,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Email"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStaffMem.js",
+                                    lineNumber: 110,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "email",
+                                    className: "form-control",
+                                    name: "lemail",
+                                    placeholder: "itxxxxxxxx@my.sliit.lk",
+                                    value: this.state.lemail,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStaffMem.js",
+                                    lineNumber: 111,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStaffMem.js",
+                            lineNumber: 109,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Contact Number"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStaffMem.js",
+                                    lineNumber: 120,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "tel",
+                                    className: "form-control",
+                                    name: "lcontactNo",
+                                    value: this.state.lcontactNo,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStaffMem.js",
+                                    lineNumber: 121,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStaffMem.js",
+                            lineNumber: 119,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Type"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStaffMem.js",
+                                    lineNumber: 129,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    name: "staff",
+                                    value: this.state.staff,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStaffMem.js",
+                                    lineNumber: 130,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStaffMem.js",
+                            lineNumber: 128,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Username"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStaffMem.js",
+                                    lineNumber: 140,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    name: "luserName",
+                                    placeholder: "Enter a username",
+                                    value: this.state.luserName,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStaffMem.js",
+                                    lineNumber: 141,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStaffMem.js",
+                            lineNumber: 139,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Password"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStaffMem.js",
+                                    lineNumber: 150,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "password",
+                                    className: "form-control",
+                                    name: "lpwd",
+                                    placeholder: "at least 6 charactors",
+                                    value: this.state.lpwd,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStaffMem.js",
+                                    lineNumber: 151,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStaffMem.js",
+                            lineNumber: 149,
+                            columnNumber: 21
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/Pages/EditStaffMem.js",
+                    lineNumber: 88,
+                    columnNumber: 17
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/Pages/EditStaffMem.js",
+            lineNumber: 86,
+            columnNumber: 13
+        }, this);
+    }
+}
+exports.default = EditStaffMem;
+
+  $parcel$ReactRefreshHelpers$1ece.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","axios":"jo6P5","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iuWnC":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$cba1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$cba1.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+class StaffMemberDet extends (0, _react.Component) {
+    constructor(props){
+        super(props);
+        this.state = {
+            staffmem: {}
+        };
+    }
+    componentDidMount() {
+        const id = this.props.match.params.id;
+        (0, _axiosDefault.default).get(`http://localhost:8000/staff/${id}`).then((res)=>{
+            if (res.data.success) {
+                this.setState({
+                    staffmem: res.data.staff
+                });
+                console.log(this.state.staffmem);
+            }
+        });
+    }
+    render() {
+        const { lname , lregNo , lemail , lcontactNo , staff , luserName , lpwd  } = this.state.staffmem;
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            style: {
+                marginTop: "20px"
+            },
+            className: "container",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                    children: lname
+                }, void 0, false, {
+                    fileName: "src/Pages/StaffMemberDet.js",
+                    lineNumber: 34,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                    fileName: "src/Pages/StaffMemberDet.js",
+                    lineNumber: 35,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dl", {
+                    className: "row",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dt", {
+                            className: "col-sm-3",
+                            children: "Register Number"
+                        }, void 0, false, {
+                            fileName: "src/Pages/StaffMemberDet.js",
+                            lineNumber: 38,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
+                            className: "col-sm-9",
+                            children: lregNo
+                        }, void 0, false, {
+                            fileName: "src/Pages/StaffMemberDet.js",
+                            lineNumber: 39,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dt", {
+                            className: "col-sm-3",
+                            children: "Email"
+                        }, void 0, false, {
+                            fileName: "src/Pages/StaffMemberDet.js",
+                            lineNumber: 41,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
+                            className: "col-sm-9",
+                            children: lemail
+                        }, void 0, false, {
+                            fileName: "src/Pages/StaffMemberDet.js",
+                            lineNumber: 42,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dt", {
+                            className: "col-sm-3",
+                            children: "Contact Number"
+                        }, void 0, false, {
+                            fileName: "src/Pages/StaffMemberDet.js",
+                            lineNumber: 44,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
+                            className: "col-sm-9",
+                            children: lcontactNo
+                        }, void 0, false, {
+                            fileName: "src/Pages/StaffMemberDet.js",
+                            lineNumber: 45,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dt", {
+                            className: "col-sm-3",
+                            children: "Type"
+                        }, void 0, false, {
+                            fileName: "src/Pages/StaffMemberDet.js",
+                            lineNumber: 47,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
+                            className: "col-sm-9",
+                            children: staff
+                        }, void 0, false, {
+                            fileName: "src/Pages/StaffMemberDet.js",
+                            lineNumber: 48,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dt", {
+                            className: "col-sm-3",
+                            children: "Username"
+                        }, void 0, false, {
+                            fileName: "src/Pages/StaffMemberDet.js",
+                            lineNumber: 50,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
+                            className: "col-sm-9",
+                            children: luserName
+                        }, void 0, false, {
+                            fileName: "src/Pages/StaffMemberDet.js",
+                            lineNumber: 51,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dt", {
+                            className: "col-sm-3",
+                            children: "Password"
+                        }, void 0, false, {
+                            fileName: "src/Pages/StaffMemberDet.js",
+                            lineNumber: 53,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
+                            className: "col-sm-9",
+                            children: lpwd
+                        }, void 0, false, {
+                            fileName: "src/Pages/StaffMemberDet.js",
+                            lineNumber: 54,
+                            columnNumber: 21
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/Pages/StaffMemberDet.js",
+                    lineNumber: 37,
+                    columnNumber: 17
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/Pages/StaffMemberDet.js",
+            lineNumber: 33,
+            columnNumber: 13
+        }, this);
+    }
+}
+exports.default = StaffMemberDet;
+
+  $parcel$ReactRefreshHelpers$cba1.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["1xC6H","85bBE","8lqZg"], "8lqZg", "parcelRequire2de7")
 
 //# sourceMappingURL=index.975ef6c8.js.map

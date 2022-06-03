@@ -19,6 +19,10 @@
     import EditStudent from './Pages/EditStudent';
     import StudentDetails from './Pages/StudentDetails';
 
+    //Staff Details Pages
+    import ViewStaff from './Pages/ViewStaff';
+    import EditStaffMem from './Pages/EditStaffMem';
+    import StaffMemberDet from './Pages/StaffMemberDet';
     
     class App extends Component {
       render() {
@@ -31,6 +35,10 @@
 
                   <Route path='/viewstudents' component={ViewStudents}/>
                   <Route path='/student/:id' component={StudentDetails}/>
+                  <Route path='/editStaff/:id' component={EditStaffMem}/>
+
+                  <Route path='/viewstaff' component={ViewStaff}/>
+                  <Route path='/staffmem/:id' component={StaffMemberDet}/>
                   <Route path='/editStudents/:id' component={EditStudent}/>
 
                   <Route exact path='/addTDtl' component={InsertTopicDtl}/>
