@@ -2,8 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const dotenv = require('dotenv').config()
 
 const app = express();
+
+app.use('/api/goals', require('./routes/goalRoutes'))
+
 
 //import routes
 const studentRoutes = require('./routes/students');
@@ -19,7 +23,6 @@ app.use(studentRoutes);
 app.use(topicRoutes);
 app.use(stGroupRoutes);
 app.use(staffRoutes);
-app.use('/api/goals', require('./routes/goalRoutes'))
 
 
 const PORT = 8000;

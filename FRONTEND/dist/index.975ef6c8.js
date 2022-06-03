@@ -27180,7 +27180,7 @@ exports.default = App;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"cHIiW","./Pages/Home":"3ABAM","./Pages/NavBar":"8ajGy","./Pages/InsertTopicDtl":"8CjXa","./Pages/ViewStTopicDtl":"9sGNH","./Pages/SuperGetTopic":"hp91B","./Pages/SuperViewTopic":"8J7Kv","./Pages/ViewSingleTopic":"1iXc0","./Pages/CSuperGet":"izG8o","./Pages/CSuperView":"ij2Ae","./Pages/ViewStudents":"3KRlG","./Pages/EditStudent":"hdVSo","./Pages/StudentDetails":"foIzQ","./Pages/ViewStaff":"98fQf","./Pages/EditStaffMem":"b2VSX","./Pages/StaffMemberDet":"iuWnC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Pages/ViewStGroups":"kOQfn","./Pages/EditStGroup":"7qdhn","./Pages/StGroup":"l1uge","./Pages/CreateStGroup":"lJWz1"}],"cHIiW":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"cHIiW","./Pages/Home":"3ABAM","./Pages/NavBar":"8ajGy","./Pages/InsertTopicDtl":"8CjXa","./Pages/ViewStTopicDtl":"9sGNH","./Pages/SuperGetTopic":"hp91B","./Pages/SuperViewTopic":"8J7Kv","./Pages/ViewSingleTopic":"1iXc0","./Pages/CSuperGet":"izG8o","./Pages/CSuperView":"ij2Ae","./Pages/ViewStudents":"3KRlG","./Pages/EditStudent":"hdVSo","./Pages/StudentDetails":"foIzQ","./Pages/ViewStaff":"98fQf","./Pages/EditStaffMem":"b2VSX","./Pages/StaffMemberDet":"iuWnC","./Pages/ViewStGroups":"kOQfn","./Pages/EditStGroup":"7qdhn","./Pages/StGroup":"l1uge","./Pages/CreateStGroup":"lJWz1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"cHIiW":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MemoryRouter", ()=>(0, _reactRouter.MemoryRouter));
@@ -37342,7 +37342,7 @@ exports.default = ViewStGroups;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","react-router-dom":"cHIiW","../App":"2kQhy","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj"}],"7qdhn":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"cHIiW","../App":"2kQhy","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"7qdhn":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$1ab3 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -37735,7 +37735,7 @@ exports.default = EditStGroup;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"axios":"jo6P5","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj"}],"l1uge":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","axios":"jo6P5","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"l1uge":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$c748 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -37939,7 +37939,7 @@ exports.default = StGroup;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj"}],"lJWz1":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lJWz1":[function(require,module,exports) {
 
 },{}]},["1xC6H","85bBE","8lqZg"], "8lqZg", "parcelRequire2de7")
 
