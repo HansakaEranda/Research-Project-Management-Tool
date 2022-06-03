@@ -28,6 +28,13 @@ export default class ViewStGroups extends Component {
         });
     }
 
+    onDelete = (id) => {
+        axios.delete(`http://localhost:8000/stgroups/delete/${id}`).then((res) => {
+            alert("Delete Successfully");
+            this.retrieveStGroups();
+        })
+    }
+
     render(){
         return (
             <div className="container">
@@ -64,7 +71,7 @@ export default class ViewStGroups extends Component {
                                 <a href={`/editstgroup/${stgroups._id}`} ><button className="btn btn-warning btn-sm"><i className="fas fa-edit"></i>&nbsp;Edit</button></a>
                                 
                                 &nbsp;
-                                <button className="btn btn-danger btn-sm" onClick={() => onDeletePayment(students.id)}><i className="far fa-trash-alt"></i>&nbsp;
+                                <button className="btn btn-danger btn-sm" onClick={() => this.onDelete(stgroups._id)}><i className="far fa-trash-alt"></i>&nbsp;
                                 Delete
                             </button> &nbsp;
                                 <a href={`/stgroup/${stgroups._id}`} ><button className="btn btn-secondary btn-sm"><i className="fa fa-info-circle"></i>&nbsp;View</button></a>

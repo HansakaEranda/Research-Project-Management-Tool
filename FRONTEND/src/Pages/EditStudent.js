@@ -128,6 +128,11 @@ export default class EditStudent extends Component{
                         value={this.state.stpwd}
                         onChange={this.handleinputChange}/>
                     </div>
+
+                    <button className="btn btn-success" type="submit" style={{marginTop:'15px'}} onClick={this.onSubmit}>
+                        <i className="far fa-check-square"></i>
+                        &nbsp; Save
+                    </button>
                 </form>
             </div>
         )

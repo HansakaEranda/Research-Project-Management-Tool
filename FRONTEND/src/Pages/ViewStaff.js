@@ -27,6 +27,13 @@ export default class ViewStaff extends Component {
         });
     }
 
+    onDelete = (id) => {
+        axios.delete(`http://localhost:8000/staff/delete/${id}`).then((res) => {
+            alert("Delete Successfully");
+            this.retrieveStaff();
+        })
+    }
+
     render(){
         return (
             <div className="container">
@@ -61,7 +68,7 @@ export default class ViewStaff extends Component {
                                 <a href={`/editStaff/${staff._id}`} ><button className="btn btn-warning btn-sm"><i className="fas fa-edit"></i>&nbsp;Edit</button></a>
                                 
                                 &nbsp;
-                                <button className="btn btn-danger btn-sm" onClick={() => onDeletePayment(students.id)}><i className="far fa-trash-alt"></i>&nbsp;
+                                <button className="btn btn-danger btn-sm" onClick={() => this.onDelete(staff._id)}><i className="far fa-trash-alt"></i>&nbsp;
                                 Delete
                             </button> &nbsp;
                                 <a href={`/staffmem/${staff._id}`} ><button className="btn btn-secondary btn-sm"><i className="fa fa-info-circle"></i>&nbsp;View</button></a>

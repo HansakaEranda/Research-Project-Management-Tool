@@ -27,12 +27,30 @@ export default class ViewStudents extends Component {
             }
         });
     }
+
+    onDelete = (id) => {
+        axios.delete(`http://localhost:8000/students/delete/${id}`).then((res) => {
+            alert("Delete Successfully");
+            this.retrieveStudents();
+        })
+    }
     
         render(){
             return (
                 <div className="container">
                     <h1>Research Management Tool</h1>
-                    <p>All Students</p>
+                    <div className="row">
+                        <div className="col-lg-9-mt-2 mb-2">
+                            <p>All Students</p>
+                        </div>
+                        <div className="col-lg-3 mt-2 mb-2">
+                            <input className="form-control"
+                            type="search"
+                            placeholder="Search"
+                            name="searchQuery"
+                            onChange={this.handleSearchArea}></input>
+                        </div>
+                    </div>
                     <table className="table">
                         <thead>
                             <tr>
@@ -58,7 +76,7 @@ export default class ViewStudents extends Component {
                                     <a href={`/editStudents/${students._id}`} ><button className="btn btn-warning btn-sm"><i className="fas fa-edit"></i>&nbsp;Edit</button></a>
                                     
                                     &nbsp;
-                                    <button className="btn btn-danger btn-sm" onClick={() => onDeletePayment(students.id)}><i className="far fa-trash-alt"></i>&nbsp;
+                                    <button className="btn btn-danger btn-sm" onClick={() => this.onDelete(students._id)}><i className="far fa-trash-alt"></i>&nbsp;
                                     Delete
                                 </button> &nbsp;
                                     <a href={`/student/${students._id}`} ><button className="btn btn-secondary btn-sm"><i className="fa fa-info-circle"></i>&nbsp;View</button></a>

@@ -35484,6 +35484,12 @@ class ViewStudents extends (0, _react.Component) {
             }
         });
     }
+    onDelete = (id)=>{
+        (0, _axiosDefault.default).delete(`http://localhost:8000/students/delete/${id}`).then((res)=>{
+            alert("Delete Successfully");
+            this.retrieveStudents();
+        });
+    };
     render() {
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             className: "container",
@@ -35492,14 +35498,48 @@ class ViewStudents extends (0, _react.Component) {
                     children: "Research Management Tool"
                 }, void 0, false, {
                     fileName: "src/Pages/ViewStudents.js",
-                    lineNumber: 34,
+                    lineNumber: 41,
                     columnNumber: 21
                 }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                    children: "All Students"
-                }, void 0, false, {
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "row",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "col-lg-9-mt-2 mb-2",
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                children: "All Students"
+                            }, void 0, false, {
+                                fileName: "src/Pages/ViewStudents.js",
+                                lineNumber: 44,
+                                columnNumber: 29
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "src/Pages/ViewStudents.js",
+                            lineNumber: 43,
+                            columnNumber: 25
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "col-lg-3 mt-2 mb-2",
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                className: "form-control",
+                                type: "search",
+                                placeholder: "Search",
+                                name: "searchQuery",
+                                onChange: this.handleSearchArea
+                            }, void 0, false, {
+                                fileName: "src/Pages/ViewStudents.js",
+                                lineNumber: 47,
+                                columnNumber: 29
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "src/Pages/ViewStudents.js",
+                            lineNumber: 46,
+                            columnNumber: 25
+                        }, this)
+                    ]
+                }, void 0, true, {
                     fileName: "src/Pages/ViewStudents.js",
-                    lineNumber: 35,
+                    lineNumber: 42,
                     columnNumber: 21
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("table", {
@@ -35513,7 +35553,7 @@ class ViewStudents extends (0, _react.Component) {
                                         children: "#"
                                     }, void 0, false, {
                                         fileName: "src/Pages/ViewStudents.js",
-                                        lineNumber: 39,
+                                        lineNumber: 57,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
@@ -35521,7 +35561,7 @@ class ViewStudents extends (0, _react.Component) {
                                         children: "Student Name"
                                     }, void 0, false, {
                                         fileName: "src/Pages/ViewStudents.js",
-                                        lineNumber: 40,
+                                        lineNumber: 58,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
@@ -35529,7 +35569,7 @@ class ViewStudents extends (0, _react.Component) {
                                         children: "Register Number"
                                     }, void 0, false, {
                                         fileName: "src/Pages/ViewStudents.js",
-                                        lineNumber: 41,
+                                        lineNumber: 59,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
@@ -35537,7 +35577,7 @@ class ViewStudents extends (0, _react.Component) {
                                         children: "Student Email"
                                     }, void 0, false, {
                                         fileName: "src/Pages/ViewStudents.js",
-                                        lineNumber: 42,
+                                        lineNumber: 60,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
@@ -35545,7 +35585,7 @@ class ViewStudents extends (0, _react.Component) {
                                         children: "Username"
                                     }, void 0, false, {
                                         fileName: "src/Pages/ViewStudents.js",
-                                        lineNumber: 43,
+                                        lineNumber: 61,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
@@ -35553,7 +35593,7 @@ class ViewStudents extends (0, _react.Component) {
                                         children: "Password"
                                     }, void 0, false, {
                                         fileName: "src/Pages/ViewStudents.js",
-                                        lineNumber: 44,
+                                        lineNumber: 62,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
@@ -35561,18 +35601,18 @@ class ViewStudents extends (0, _react.Component) {
                                         children: "Action"
                                     }, void 0, false, {
                                         fileName: "src/Pages/ViewStudents.js",
-                                        lineNumber: 45,
+                                        lineNumber: 63,
                                         columnNumber: 33
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/Pages/ViewStudents.js",
-                                lineNumber: 38,
+                                lineNumber: 56,
                                 columnNumber: 29
                             }, this)
                         }, void 0, false, {
                             fileName: "src/Pages/ViewStudents.js",
-                            lineNumber: 37,
+                            lineNumber: 55,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tbody", {
@@ -35583,7 +35623,7 @@ class ViewStudents extends (0, _react.Component) {
                                             children: index + 1
                                         }, void 0, false, {
                                             fileName: "src/Pages/ViewStudents.js",
-                                            lineNumber: 51,
+                                            lineNumber: 69,
                                             columnNumber: 37
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
@@ -35595,40 +35635,40 @@ class ViewStudents extends (0, _react.Component) {
                                                 children: students.stname
                                             }, void 0, false, {
                                                 fileName: "src/Pages/ViewStudents.js",
-                                                lineNumber: 52,
+                                                lineNumber: 70,
                                                 columnNumber: 41
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "src/Pages/ViewStudents.js",
-                                            lineNumber: 52,
+                                            lineNumber: 70,
                                             columnNumber: 37
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                             children: students.regNo
                                         }, void 0, false, {
                                             fileName: "src/Pages/ViewStudents.js",
-                                            lineNumber: 53,
+                                            lineNumber: 71,
                                             columnNumber: 37
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                             children: students.stemail
                                         }, void 0, false, {
                                             fileName: "src/Pages/ViewStudents.js",
-                                            lineNumber: 54,
+                                            lineNumber: 72,
                                             columnNumber: 37
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                             children: students.stuserName
                                         }, void 0, false, {
                                             fileName: "src/Pages/ViewStudents.js",
-                                            lineNumber: 55,
+                                            lineNumber: 73,
                                             columnNumber: 37
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                             children: students.stpwd
                                         }, void 0, false, {
                                             fileName: "src/Pages/ViewStudents.js",
-                                            lineNumber: 56,
+                                            lineNumber: 74,
                                             columnNumber: 37
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
@@ -35642,38 +35682,38 @@ class ViewStudents extends (0, _react.Component) {
                                                                 className: "fas fa-edit"
                                                             }, void 0, false, {
                                                                 fileName: "src/Pages/ViewStudents.js",
-                                                                lineNumber: 58,
+                                                                lineNumber: 76,
                                                                 columnNumber: 123
                                                             }, this),
                                                             "\xa0Edit"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/Pages/ViewStudents.js",
-                                                        lineNumber: 58,
+                                                        lineNumber: 76,
                                                         columnNumber: 80
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "src/Pages/ViewStudents.js",
-                                                    lineNumber: 58,
+                                                    lineNumber: 76,
                                                     columnNumber: 37
                                                 }, this),
                                                 "\xa0",
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                                     className: "btn btn-danger btn-sm",
-                                                    onClick: ()=>onDeletePayment(students.id),
+                                                    onClick: ()=>this.onDelete(students._id),
                                                     children: [
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
                                                             className: "far fa-trash-alt"
                                                         }, void 0, false, {
                                                             fileName: "src/Pages/ViewStudents.js",
-                                                            lineNumber: 61,
-                                                            columnNumber: 124
+                                                            lineNumber: 79,
+                                                            columnNumber: 123
                                                         }, this),
                                                         "\xa0 Delete"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/Pages/ViewStudents.js",
-                                                    lineNumber: 61,
+                                                    lineNumber: 79,
                                                     columnNumber: 37
                                                 }, this),
                                                 " \xa0",
@@ -35686,48 +35726,48 @@ class ViewStudents extends (0, _react.Component) {
                                                                 className: "fa fa-info-circle"
                                                             }, void 0, false, {
                                                                 fileName: "src/Pages/ViewStudents.js",
-                                                                lineNumber: 64,
+                                                                lineNumber: 82,
                                                                 columnNumber: 120
                                                             }, this),
                                                             "\xa0View"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/Pages/ViewStudents.js",
-                                                        lineNumber: 64,
+                                                        lineNumber: 82,
                                                         columnNumber: 75
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "src/Pages/ViewStudents.js",
-                                                    lineNumber: 64,
+                                                    lineNumber: 82,
                                                     columnNumber: 37
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/Pages/ViewStudents.js",
-                                            lineNumber: 57,
+                                            lineNumber: 75,
                                             columnNumber: 37
                                         }, this)
                                     ]
                                 }, index, true, {
                                     fileName: "src/Pages/ViewStudents.js",
-                                    lineNumber: 50,
+                                    lineNumber: 68,
                                     columnNumber: 29
                                 }, this))
                         }, void 0, false, {
                             fileName: "src/Pages/ViewStudents.js",
-                            lineNumber: 48,
+                            lineNumber: 66,
                             columnNumber: 25
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/Pages/ViewStudents.js",
-                    lineNumber: 36,
+                    lineNumber: 54,
                     columnNumber: 21
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/Pages/ViewStudents.js",
-            lineNumber: 33,
+            lineNumber: 40,
             columnNumber: 17
         }, this);
     }
@@ -35996,6 +36036,28 @@ class EditStudent extends (0, _react.Component) {
                             fileName: "src/Pages/EditStudent.js",
                             lineNumber: 122,
                             columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            className: "btn btn-success",
+                            type: "submit",
+                            style: {
+                                marginTop: "15px"
+                            },
+                            onClick: this.onSubmit,
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                                    className: "far fa-check-square"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStudent.js",
+                                    lineNumber: 133,
+                                    columnNumber: 25
+                                }, this),
+                                "\xa0 Save"
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStudent.js",
+                            lineNumber: 132,
+                            columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
@@ -36195,6 +36257,12 @@ class ViewStaff extends (0, _react.Component) {
             }
         });
     }
+    onDelete = (id)=>{
+        (0, _axiosDefault.default).delete(`http://localhost:8000/staff/delete/${id}`).then((res)=>{
+            alert("Delete Successfully");
+            this.retrieveStaff();
+        });
+    };
     render() {
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             className: "container",
@@ -36203,14 +36271,14 @@ class ViewStaff extends (0, _react.Component) {
                     children: "Research Management Tool"
                 }, void 0, false, {
                     fileName: "src/Pages/ViewStaff.js",
-                    lineNumber: 33,
+                    lineNumber: 40,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                     children: "All Staff Members"
                 }, void 0, false, {
                     fileName: "src/Pages/ViewStaff.js",
-                    lineNumber: 34,
+                    lineNumber: 41,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("table", {
@@ -36224,7 +36292,7 @@ class ViewStaff extends (0, _react.Component) {
                                         children: "#"
                                     }, void 0, false, {
                                         fileName: "src/Pages/ViewStaff.js",
-                                        lineNumber: 38,
+                                        lineNumber: 45,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
@@ -36232,7 +36300,7 @@ class ViewStaff extends (0, _react.Component) {
                                         children: "Name"
                                     }, void 0, false, {
                                         fileName: "src/Pages/ViewStaff.js",
-                                        lineNumber: 39,
+                                        lineNumber: 46,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
@@ -36240,7 +36308,7 @@ class ViewStaff extends (0, _react.Component) {
                                         children: "Register Number"
                                     }, void 0, false, {
                                         fileName: "src/Pages/ViewStaff.js",
-                                        lineNumber: 40,
+                                        lineNumber: 47,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
@@ -36248,7 +36316,7 @@ class ViewStaff extends (0, _react.Component) {
                                         children: "Email"
                                     }, void 0, false, {
                                         fileName: "src/Pages/ViewStaff.js",
-                                        lineNumber: 41,
+                                        lineNumber: 48,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
@@ -36256,7 +36324,7 @@ class ViewStaff extends (0, _react.Component) {
                                         children: "Contact Number"
                                     }, void 0, false, {
                                         fileName: "src/Pages/ViewStaff.js",
-                                        lineNumber: 42,
+                                        lineNumber: 49,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
@@ -36264,7 +36332,7 @@ class ViewStaff extends (0, _react.Component) {
                                         children: "Type"
                                     }, void 0, false, {
                                         fileName: "src/Pages/ViewStaff.js",
-                                        lineNumber: 43,
+                                        lineNumber: 50,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
@@ -36272,7 +36340,7 @@ class ViewStaff extends (0, _react.Component) {
                                         children: "Username"
                                     }, void 0, false, {
                                         fileName: "src/Pages/ViewStaff.js",
-                                        lineNumber: 44,
+                                        lineNumber: 51,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
@@ -36280,7 +36348,7 @@ class ViewStaff extends (0, _react.Component) {
                                         children: "Password"
                                     }, void 0, false, {
                                         fileName: "src/Pages/ViewStaff.js",
-                                        lineNumber: 45,
+                                        lineNumber: 52,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
@@ -36288,18 +36356,18 @@ class ViewStaff extends (0, _react.Component) {
                                         children: "Action"
                                     }, void 0, false, {
                                         fileName: "src/Pages/ViewStaff.js",
-                                        lineNumber: 46,
+                                        lineNumber: 53,
                                         columnNumber: 29
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/Pages/ViewStaff.js",
-                                lineNumber: 37,
+                                lineNumber: 44,
                                 columnNumber: 25
                             }, this)
                         }, void 0, false, {
                             fileName: "src/Pages/ViewStaff.js",
-                            lineNumber: 36,
+                            lineNumber: 43,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tbody", {
@@ -36310,7 +36378,7 @@ class ViewStaff extends (0, _react.Component) {
                                             children: index + 1
                                         }, void 0, false, {
                                             fileName: "src/Pages/ViewStaff.js",
-                                            lineNumber: 52,
+                                            lineNumber: 59,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
@@ -36322,54 +36390,54 @@ class ViewStaff extends (0, _react.Component) {
                                                 children: staff.lname
                                             }, void 0, false, {
                                                 fileName: "src/Pages/ViewStaff.js",
-                                                lineNumber: 53,
+                                                lineNumber: 60,
                                                 columnNumber: 37
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "src/Pages/ViewStaff.js",
-                                            lineNumber: 53,
+                                            lineNumber: 60,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                             children: staff.lregNo
                                         }, void 0, false, {
                                             fileName: "src/Pages/ViewStaff.js",
-                                            lineNumber: 54,
+                                            lineNumber: 61,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                             children: staff.lemail
                                         }, void 0, false, {
                                             fileName: "src/Pages/ViewStaff.js",
-                                            lineNumber: 55,
+                                            lineNumber: 62,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                             children: staff.lcontactNo
                                         }, void 0, false, {
                                             fileName: "src/Pages/ViewStaff.js",
-                                            lineNumber: 56,
+                                            lineNumber: 63,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                             children: staff.staff
                                         }, void 0, false, {
                                             fileName: "src/Pages/ViewStaff.js",
-                                            lineNumber: 57,
+                                            lineNumber: 64,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                             children: staff.luserName
                                         }, void 0, false, {
                                             fileName: "src/Pages/ViewStaff.js",
-                                            lineNumber: 58,
+                                            lineNumber: 65,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                             children: staff.lpwd
                                         }, void 0, false, {
                                             fileName: "src/Pages/ViewStaff.js",
-                                            lineNumber: 59,
+                                            lineNumber: 66,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
@@ -36383,38 +36451,38 @@ class ViewStaff extends (0, _react.Component) {
                                                                 className: "fas fa-edit"
                                                             }, void 0, false, {
                                                                 fileName: "src/Pages/ViewStaff.js",
-                                                                lineNumber: 61,
+                                                                lineNumber: 68,
                                                                 columnNumber: 113
                                                             }, this),
                                                             "\xa0Edit"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/Pages/ViewStaff.js",
-                                                        lineNumber: 61,
+                                                        lineNumber: 68,
                                                         columnNumber: 70
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "src/Pages/ViewStaff.js",
-                                                    lineNumber: 61,
+                                                    lineNumber: 68,
                                                     columnNumber: 33
                                                 }, this),
                                                 "\xa0",
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                                     className: "btn btn-danger btn-sm",
-                                                    onClick: ()=>onDeletePayment(students.id),
+                                                    onClick: ()=>this.onDelete(staff._id),
                                                     children: [
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
                                                             className: "far fa-trash-alt"
                                                         }, void 0, false, {
                                                             fileName: "src/Pages/ViewStaff.js",
-                                                            lineNumber: 64,
-                                                            columnNumber: 120
+                                                            lineNumber: 71,
+                                                            columnNumber: 116
                                                         }, this),
                                                         "\xa0 Delete"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/Pages/ViewStaff.js",
-                                                    lineNumber: 64,
+                                                    lineNumber: 71,
                                                     columnNumber: 33
                                                 }, this),
                                                 " \xa0",
@@ -36427,48 +36495,48 @@ class ViewStaff extends (0, _react.Component) {
                                                                 className: "fa fa-info-circle"
                                                             }, void 0, false, {
                                                                 fileName: "src/Pages/ViewStaff.js",
-                                                                lineNumber: 67,
+                                                                lineNumber: 74,
                                                                 columnNumber: 114
                                                             }, this),
                                                             "\xa0View"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/Pages/ViewStaff.js",
-                                                        lineNumber: 67,
+                                                        lineNumber: 74,
                                                         columnNumber: 69
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "src/Pages/ViewStaff.js",
-                                                    lineNumber: 67,
+                                                    lineNumber: 74,
                                                     columnNumber: 33
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/Pages/ViewStaff.js",
-                                            lineNumber: 60,
+                                            lineNumber: 67,
                                             columnNumber: 33
                                         }, this)
                                     ]
                                 }, index, true, {
                                     fileName: "src/Pages/ViewStaff.js",
-                                    lineNumber: 51,
+                                    lineNumber: 58,
                                     columnNumber: 25
                                 }, this))
                         }, void 0, false, {
                             fileName: "src/Pages/ViewStaff.js",
-                            lineNumber: 49,
+                            lineNumber: 56,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/Pages/ViewStaff.js",
-                    lineNumber: 35,
+                    lineNumber: 42,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/Pages/ViewStaff.js",
-            lineNumber: 32,
+            lineNumber: 39,
             columnNumber: 13
         }, this);
     }
@@ -36811,6 +36879,28 @@ class EditStaffMem extends (0, _react.Component) {
                             fileName: "src/Pages/EditStaffMem.js",
                             lineNumber: 149,
                             columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            className: "btn btn-success",
+                            type: "submit",
+                            style: {
+                                marginTop: "15px"
+                            },
+                            onClick: this.onSubmit,
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                                    className: "far fa-check-square"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStaffMem.js",
+                                    lineNumber: 160,
+                                    columnNumber: 25
+                                }, this),
+                                "\xa0 Save"
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStaffMem.js",
+                            lineNumber: 159,
+                            columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
@@ -37042,6 +37132,12 @@ class ViewStGroups extends (0, _react.Component) {
             }
         });
     }
+    onDelete = (id)=>{
+        (0, _axiosDefault.default).delete(`http://localhost:8000/stgroups/delete/${id}`).then((res)=>{
+            alert("Delete Successfully");
+            this.retrieveStGroups();
+        });
+    };
     render() {
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             className: "container",
@@ -37050,14 +37146,14 @@ class ViewStGroups extends (0, _react.Component) {
                     children: "Research Management Tool"
                 }, void 0, false, {
                     fileName: "src/Pages/ViewStGroups.js",
-                    lineNumber: 34,
+                    lineNumber: 41,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                     children: "All Student Groups"
                 }, void 0, false, {
                     fileName: "src/Pages/ViewStGroups.js",
-                    lineNumber: 35,
+                    lineNumber: 42,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("table", {
@@ -37071,7 +37167,7 @@ class ViewStGroups extends (0, _react.Component) {
                                         children: "#"
                                     }, void 0, false, {
                                         fileName: "src/Pages/ViewStGroups.js",
-                                        lineNumber: 39,
+                                        lineNumber: 46,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
@@ -37079,7 +37175,7 @@ class ViewStGroups extends (0, _react.Component) {
                                         children: "Leader ID"
                                     }, void 0, false, {
                                         fileName: "src/Pages/ViewStGroups.js",
-                                        lineNumber: 40,
+                                        lineNumber: 47,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
@@ -37087,7 +37183,7 @@ class ViewStGroups extends (0, _react.Component) {
                                         children: "Leader Name"
                                     }, void 0, false, {
                                         fileName: "src/Pages/ViewStGroups.js",
-                                        lineNumber: 41,
+                                        lineNumber: 48,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
@@ -37095,7 +37191,7 @@ class ViewStGroups extends (0, _react.Component) {
                                         children: "Member 1(ID)"
                                     }, void 0, false, {
                                         fileName: "src/Pages/ViewStGroups.js",
-                                        lineNumber: 42,
+                                        lineNumber: 49,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
@@ -37103,7 +37199,7 @@ class ViewStGroups extends (0, _react.Component) {
                                         children: "Member 1(Name)"
                                     }, void 0, false, {
                                         fileName: "src/Pages/ViewStGroups.js",
-                                        lineNumber: 43,
+                                        lineNumber: 50,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
@@ -37111,7 +37207,7 @@ class ViewStGroups extends (0, _react.Component) {
                                         children: "Member 2(ID)"
                                     }, void 0, false, {
                                         fileName: "src/Pages/ViewStGroups.js",
-                                        lineNumber: 44,
+                                        lineNumber: 51,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
@@ -37119,7 +37215,7 @@ class ViewStGroups extends (0, _react.Component) {
                                         children: "Member 2(Name)"
                                     }, void 0, false, {
                                         fileName: "src/Pages/ViewStGroups.js",
-                                        lineNumber: 45,
+                                        lineNumber: 52,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
@@ -37127,7 +37223,7 @@ class ViewStGroups extends (0, _react.Component) {
                                         children: "Member 3(ID)"
                                     }, void 0, false, {
                                         fileName: "src/Pages/ViewStGroups.js",
-                                        lineNumber: 46,
+                                        lineNumber: 53,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
@@ -37135,7 +37231,7 @@ class ViewStGroups extends (0, _react.Component) {
                                         children: "Member 3(Name)"
                                     }, void 0, false, {
                                         fileName: "src/Pages/ViewStGroups.js",
-                                        lineNumber: 47,
+                                        lineNumber: 54,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
@@ -37143,18 +37239,18 @@ class ViewStGroups extends (0, _react.Component) {
                                         children: "Action"
                                     }, void 0, false, {
                                         fileName: "src/Pages/ViewStGroups.js",
-                                        lineNumber: 48,
+                                        lineNumber: 55,
                                         columnNumber: 29
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/Pages/ViewStGroups.js",
-                                lineNumber: 38,
+                                lineNumber: 45,
                                 columnNumber: 25
                             }, this)
                         }, void 0, false, {
                             fileName: "src/Pages/ViewStGroups.js",
-                            lineNumber: 37,
+                            lineNumber: 44,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tbody", {
@@ -37165,7 +37261,7 @@ class ViewStGroups extends (0, _react.Component) {
                                             children: index + 1
                                         }, void 0, false, {
                                             fileName: "src/Pages/ViewStGroups.js",
-                                            lineNumber: 54,
+                                            lineNumber: 61,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
@@ -37177,61 +37273,61 @@ class ViewStGroups extends (0, _react.Component) {
                                                 children: stgroups.gLeaderID
                                             }, void 0, false, {
                                                 fileName: "src/Pages/ViewStGroups.js",
-                                                lineNumber: 55,
+                                                lineNumber: 62,
                                                 columnNumber: 37
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "src/Pages/ViewStGroups.js",
-                                            lineNumber: 55,
+                                            lineNumber: 62,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                             children: stgroups.gLeaderName
                                         }, void 0, false, {
                                             fileName: "src/Pages/ViewStGroups.js",
-                                            lineNumber: 56,
+                                            lineNumber: 63,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                             children: stgroups.mem1ID
                                         }, void 0, false, {
                                             fileName: "src/Pages/ViewStGroups.js",
-                                            lineNumber: 57,
+                                            lineNumber: 64,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                             children: stgroups.mem1Name
                                         }, void 0, false, {
                                             fileName: "src/Pages/ViewStGroups.js",
-                                            lineNumber: 58,
+                                            lineNumber: 65,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                             children: stgroups.mem2ID
                                         }, void 0, false, {
                                             fileName: "src/Pages/ViewStGroups.js",
-                                            lineNumber: 59,
+                                            lineNumber: 66,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                             children: stgroups.mem2Name
                                         }, void 0, false, {
                                             fileName: "src/Pages/ViewStGroups.js",
-                                            lineNumber: 60,
+                                            lineNumber: 67,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                             children: stgroups.mem3ID
                                         }, void 0, false, {
                                             fileName: "src/Pages/ViewStGroups.js",
-                                            lineNumber: 61,
+                                            lineNumber: 68,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                             children: stgroups.mem3Name
                                         }, void 0, false, {
                                             fileName: "src/Pages/ViewStGroups.js",
-                                            lineNumber: 62,
+                                            lineNumber: 69,
                                             columnNumber: 33
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
@@ -37245,38 +37341,38 @@ class ViewStGroups extends (0, _react.Component) {
                                                                 className: "fas fa-edit"
                                                             }, void 0, false, {
                                                                 fileName: "src/Pages/ViewStGroups.js",
-                                                                lineNumber: 64,
+                                                                lineNumber: 71,
                                                                 columnNumber: 118
                                                             }, this),
                                                             "\xa0Edit"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/Pages/ViewStGroups.js",
-                                                        lineNumber: 64,
+                                                        lineNumber: 71,
                                                         columnNumber: 75
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "src/Pages/ViewStGroups.js",
-                                                    lineNumber: 64,
+                                                    lineNumber: 71,
                                                     columnNumber: 33
                                                 }, this),
                                                 "\xa0",
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                                     className: "btn btn-danger btn-sm",
-                                                    onClick: ()=>onDeletePayment(students.id),
+                                                    onClick: ()=>this.onDelete(stgroups._id),
                                                     children: [
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
                                                             className: "far fa-trash-alt"
                                                         }, void 0, false, {
                                                             fileName: "src/Pages/ViewStGroups.js",
-                                                            lineNumber: 67,
-                                                            columnNumber: 120
+                                                            lineNumber: 74,
+                                                            columnNumber: 119
                                                         }, this),
                                                         "\xa0 Delete"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/Pages/ViewStGroups.js",
-                                                    lineNumber: 67,
+                                                    lineNumber: 74,
                                                     columnNumber: 33
                                                 }, this),
                                                 " \xa0",
@@ -37289,48 +37385,48 @@ class ViewStGroups extends (0, _react.Component) {
                                                                 className: "fa fa-info-circle"
                                                             }, void 0, false, {
                                                                 fileName: "src/Pages/ViewStGroups.js",
-                                                                lineNumber: 70,
+                                                                lineNumber: 77,
                                                                 columnNumber: 116
                                                             }, this),
                                                             "\xa0View"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/Pages/ViewStGroups.js",
-                                                        lineNumber: 70,
+                                                        lineNumber: 77,
                                                         columnNumber: 71
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "src/Pages/ViewStGroups.js",
-                                                    lineNumber: 70,
+                                                    lineNumber: 77,
                                                     columnNumber: 33
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/Pages/ViewStGroups.js",
-                                            lineNumber: 63,
+                                            lineNumber: 70,
                                             columnNumber: 33
                                         }, this)
                                     ]
                                 }, index, true, {
                                     fileName: "src/Pages/ViewStGroups.js",
-                                    lineNumber: 53,
+                                    lineNumber: 60,
                                     columnNumber: 25
                                 }, this))
                         }, void 0, false, {
                             fileName: "src/Pages/ViewStGroups.js",
-                            lineNumber: 51,
+                            lineNumber: 58,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/Pages/ViewStGroups.js",
-                    lineNumber: 36,
+                    lineNumber: 43,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/Pages/ViewStGroups.js",
-            lineNumber: 33,
+            lineNumber: 40,
             columnNumber: 13
         }, this);
     }
@@ -37392,7 +37488,7 @@ class EditStGroup extends (0, _react.Component) {
             mem3Name: mem3Name
         };
         console.log(data);
-        (0, _axiosDefault.default).put(`/stgroups/update/${id}`, data).then((res)=>{
+        (0, _axiosDefault.default).put(`http://localhost:8000/stgroups/update/${id}`, data).then((res)=>{
             if (res.data.success) {
                 alert("Details Updated Successfully");
                 this.setState({
@@ -37713,6 +37809,28 @@ class EditStGroup extends (0, _react.Component) {
                             fileName: "src/Pages/EditStGroup.js",
                             lineNumber: 163,
                             columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            className: "btn btn-success",
+                            type: "submit",
+                            style: {
+                                marginTop: "15px"
+                            },
+                            onClick: this.onSubmit,
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                                    className: "far fa-check-square"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStGroup.js",
+                                    lineNumber: 174,
+                                    columnNumber: 25
+                                }, this),
+                                "\xa0 Save"
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStGroup.js",
+                            lineNumber: 173,
+                            columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
@@ -37940,7 +38058,404 @@ exports.default = StGroup;
   window.$RefreshSig$ = prevRefreshSig;
 }
 },{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lJWz1":[function(require,module,exports) {
+<<<<<<< Updated upstream
+=======
+var $parcel$ReactRefreshHelpers$0256 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$0256.prelude(module);
 
-},{}]},["1xC6H","85bBE","8lqZg"], "8lqZg", "parcelRequire2de7")
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+class CreateStGroup extends (0, _react.Component) {
+    constructor(props){
+        super(props);
+        this.state = {
+            gLeaderID: "",
+            gLeaderName: "",
+            mem1ID: "",
+            mem1Name: "",
+            mem2ID: "",
+            mem2Name: "",
+            mem3ID: "",
+            mem3Name: ""
+        };
+    }
+    handleinputChange = (e)=>{
+        const { name , value  } = e.target;
+        this.setState({
+            ...this.state,
+            [name]: value
+        });
+    };
+    onSubmit = (e)=>{
+        e.preventDefault();
+        const { gLeaderID , gLeaderName , mem1ID , mem1Name , mem2ID , mem2Name , mem3ID , mem3Name  } = this.state;
+        const data = {
+            gLeaderID: gLeaderID,
+            gLeaderName: gLeaderName,
+            mem1ID: mem1ID,
+            mem1Name: mem1Name,
+            mem2ID: mem2ID,
+            mem2Name: mem2Name,
+            mem3ID: mem3ID,
+            mem3Name: mem3Name
+        };
+        console.log(data);
+        (0, _axiosDefault.default).post("http://localhost:8000/stgroups/save", data).then((res)=>{
+            if (res.data.success) {
+                alert("Details Saved Successfully");
+                this.setState({
+                    gLeaderID: "",
+                    gLeaderName: "",
+                    mem1ID: "",
+                    mem1Name: "",
+                    mem2ID: "",
+                    mem2Name: "",
+                    mem3ID: "",
+                    mem3Name: ""
+                });
+            }
+        });
+    };
+    render() {
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "col-md-8 mt-4 mx-auto",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                    className: "h3 mb-3 font-weight-normal",
+                    children: "Edit Group Details"
+                }, void 0, false, {
+                    fileName: "src/Pages/CreateStGroup.js",
+                    lineNumber: 68,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                    className: "needs-validation",
+                    noValidate: true,
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Leader ID"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/CreateStGroup.js",
+                                    lineNumber: 71,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    name: "gLeaderID",
+                                    placeholder: "ITxxxxxxxx",
+                                    value: this.state.gLeaderID,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/CreateStGroup.js",
+                                    lineNumber: 72,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/CreateStGroup.js",
+                            lineNumber: 70,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Leader Name"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/CreateStGroup.js",
+                                    lineNumber: 81,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    name: "gLeaderName",
+                                    placeholder: "Enter Name",
+                                    value: this.state.gLeaderName,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/CreateStGroup.js",
+                                    lineNumber: 82,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/CreateStGroup.js",
+                            lineNumber: 80,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Member1 ID"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/CreateStGroup.js",
+                                    lineNumber: 91,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    name: "mem1ID",
+                                    placeholder: "itxxxxxxxx",
+                                    value: this.state.mem1ID,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/CreateStGroup.js",
+                                    lineNumber: 92,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/CreateStGroup.js",
+                            lineNumber: 90,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Member1 Name"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/CreateStGroup.js",
+                                    lineNumber: 101,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    name: "mem1Name",
+                                    placeholder: "Enter Name",
+                                    value: this.state.mem1Name,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/CreateStGroup.js",
+                                    lineNumber: 102,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/CreateStGroup.js",
+                            lineNumber: 100,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Member2 ID"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/CreateStGroup.js",
+                                    lineNumber: 111,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    name: "mem2ID",
+                                    placeholder: "itxxxxxxxx",
+                                    value: this.state.mem2ID,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/CreateStGroup.js",
+                                    lineNumber: 112,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/CreateStGroup.js",
+                            lineNumber: 110,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Member2 Name"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/CreateStGroup.js",
+                                    lineNumber: 121,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    name: "mem2Name",
+                                    placeholder: "Enter Name",
+                                    value: this.state.mem2Name,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/CreateStGroup.js",
+                                    lineNumber: 122,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/CreateStGroup.js",
+                            lineNumber: 120,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Member3 ID"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/CreateStGroup.js",
+                                    lineNumber: 131,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    name: "mem3ID",
+                                    placeholder: "itxxxxxxxx",
+                                    value: this.state.mem3ID,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/CreateStGroup.js",
+                                    lineNumber: 132,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/CreateStGroup.js",
+                            lineNumber: 130,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Member3 Name"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/CreateStGroup.js",
+                                    lineNumber: 141,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    name: "mem3Name",
+                                    placeholder: "Enter Name",
+                                    value: this.state.mem3Name,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/CreateStGroup.js",
+                                    lineNumber: 142,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/CreateStGroup.js",
+                            lineNumber: 140,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            className: "btn btn-success",
+                            type: "submit",
+                            style: {
+                                marginTop: "15px"
+                            },
+                            onClick: this.onSubmit,
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                                    className: "far fa-check-square"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/CreateStGroup.js",
+                                    lineNumber: 151,
+                                    columnNumber: 25
+                                }, this),
+                                "\xa0 Save"
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/CreateStGroup.js",
+                            lineNumber: 150,
+                            columnNumber: 21
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/Pages/CreateStGroup.js",
+                    lineNumber: 69,
+                    columnNumber: 17
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/Pages/CreateStGroup.js",
+            lineNumber: 67,
+            columnNumber: 13
+        }, this);
+    }
+}
+exports.default = CreateStGroup;
+>>>>>>> Stashed changes
+
+  $parcel$ReactRefreshHelpers$0256.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","axios":"jo6P5"}]},["1xC6H","85bBE","8lqZg"], "8lqZg", "parcelRequire2de7")
 
 //# sourceMappingURL=index.975ef6c8.js.map
