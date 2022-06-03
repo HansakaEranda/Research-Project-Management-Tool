@@ -25,6 +25,10 @@ const topicSchema = new mongoose.Schema({
     topic:{
         type:String,
         required:true
+    },
+    supervisor:{
+        type:String,
+        required:true
     }
 
 });

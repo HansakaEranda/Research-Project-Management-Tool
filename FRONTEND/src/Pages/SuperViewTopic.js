@@ -1,7 +1,16 @@
 import axios from 'axios';
 import React, {Component} from 'react';
 
-class SuperViewTopic extends Component{
+const rState = {
+    ac:"",
+    dc:"",
+    accepted:"",
+    declined:""
+}
+
+export default class SuperViewTopic extends Component{
+    state = rState;
+
     constructor(props){
         super(props)
         this.state = {
@@ -24,9 +33,39 @@ class SuperViewTopic extends Component{
             }
         });
     }
+
+    decision1 = () => {
+        let accepted = "";       
+
+        if(!this.state.ac){
+            accepted = "Accepted";
+        }
+
+        if(accepted){
+            this.setState({accepted});
+            return false;
+        }
+
+        return true;
+    }
+
+    decision2 = () => {
+        let declined = "";
+
+        if(!this.state.dc){
+            declined = "Declined";
+        }
+
+        if(declined){
+            this.setState({declined});
+            return true;
+        }
+
+        return true;
+    }
     
     render(){
-        const {gId, gLeader, mem1, mem2, mem3, topic} = this.state.topics;
+        const {gId, gLeader, mem1, mem2, mem3, topic, supervisor} = this.state.topics;
         return(
             
                 <div >
@@ -46,12 +85,16 @@ class SuperViewTopic extends Component{
 
                <label><b>Topic - </b></label> {topic}<br/>
 
+               <label><b>Supervisor - </b></label> {supervisor}<br/>
+
            </div>
-                <button>Accept    </button><button>Decline</button><br/><br/>
-                <button type="button" ><a href="/sgettopic" style={{textDecoration:'none',color:'black'}}>Back</a></button><br/>
+                <button name="ac" id="ac" onClick={this.decision1}>Accept</button>
+                <button name="dc" id="dc" onClick={this.decision2}>Decline</button><br/><br/>
+                <div style={{color: "red"}}><b>{this.state.accepted}</b></div>
+                <div style={{color: "red"}}><b>{this.state.declined}</b></div>
+                <button type="button"><a href="/sgettopic" style={{textDecoration:'none',color:'black'}}>Back</a></button><br/>
                 <br/><br/></div>
             </div>
         ); 
     }
 }
-export default SuperViewTopic;

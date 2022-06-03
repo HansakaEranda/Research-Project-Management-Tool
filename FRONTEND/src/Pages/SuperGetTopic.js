@@ -1,7 +1,14 @@
 import axios from 'axios';
 import React, {Component} from 'react';
 
+const vState = {
+    vi:"",
+    viewed:""
+}
+
 class SuperGetTopic extends Component{
+    state = vState;
+
     constructor(props){
         super(props)
         this.state = {
@@ -23,6 +30,21 @@ class SuperGetTopic extends Component{
             }
         });
     }
+
+    action = () => {
+        let viewed = "";       
+
+        if(!this.state.vi){
+            viewed = "Viewed";
+        }
+
+        if(viewed){
+            this.setState({viewed});
+            return false;
+        }
+
+        return true;
+    }
     
     render(){
         return(
@@ -32,7 +54,8 @@ class SuperGetTopic extends Component{
                     {this.state.topics.map((topics,index) => (
                  
                 <div>                       
-                <label><b>Group ID</b></label>{topics.gId}<button type="button" ><a href={`/sviewtdtl/${topics._id}`}>View</a></button><br/>
+                <label><b>Group ID</b></label>{topics.gId}<button type="button" name="vi" id="vi" onClick={this.action}><a href={`/sviewtdtl/${topics._id}`}>View</a></button>
+                <b style={{color: "red"}}>{this.state.viewed}</b>
                     </div>
                     ))} 
                 <br/>

@@ -8,12 +8,14 @@ const dState = {
     mem2:"",
     mem3:"",
     topic:"",
+    supervisor:"",
     gIdError:"",
     gLeaderError:"",
     mem1Error:"",
     mem2Error:"",
     mem3Error:"",
-    topicError:""
+    topicError:"",
+    supervisorError:""
 }
 
 export default class InsertTopicDtl extends Component{
@@ -26,6 +28,7 @@ export default class InsertTopicDtl extends Component{
         let mem2Error = "";
         let mem3Error = "";
         let topicError = "";
+        let supervisorError = "";
 
         if(!this.state.gId){
             gIdError = 'Group ID field cannot be empty!';
@@ -51,8 +54,12 @@ export default class InsertTopicDtl extends Component{
             topicError = 'Topic field cannot be empty!';
         }
 
-        if(gIdError || gLeaderError || mem1Error || mem2Error ||mem3Error || topicError){
-            this.setState({gIdError, gLeaderError, mem1Error, mem2Error, mem3Error, topicError});
+        if(!this.state.supervisor){
+            topicError = 'Supervisor field cannot be empty!';
+        }
+
+        if(gIdError || gLeaderError || mem1Error || mem2Error ||mem3Error || topicError || supervisorError){
+            this.setState({gIdError, gLeaderError, mem1Error, mem2Error, mem3Error, topicError, supervisorError});
             return false;
         }
 
@@ -71,7 +78,7 @@ export default class InsertTopicDtl extends Component{
 
     onSubmit = (e) =>{
         e.preventDefault();
-        const{gId, gLeader, mem1, mem2, mem3, topic} = this.state;
+        const{gId, gLeader, mem1, mem2, mem3, topic, supervisor} = this.state;
 
         const tpDtl = {
             gId:gId,
@@ -79,7 +86,8 @@ export default class InsertTopicDtl extends Component{
             mem1:mem1,
             mem2:mem2,
             mem3:mem3,
-            topic:topic
+            topic:topic,
+            supervisor:supervisor
         }
 
         //console.log(customer)
@@ -97,7 +105,8 @@ export default class InsertTopicDtl extends Component{
                         mem1:"",
                         mem2:"",
                         mem3:"",
-                        topic:""
+                        topic:"",
+                        supervisor:""
                 })
             }
         }).catch((err)=>{
@@ -178,6 +187,20 @@ export default class InsertTopicDtl extends Component{
                             onChange={this.InputChange}/>
                     </div>
                     <div style={{color: "red"}}>{this.state.topicError}</div>
+
+                    <div>
+                        <label name="supervisor">Supervisor</label><br/>
+                        <select>
+                                <option value="0">Select Supervisor</option>
+                                <option value="1">Prof. Sarath Gunawardhane</option>
+                                <option value="2">Prof. Prageeth Wijayawardhane</option>
+                                <option value="3">Prof. Anjaleena Fernandez</option>
+                                <option value="4">Prof. Kamal Rajasooriya</option>
+                                <option value="5">Prof. Bimal Perera</option>
+                                <option value="6">Prof. Gihan Satharasinghe</option>
+                        </select>
+                    </div>
+
                     <br/><br/>
                     <button type="submit" onClick={this.onSubmit} >Save</button><br/>
                            
