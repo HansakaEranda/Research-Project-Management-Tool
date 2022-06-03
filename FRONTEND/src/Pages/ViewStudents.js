@@ -34,17 +34,38 @@ export default class ViewStudents extends Component {
             this.retrieveStudents();
         })
     }
+
+    filterData(students, searchKey){
+        const result = students.filter((student) =>
+            student.stname.toLowerCase().includes(searchKey)||
+            student.regNo.toLowerCase().includes(searchKey)||
+            student.stemail.toLowerCase().includes(searchKey)||
+            student.stuserName.toLowerCase().includes(searchKey)
+        )
+
+        this.setState({students:result})
+    }
+
+    handleSearchArea = (e) => {
+        const searchKey = e.currentTarget.value;
+
+        axios.get("http://localhost:8000/students").then(res => {
+            if (res.data.success) {
+                this.filterData(res.data.existingStudents,searchKey)
+            }
+        });
+    }
     
         render(){
             return (
                 <div className="container">
-                    <h1>Research Management Tool</h1>
                     <div className="row">
-                        <div className="col-lg-9-mt-2 mb-2">
-                            <p>All Students</p>
+                        <div className="col-lg-8-mt-2 mb-2">
+                            <h2>All Students</h2>
                         </div>
                         <div className="col-lg-3 mt-2 mb-2">
-                            <input className="form-control"
+                            <input 
+                            className="form-control"
                             type="search"
                             placeholder="Search"
                             name="searchQuery"

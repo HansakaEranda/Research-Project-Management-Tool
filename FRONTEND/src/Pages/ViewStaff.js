@@ -34,11 +34,46 @@ export default class ViewStaff extends Component {
         })
     }
 
+    filterData(staff, searchKey){
+        const result = staff.filter((staffmem) =>
+            staffmem.lname.toLowerCase().includes(searchKey)||
+            staffmem.lregNo.toLowerCase().includes(searchKey)||
+            staffmem.lemail.toLowerCase().includes(searchKey)||
+            staffmem.lcontactNo.toLowerCase().includes(searchKey)||
+            staffmem.staff.toLowerCase().includes(searchKey)||
+            staffmem.luserName.toLowerCase().includes(searchKey)||
+            staffmem.lpwd.toLowerCase().includes(searchKey)
+        )
+
+        this.setState({staff:result})
+    }
+
+    handleSearchArea = (e) => {
+        const searchKey = e.currentTarget.value;
+
+        axios.get("http://localhost:8000/staff").then(res => {
+            if (res.data.success) {
+                this.filterData(res.data.existingStaff,searchKey)
+            }
+        });
+    }
+
     render(){
         return (
             <div className="container">
-                <h1>Research Management Tool</h1>
-                <p>All Staff Members</p>
+                <div className="row">
+                        <div className="col-lg-9-mt-2 mb-2">
+                            <h2>All Staff Members</h2>
+                        </div>
+                        <div className="col-lg-3 mt-2 mb-2">
+                            <input 
+                            className="form-control"
+                            type="search"
+                            placeholder="Search"
+                            name="searchQuery"
+                            onChange={this.handleSearchArea}></input>
+                        </div>
+                    </div>
                 <table className="table">
                     <thead>
                         <tr>

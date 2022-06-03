@@ -5,7 +5,7 @@ export default class NavBar extends Component{
     render(){
         return(
         <div>
-            <h2>Project Management Tool</h2>
+            <h1>Project Management Tool</h1>
               <nav className="navbar navbar-expand-lg navbar-light bg-light">
               <ul className="navbar-nav mr-auto">
                 <li><Link to={'/'} className="nav-link"> Home </Link></li>
