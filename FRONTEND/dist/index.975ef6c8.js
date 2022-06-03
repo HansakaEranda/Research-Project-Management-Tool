@@ -34962,14 +34962,7 @@ class ViewStudents extends (0, _react.Component) {
                                                 style: {
                                                     textDecoration: "none"
                                                 },
-                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
-                                                    to: `/editStudents/${students._id}`,
-                                                    children: students.stname
-                                                }, void 0, false, {
-                                                    fileName: "src/Pages/ViewStudents.js",
-                                                    lineNumber: 52,
-                                                    columnNumber: 110
-                                                }, this)
+                                                children: students.stname
                                             }, void 0, false, {
                                                 fileName: "src/Pages/ViewStudents.js",
                                                 lineNumber: 52,
@@ -35010,24 +35003,24 @@ class ViewStudents extends (0, _react.Component) {
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
                                             children: [
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
-                                                    to: `/editStudents/${students._id}`,
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                                    href: `/editStudents/${students._id}`,
                                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                                        className: "btn btn-warning",
+                                                        className: "btn btn-warning btn-sm",
                                                         children: [
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
                                                                 className: "fas fa-edit"
                                                             }, void 0, false, {
                                                                 fileName: "src/Pages/ViewStudents.js",
                                                                 lineNumber: 58,
-                                                                columnNumber: 117
+                                                                columnNumber: 123
                                                             }, this),
                                                             "\xa0Edit"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/Pages/ViewStudents.js",
                                                         lineNumber: 58,
-                                                        columnNumber: 81
+                                                        columnNumber: 80
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "src/Pages/ViewStudents.js",
@@ -35036,7 +35029,7 @@ class ViewStudents extends (0, _react.Component) {
                                                 }, this),
                                                 "\xa0",
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                                    className: "btn btn-delete",
+                                                    className: "btn btn-danger btn-sm",
                                                     onClick: ()=>onDeletePayment(students.id),
                                                     children: [
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
@@ -35044,30 +35037,39 @@ class ViewStudents extends (0, _react.Component) {
                                                         }, void 0, false, {
                                                             fileName: "src/Pages/ViewStudents.js",
                                                             lineNumber: 61,
-                                                            columnNumber: 121
+                                                            columnNumber: 124
                                                         }, this),
                                                         "\xa0 Delete"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/Pages/ViewStudents.js",
                                                     lineNumber: 61,
-                                                    columnNumber: 41
+                                                    columnNumber: 37
                                                 }, this),
                                                 " \xa0",
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
-                                                    to: `/student/${students._id}`,
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                                    href: `/student/${students._id}`,
                                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                                        className: "btn btn-danger",
-                                                        children: "View"
-                                                    }, void 0, false, {
+                                                        className: "btn btn-secondary btn-sm",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                                                                className: "fa fa-info-circle"
+                                                            }, void 0, false, {
+                                                                fileName: "src/Pages/ViewStudents.js",
+                                                                lineNumber: 64,
+                                                                columnNumber: 120
+                                                            }, this),
+                                                            "\xa0View"
+                                                        ]
+                                                    }, void 0, true, {
                                                         fileName: "src/Pages/ViewStudents.js",
                                                         lineNumber: 64,
-                                                        columnNumber: 80
+                                                        columnNumber: 75
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "src/Pages/ViewStudents.js",
                                                     lineNumber: 64,
-                                                    columnNumber: 41
+                                                    columnNumber: 37
                                                 }, this)
                                             ]
                                         }, void 0, true, {
@@ -35117,14 +35119,265 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 class EditStudent extends (0, _react.Component) {
+    constructor(props){
+        super(props);
+        this.state = {
+            stname: "",
+            regNo: "",
+            stemail: "",
+            stuserName: "",
+            stpwd: ""
+        };
+    }
+    handleinputChange = (e)=>{
+        const { name , value  } = e.target;
+        this.setState({
+            ...this.state,
+            [name]: value
+        });
+    };
+    onSubmit = (e)=>{
+        e.preventDefault();
+        const id = this.props.match.params.id;
+        const { stname , regNo , stemail , stuserName , stpwd  } = this.state;
+        const data = {
+            stname: stname,
+            regNo: regNo,
+            stemail: stemail,
+            stuserName: stuserName,
+            stpwd: stpwd
+        };
+        console.log(data);
+        (0, _axiosDefault.default).put(`/students/update/${id}`, data).then((res)=>{
+            if (res.data.success) {
+                alert("Details Updated Successfully");
+                this.setState({
+                    stname: "",
+                    regNo: "",
+                    stemail: "",
+                    stuserName: "",
+                    stpwd: ""
+                });
+            }
+        });
+    };
+    componentDidMount() {
+        const id = this.props.match.params.id;
+        (0, _axiosDefault.default).get(`http://localhost:8000/students/${id}`).then((res)=>{
+            if (res.data.success) {
+                this.setState({
+                    stname: res.data.student.stname,
+                    regNo: res.data.student.regNo,
+                    stemail: res.data.student.stemail,
+                    stuserName: res.data.student.stuserName,
+                    stpwd: res.data.student.stpwd
+                });
+                console.log(this.state.student);
+            }
+        });
+    }
     render() {
-        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "col-md-8 mt-4 mx-auto",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                    className: "h3 mb-3 font-weight-normal",
+                    children: "Edit Student Details"
+                }, void 0, false, {
+                    fileName: "src/Pages/EditStudent.js",
+                    lineNumber: 80,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                    className: "needs-validation",
+                    noValidate: true,
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Student Name"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStudent.js",
+                                    lineNumber: 83,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    name: "stname",
+                                    placeholder: "Enter Name",
+                                    value: this.state.stname,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStudent.js",
+                                    lineNumber: 84,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStudent.js",
+                            lineNumber: 82,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Register Number"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStudent.js",
+                                    lineNumber: 93,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    name: "regNo",
+                                    placeholder: "ITxxxxxxxx",
+                                    value: this.state.regNo,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStudent.js",
+                                    lineNumber: 94,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStudent.js",
+                            lineNumber: 92,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Email"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStudent.js",
+                                    lineNumber: 103,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "email",
+                                    className: "form-control",
+                                    name: "stemail",
+                                    placeholder: "itxxxxxxxx@my.sliit.lk",
+                                    value: this.state.stemail,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStudent.js",
+                                    lineNumber: 104,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStudent.js",
+                            lineNumber: 102,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Username"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStudent.js",
+                                    lineNumber: 113,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    name: "stuserName",
+                                    placeholder: "Enter a username",
+                                    value: this.state.stuserName,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStudent.js",
+                                    lineNumber: 114,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStudent.js",
+                            lineNumber: 112,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Password"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStudent.js",
+                                    lineNumber: 123,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "password",
+                                    className: "form-control",
+                                    name: "stpwd",
+                                    placeholder: "at least 6 charactors",
+                                    value: this.state.stpwd,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStudent.js",
+                                    lineNumber: 124,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStudent.js",
+                            lineNumber: 122,
+                            columnNumber: 21
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/Pages/EditStudent.js",
+                    lineNumber: 81,
+                    columnNumber: 17
+                }, this)
+            ]
+        }, void 0, true, {
             fileName: "src/Pages/EditStudent.js",
-            lineNumber: 5,
-            columnNumber: 9
+            lineNumber: 79,
+            columnNumber: 13
         }, this);
     }
 }
@@ -35135,7 +35388,7 @@ exports.default = EditStudent;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj"}],"foIzQ":[function(require,module,exports) {
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj","axios":"jo6P5"}],"foIzQ":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$1e10 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -35168,11 +35421,102 @@ class StudentDetails extends (0, _react.Component) {
         });
     }
     render() {
+        const { stname , regNo , stemail , stuserName , stpwd  } = this.state.student;
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            children: "Student Details"
-        }, void 0, false, {
+            style: {
+                marginTop: "20px"
+            },
+            className: "container",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                    children: stname
+                }, void 0, false, {
+                    fileName: "src/Pages/StudentDetails.js",
+                    lineNumber: 34,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                    fileName: "src/Pages/StudentDetails.js",
+                    lineNumber: 35,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dl", {
+                    className: "row",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dt", {
+                            className: "col-sm-3",
+                            children: "Register Number"
+                        }, void 0, false, {
+                            fileName: "src/Pages/StudentDetails.js",
+                            lineNumber: 38,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
+                            className: "col-sm-9",
+                            children: regNo
+                        }, void 0, false, {
+                            fileName: "src/Pages/StudentDetails.js",
+                            lineNumber: 39,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dt", {
+                            className: "col-sm-3",
+                            children: "Email"
+                        }, void 0, false, {
+                            fileName: "src/Pages/StudentDetails.js",
+                            lineNumber: 41,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
+                            className: "col-sm-9",
+                            children: stemail
+                        }, void 0, false, {
+                            fileName: "src/Pages/StudentDetails.js",
+                            lineNumber: 42,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dt", {
+                            className: "col-sm-3",
+                            children: "Username"
+                        }, void 0, false, {
+                            fileName: "src/Pages/StudentDetails.js",
+                            lineNumber: 44,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
+                            className: "col-sm-9",
+                            children: stuserName
+                        }, void 0, false, {
+                            fileName: "src/Pages/StudentDetails.js",
+                            lineNumber: 45,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dt", {
+                            className: "col-sm-3",
+                            children: "Password"
+                        }, void 0, false, {
+                            fileName: "src/Pages/StudentDetails.js",
+                            lineNumber: 47,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
+                            className: "col-sm-9",
+                            children: stpwd
+                        }, void 0, false, {
+                            fileName: "src/Pages/StudentDetails.js",
+                            lineNumber: 48,
+                            columnNumber: 21
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/Pages/StudentDetails.js",
+                    lineNumber: 37,
+                    columnNumber: 17
+                }, this)
+            ]
+        }, void 0, true, {
             fileName: "src/Pages/StudentDetails.js",
-            lineNumber: 30,
+            lineNumber: 33,
             columnNumber: 13
         }, this);
     }

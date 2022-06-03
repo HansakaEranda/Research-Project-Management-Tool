@@ -49,19 +49,19 @@ export default class ViewStudents extends Component {
                         {this.state.students.map((students,index) => (
                             <tr key={index}>
                                     <th scope="row">{index+1}</th>
-                                    <td><a href={`/student/${students._id}`} style={{textDecoration:"none"}}><Link to={`/editStudents/${students._id}`} >{students.stname}</Link></a></td>
+                                    <td><a href={`/student/${students._id}`} style={{textDecoration:"none"}}>{students.stname}</a></td>
                                     <td>{students.regNo}</td>
                                     <td>{students.stemail}</td>
                                     <td>{students.stuserName}</td>
                                     <td>{students.stpwd}</td>
                                     <td>
-                                    <Link to={`/editStudents/${students._id}`} ><button className="btn btn-warning"><i className="fas fa-edit"></i>&nbsp;Edit</button></Link>
+                                    <a href={`/editStudents/${students._id}`} ><button className="btn btn-warning btn-sm"><i className="fas fa-edit"></i>&nbsp;Edit</button></a>
                                     
-                                        &nbsp;
-                                        <button className="btn btn-delete" onClick={() => onDeletePayment(students.id)}><i className="far fa-trash-alt"></i>&nbsp;
-                                        Delete
-                                    </button> &nbsp;
-                                        <Link to={`/student/${students._id}`} ><button className="btn btn-danger">View</button></Link>
+                                    &nbsp;
+                                    <button className="btn btn-danger btn-sm" onClick={() => onDeletePayment(students.id)}><i className="far fa-trash-alt"></i>&nbsp;
+                                    Delete
+                                </button> &nbsp;
+                                    <a href={`/student/${students._id}`} ><button className="btn btn-secondary btn-sm"><i className="fa fa-info-circle"></i>&nbsp;View</button></a>
                                     </td>
                             </tr>
                         ))}
