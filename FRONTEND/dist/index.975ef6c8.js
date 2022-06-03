@@ -2889,7 +2889,837 @@ var _appDefault = parcelHelpers.interopDefault(_app);
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","react-dom":"j6uA9","./App":"2kQhy","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj"}],"21dqq":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom":"j6uA9","./App":"2kQhy","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
+"use strict";
+module.exports = require("./cjs/react-jsx-dev-runtime.development.js");
+
+},{"./cjs/react-jsx-dev-runtime.development.js":"48uCM"}],"48uCM":[function(require,module,exports) {
+/**
+ * @license React
+ * react-jsx-dev-runtime.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ "use strict";
+(function() {
+    "use strict";
+    var React = require("react");
+    // -----------------------------------------------------------------------------
+    var enableScopeAPI = false; // Experimental Create Event Handle API.
+    var enableCacheElement = false;
+    var enableTransitionTracing = false; // No known bugs, but needs performance testing
+    var enableLegacyHidden = false; // Enables unstable_avoidThisFallback feature in Fiber
+    // stuff. Intended to enable React core members to more easily debug scheduling
+    // issues in DEV builds.
+    var enableDebugTracing = false; // Track which Fiber(s) schedule render work.
+    // ATTENTION
+    var REACT_ELEMENT_TYPE = Symbol.for("react.element");
+    var REACT_PORTAL_TYPE = Symbol.for("react.portal");
+    var REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
+    var REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode");
+    var REACT_PROFILER_TYPE = Symbol.for("react.profiler");
+    var REACT_PROVIDER_TYPE = Symbol.for("react.provider");
+    var REACT_CONTEXT_TYPE = Symbol.for("react.context");
+    var REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref");
+    var REACT_SUSPENSE_TYPE = Symbol.for("react.suspense");
+    var REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list");
+    var REACT_MEMO_TYPE = Symbol.for("react.memo");
+    var REACT_LAZY_TYPE = Symbol.for("react.lazy");
+    var REACT_OFFSCREEN_TYPE = Symbol.for("react.offscreen");
+    var MAYBE_ITERATOR_SYMBOL = Symbol.iterator;
+    var FAUX_ITERATOR_SYMBOL = "@@iterator";
+    function getIteratorFn(maybeIterable) {
+        if (maybeIterable === null || typeof maybeIterable !== "object") return null;
+        var maybeIterator = MAYBE_ITERATOR_SYMBOL && maybeIterable[MAYBE_ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL];
+        if (typeof maybeIterator === "function") return maybeIterator;
+        return null;
+    }
+    var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+    function error(format) {
+        for(var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++)args[_key2 - 1] = arguments[_key2];
+        printWarning("error", format, args);
+    }
+    function printWarning(level, format, args) {
+        var ReactDebugCurrentFrame = ReactSharedInternals.ReactDebugCurrentFrame;
+        var stack = ReactDebugCurrentFrame.getStackAddendum();
+        if (stack !== "") {
+            format += "%s";
+            args = args.concat([
+                stack
+            ]);
+        } // eslint-disable-next-line react-internal/safe-string-coercion
+        var argsWithFormat = args.map(function(item) {
+            return String(item);
+        }); // Careful: RN currently depends on this prefix
+        argsWithFormat.unshift("Warning: " + format); // We intentionally don't use spread (or .apply) directly because it
+        // breaks IE9: https://github.com/facebook/react/issues/13610
+        // eslint-disable-next-line react-internal/no-production-logging
+        Function.prototype.apply.call(console[level], console, argsWithFormat);
+    }
+    var REACT_MODULE_REFERENCE;
+    REACT_MODULE_REFERENCE = Symbol.for("react.module.reference");
+    function isValidElementType(type) {
+        if (typeof type === "string" || typeof type === "function") return true;
+         // Note: typeof might be other than 'symbol' or 'number' (e.g. if it's a polyfill).
+        if (type === REACT_FRAGMENT_TYPE || type === REACT_PROFILER_TYPE || enableDebugTracing || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || enableLegacyHidden || type === REACT_OFFSCREEN_TYPE || enableScopeAPI || enableCacheElement || enableTransitionTracing) return true;
+        if (typeof type === "object" && type !== null) {
+            if (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || // types supported by any Flight configuration anywhere since
+            // we don't know which Flight build this will end up being used
+            // with.
+            type.$$typeof === REACT_MODULE_REFERENCE || type.getModuleId !== undefined) return true;
+        }
+        return false;
+    }
+    function getWrappedName(outerType, innerType, wrapperName) {
+        var displayName = outerType.displayName;
+        if (displayName) return displayName;
+        var functionName = innerType.displayName || innerType.name || "";
+        return functionName !== "" ? wrapperName + "(" + functionName + ")" : wrapperName;
+    } // Keep in sync with react-reconciler/getComponentNameFromFiber
+    function getContextName(type) {
+        return type.displayName || "Context";
+    } // Note that the reconciler package should generally prefer to use getComponentNameFromFiber() instead.
+    function getComponentNameFromType(type) {
+        if (type == null) // Host root, text node or just invalid type.
+        return null;
+        if (typeof type.tag === "number") error("Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue.");
+        if (typeof type === "function") return type.displayName || type.name || null;
+        if (typeof type === "string") return type;
+        switch(type){
+            case REACT_FRAGMENT_TYPE:
+                return "Fragment";
+            case REACT_PORTAL_TYPE:
+                return "Portal";
+            case REACT_PROFILER_TYPE:
+                return "Profiler";
+            case REACT_STRICT_MODE_TYPE:
+                return "StrictMode";
+            case REACT_SUSPENSE_TYPE:
+                return "Suspense";
+            case REACT_SUSPENSE_LIST_TYPE:
+                return "SuspenseList";
+        }
+        if (typeof type === "object") switch(type.$$typeof){
+            case REACT_CONTEXT_TYPE:
+                var context = type;
+                return getContextName(context) + ".Consumer";
+            case REACT_PROVIDER_TYPE:
+                var provider = type;
+                return getContextName(provider._context) + ".Provider";
+            case REACT_FORWARD_REF_TYPE:
+                return getWrappedName(type, type.render, "ForwardRef");
+            case REACT_MEMO_TYPE:
+                var outerName = type.displayName || null;
+                if (outerName !== null) return outerName;
+                return getComponentNameFromType(type.type) || "Memo";
+            case REACT_LAZY_TYPE:
+                var lazyComponent = type;
+                var payload = lazyComponent._payload;
+                var init = lazyComponent._init;
+                try {
+                    return getComponentNameFromType(init(payload));
+                } catch (x) {
+                    return null;
+                }
+        }
+        return null;
+    }
+    var assign = Object.assign;
+    // Helpers to patch console.logs to avoid logging during side-effect free
+    // replaying on render function. This currently only patches the object
+    // lazily which won't cover if the log function was extracted eagerly.
+    // We could also eagerly patch the method.
+    var disabledDepth = 0;
+    var prevLog;
+    var prevInfo;
+    var prevWarn;
+    var prevError;
+    var prevGroup;
+    var prevGroupCollapsed;
+    var prevGroupEnd;
+    function disabledLog() {}
+    disabledLog.__reactDisabledLog = true;
+    function disableLogs() {
+        if (disabledDepth === 0) {
+            /* eslint-disable react-internal/no-production-logging */ prevLog = console.log;
+            prevInfo = console.info;
+            prevWarn = console.warn;
+            prevError = console.error;
+            prevGroup = console.group;
+            prevGroupCollapsed = console.groupCollapsed;
+            prevGroupEnd = console.groupEnd; // https://github.com/facebook/react/issues/19099
+            var props = {
+                configurable: true,
+                enumerable: true,
+                value: disabledLog,
+                writable: true
+            }; // $FlowFixMe Flow thinks console is immutable.
+            Object.defineProperties(console, {
+                info: props,
+                log: props,
+                warn: props,
+                error: props,
+                group: props,
+                groupCollapsed: props,
+                groupEnd: props
+            });
+        /* eslint-enable react-internal/no-production-logging */ }
+        disabledDepth++;
+    }
+    function reenableLogs() {
+        disabledDepth--;
+        if (disabledDepth === 0) {
+            /* eslint-disable react-internal/no-production-logging */ var props = {
+                configurable: true,
+                enumerable: true,
+                writable: true
+            }; // $FlowFixMe Flow thinks console is immutable.
+            Object.defineProperties(console, {
+                log: assign({}, props, {
+                    value: prevLog
+                }),
+                info: assign({}, props, {
+                    value: prevInfo
+                }),
+                warn: assign({}, props, {
+                    value: prevWarn
+                }),
+                error: assign({}, props, {
+                    value: prevError
+                }),
+                group: assign({}, props, {
+                    value: prevGroup
+                }),
+                groupCollapsed: assign({}, props, {
+                    value: prevGroupCollapsed
+                }),
+                groupEnd: assign({}, props, {
+                    value: prevGroupEnd
+                })
+            });
+        /* eslint-enable react-internal/no-production-logging */ }
+        if (disabledDepth < 0) error("disabledDepth fell below zero. This is a bug in React. Please file an issue.");
+    }
+    var ReactCurrentDispatcher = ReactSharedInternals.ReactCurrentDispatcher;
+    var prefix;
+    function describeBuiltInComponentFrame(name, source, ownerFn) {
+        if (prefix === undefined) // Extract the VM specific prefix used by each line.
+        try {
+            throw Error();
+        } catch (x) {
+            var match = x.stack.trim().match(/\n( *(at )?)/);
+            prefix = match && match[1] || "";
+        }
+         // We use the prefix to ensure our stacks line up with native stack frames.
+        return "\n" + prefix + name;
+    }
+    var reentry = false;
+    var componentFrameCache;
+    var PossiblyWeakMap = typeof WeakMap === "function" ? WeakMap : Map;
+    componentFrameCache = new PossiblyWeakMap();
+    function describeNativeComponentFrame(fn, construct) {
+        // If something asked for a stack inside a fake render, it should get ignored.
+        if (!fn || reentry) return "";
+        var frame = componentFrameCache.get(fn);
+        if (frame !== undefined) return frame;
+        var control;
+        reentry = true;
+        var previousPrepareStackTrace = Error.prepareStackTrace; // $FlowFixMe It does accept undefined.
+        Error.prepareStackTrace = undefined;
+        var previousDispatcher;
+        previousDispatcher = ReactCurrentDispatcher.current; // Set the dispatcher in DEV because this might be call in the render function
+        // for warnings.
+        ReactCurrentDispatcher.current = null;
+        disableLogs();
+        try {
+            // This should throw.
+            if (construct) {
+                // Something should be setting the props in the constructor.
+                var Fake = function() {
+                    throw Error();
+                }; // $FlowFixMe
+                Object.defineProperty(Fake.prototype, "props", {
+                    set: function() {
+                        // We use a throwing setter instead of frozen or non-writable props
+                        // because that won't throw in a non-strict mode function.
+                        throw Error();
+                    }
+                });
+                if (typeof Reflect === "object" && Reflect.construct) {
+                    // We construct a different control for this case to include any extra
+                    // frames added by the construct call.
+                    try {
+                        Reflect.construct(Fake, []);
+                    } catch (x) {
+                        control = x;
+                    }
+                    Reflect.construct(fn, [], Fake);
+                } else {
+                    try {
+                        Fake.call();
+                    } catch (x) {
+                        control = x;
+                    }
+                    fn.call(Fake.prototype);
+                }
+            } else {
+                try {
+                    throw Error();
+                } catch (x) {
+                    control = x;
+                }
+                fn();
+            }
+        } catch (sample) {
+            // This is inlined manually because closure doesn't do it for us.
+            if (sample && control && typeof sample.stack === "string") {
+                // This extracts the first frame from the sample that isn't also in the control.
+                // Skipping one frame that we assume is the frame that calls the two.
+                var sampleLines = sample.stack.split("\n");
+                var controlLines = control.stack.split("\n");
+                var s = sampleLines.length - 1;
+                var c = controlLines.length - 1;
+                while(s >= 1 && c >= 0 && sampleLines[s] !== controlLines[c])// We expect at least one stack frame to be shared.
+                // Typically this will be the root most one. However, stack frames may be
+                // cut off due to maximum stack limits. In this case, one maybe cut off
+                // earlier than the other. We assume that the sample is longer or the same
+                // and there for cut off earlier. So we should find the root most frame in
+                // the sample somewhere in the control.
+                c--;
+                for(; s >= 1 && c >= 0; s--, c--)// Next we find the first one that isn't the same which should be the
+                // frame that called our sample function and the control.
+                if (sampleLines[s] !== controlLines[c]) {
+                    // In V8, the first line is describing the message but other VMs don't.
+                    // If we're about to return the first line, and the control is also on the same
+                    // line, that's a pretty good indicator that our sample threw at same line as
+                    // the control. I.e. before we entered the sample frame. So we ignore this result.
+                    // This can happen if you passed a class to function component, or non-function.
+                    if (s !== 1 || c !== 1) do {
+                        s--;
+                        c--; // We may still have similar intermediate frames from the construct call.
+                        // The next one that isn't the same should be our match though.
+                        if (c < 0 || sampleLines[s] !== controlLines[c]) {
+                            // V8 adds a "new" prefix for native classes. Let's remove it to make it prettier.
+                            var _frame = "\n" + sampleLines[s].replace(" at new ", " at "); // If our component frame is labeled "<anonymous>"
+                            // but we have a user-provided "displayName"
+                            // splice it in to make the stack more readable.
+                            if (fn.displayName && _frame.includes("<anonymous>")) _frame = _frame.replace("<anonymous>", fn.displayName);
+                            if (typeof fn === "function") componentFrameCache.set(fn, _frame);
+                            return _frame;
+                        }
+                    }while (s >= 1 && c >= 0);
+                    break;
+                }
+            }
+        } finally{
+            reentry = false;
+            ReactCurrentDispatcher.current = previousDispatcher;
+            reenableLogs();
+            Error.prepareStackTrace = previousPrepareStackTrace;
+        } // Fallback to just using the name if we couldn't make it throw.
+        var name = fn ? fn.displayName || fn.name : "";
+        var syntheticFrame = name ? describeBuiltInComponentFrame(name) : "";
+        if (typeof fn === "function") componentFrameCache.set(fn, syntheticFrame);
+        return syntheticFrame;
+    }
+    function describeFunctionComponentFrame(fn, source, ownerFn) {
+        return describeNativeComponentFrame(fn, false);
+    }
+    function shouldConstruct(Component) {
+        var prototype = Component.prototype;
+        return !!(prototype && prototype.isReactComponent);
+    }
+    function describeUnknownElementTypeFrameInDEV(type, source, ownerFn) {
+        if (type == null) return "";
+        if (typeof type === "function") return describeNativeComponentFrame(type, shouldConstruct(type));
+        if (typeof type === "string") return describeBuiltInComponentFrame(type);
+        switch(type){
+            case REACT_SUSPENSE_TYPE:
+                return describeBuiltInComponentFrame("Suspense");
+            case REACT_SUSPENSE_LIST_TYPE:
+                return describeBuiltInComponentFrame("SuspenseList");
+        }
+        if (typeof type === "object") switch(type.$$typeof){
+            case REACT_FORWARD_REF_TYPE:
+                return describeFunctionComponentFrame(type.render);
+            case REACT_MEMO_TYPE:
+                // Memo may contain any component type so we recursively resolve it.
+                return describeUnknownElementTypeFrameInDEV(type.type, source, ownerFn);
+            case REACT_LAZY_TYPE:
+                var lazyComponent = type;
+                var payload = lazyComponent._payload;
+                var init = lazyComponent._init;
+                try {
+                    // Lazy may contain any component type so we recursively resolve it.
+                    return describeUnknownElementTypeFrameInDEV(init(payload), source, ownerFn);
+                } catch (x) {}
+        }
+        return "";
+    }
+    var hasOwnProperty = Object.prototype.hasOwnProperty;
+    var loggedTypeFailures = {};
+    var ReactDebugCurrentFrame1 = ReactSharedInternals.ReactDebugCurrentFrame;
+    function setCurrentlyValidatingElement(element) {
+        if (element) {
+            var owner = element._owner;
+            var stack = describeUnknownElementTypeFrameInDEV(element.type, element._source, owner ? owner.type : null);
+            ReactDebugCurrentFrame1.setExtraStackFrame(stack);
+        } else ReactDebugCurrentFrame1.setExtraStackFrame(null);
+    }
+    function checkPropTypes(typeSpecs, values, location, componentName, element) {
+        // $FlowFixMe This is okay but Flow doesn't know it.
+        var has = Function.call.bind(hasOwnProperty);
+        for(var typeSpecName in typeSpecs)if (has(typeSpecs, typeSpecName)) {
+            var error$1 = void 0; // Prop type validation may throw. In case they do, we don't want to
+            // fail the render phase where it didn't fail before. So we log it.
+            // After these have been cleaned up, we'll let them throw.
+            try {
+                // This is intentionally an invariant that gets caught. It's the same
+                // behavior as without this statement except with a better message.
+                if (typeof typeSpecs[typeSpecName] !== "function") {
+                    // eslint-disable-next-line react-internal/prod-error-codes
+                    var err = Error((componentName || "React class") + ": " + location + " type `" + typeSpecName + "` is invalid; " + "it must be a function, usually from the `prop-types` package, but received `" + typeof typeSpecs[typeSpecName] + "`." + "This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.");
+                    err.name = "Invariant Violation";
+                    throw err;
+                }
+                error$1 = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
+            } catch (ex) {
+                error$1 = ex;
+            }
+            if (error$1 && !(error$1 instanceof Error)) {
+                setCurrentlyValidatingElement(element);
+                error("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", componentName || "React class", location, typeSpecName, typeof error$1);
+                setCurrentlyValidatingElement(null);
+            }
+            if (error$1 instanceof Error && !(error$1.message in loggedTypeFailures)) {
+                // Only monitor this failure once because there tends to be a lot of the
+                // same error.
+                loggedTypeFailures[error$1.message] = true;
+                setCurrentlyValidatingElement(element);
+                error("Failed %s type: %s", location, error$1.message);
+                setCurrentlyValidatingElement(null);
+            }
+        }
+    }
+    var isArrayImpl = Array.isArray; // eslint-disable-next-line no-redeclare
+    function isArray(a) {
+        return isArrayImpl(a);
+    }
+    /*
+ * The `'' + value` pattern (used in in perf-sensitive code) throws for Symbol
+ * and Temporal.* types. See https://github.com/facebook/react/pull/22064.
+ *
+ * The functions in this module will throw an easier-to-understand,
+ * easier-to-debug exception with a clear errors message message explaining the
+ * problem. (Instead of a confusing exception thrown inside the implementation
+ * of the `value` object).
+ */ // $FlowFixMe only called in DEV, so void return is not possible.
+    function typeName(value) {
+        // toStringTag is needed for namespaced types like Temporal.Instant
+        var hasToStringTag = typeof Symbol === "function" && Symbol.toStringTag;
+        var type = hasToStringTag && value[Symbol.toStringTag] || value.constructor.name || "Object";
+        return type;
+    } // $FlowFixMe only called in DEV, so void return is not possible.
+    function willCoercionThrow(value) {
+        try {
+            testStringCoercion(value);
+            return false;
+        } catch (e) {
+            return true;
+        }
+    }
+    function testStringCoercion(value) {
+        // If you ended up here by following an exception call stack, here's what's
+        // happened: you supplied an object or symbol value to React (as a prop, key,
+        // DOM attribute, CSS property, string ref, etc.) and when React tried to
+        // coerce it to a string using `'' + value`, an exception was thrown.
+        //
+        // The most common types that will cause this exception are `Symbol` instances
+        // and Temporal objects like `Temporal.Instant`. But any object that has a
+        // `valueOf` or `[Symbol.toPrimitive]` method that throws will also cause this
+        // exception. (Library authors do this to prevent users from using built-in
+        // numeric operators like `+` or comparison operators like `>=` because custom
+        // methods are needed to perform accurate arithmetic or comparison.)
+        //
+        // To fix the problem, coerce this object or symbol value to a string before
+        // passing it to React. The most reliable way is usually `String(value)`.
+        //
+        // To find which value is throwing, check the browser or debugger console.
+        // Before this exception was thrown, there should be `console.error` output
+        // that shows the type (Symbol, Temporal.PlainDate, etc.) that caused the
+        // problem and how that type was used: key, atrribute, input value prop, etc.
+        // In most cases, this console output also shows the component and its
+        // ancestor components where the exception happened.
+        //
+        // eslint-disable-next-line react-internal/safe-string-coercion
+        return "" + value;
+    }
+    function checkKeyStringCoercion(value) {
+        if (willCoercionThrow(value)) {
+            error("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", typeName(value));
+            return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
+        }
+    }
+    var ReactCurrentOwner = ReactSharedInternals.ReactCurrentOwner;
+    var RESERVED_PROPS = {
+        key: true,
+        ref: true,
+        __self: true,
+        __source: true
+    };
+    var specialPropKeyWarningShown;
+    var specialPropRefWarningShown;
+    var didWarnAboutStringRefs;
+    didWarnAboutStringRefs = {};
+    function hasValidRef(config) {
+        if (hasOwnProperty.call(config, "ref")) {
+            var getter = Object.getOwnPropertyDescriptor(config, "ref").get;
+            if (getter && getter.isReactWarning) return false;
+        }
+        return config.ref !== undefined;
+    }
+    function hasValidKey(config) {
+        if (hasOwnProperty.call(config, "key")) {
+            var getter = Object.getOwnPropertyDescriptor(config, "key").get;
+            if (getter && getter.isReactWarning) return false;
+        }
+        return config.key !== undefined;
+    }
+    function warnIfStringRefCannotBeAutoConverted(config, self) {
+        if (typeof config.ref === "string" && ReactCurrentOwner.current && self && ReactCurrentOwner.current.stateNode !== self) {
+            var componentName = getComponentNameFromType(ReactCurrentOwner.current.type);
+            if (!didWarnAboutStringRefs[componentName]) {
+                error('Component "%s" contains the string ref "%s". Support for string refs will be removed in a future major release. This case cannot be automatically converted to an arrow function. We ask you to manually fix this case by using useRef() or createRef() instead. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-string-ref', getComponentNameFromType(ReactCurrentOwner.current.type), config.ref);
+                didWarnAboutStringRefs[componentName] = true;
+            }
+        }
+    }
+    function defineKeyPropWarningGetter(props, displayName) {
+        var warnAboutAccessingKey = function() {
+            if (!specialPropKeyWarningShown) {
+                specialPropKeyWarningShown = true;
+                error("%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", displayName);
+            }
+        };
+        warnAboutAccessingKey.isReactWarning = true;
+        Object.defineProperty(props, "key", {
+            get: warnAboutAccessingKey,
+            configurable: true
+        });
+    }
+    function defineRefPropWarningGetter(props, displayName) {
+        var warnAboutAccessingRef = function() {
+            if (!specialPropRefWarningShown) {
+                specialPropRefWarningShown = true;
+                error("%s: `ref` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", displayName);
+            }
+        };
+        warnAboutAccessingRef.isReactWarning = true;
+        Object.defineProperty(props, "ref", {
+            get: warnAboutAccessingRef,
+            configurable: true
+        });
+    }
+    /**
+ * Factory method to create a new React element. This no longer adheres to
+ * the class pattern, so do not use new to call it. Also, instanceof check
+ * will not work. Instead test $$typeof field against Symbol.for('react.element') to check
+ * if something is a React Element.
+ *
+ * @param {*} type
+ * @param {*} props
+ * @param {*} key
+ * @param {string|object} ref
+ * @param {*} owner
+ * @param {*} self A *temporary* helper to detect places where `this` is
+ * different from the `owner` when React.createElement is called, so that we
+ * can warn. We want to get rid of owner and replace string `ref`s with arrow
+ * functions, and as long as `this` and owner are the same, there will be no
+ * change in behavior.
+ * @param {*} source An annotation object (added by a transpiler or otherwise)
+ * indicating filename, line number, and/or other information.
+ * @internal
+ */ var ReactElement = function(type, key, ref, self, source, owner, props) {
+        var element = {
+            // This tag allows us to uniquely identify this as a React Element
+            $$typeof: REACT_ELEMENT_TYPE,
+            // Built-in properties that belong on the element
+            type: type,
+            key: key,
+            ref: ref,
+            props: props,
+            // Record the component responsible for creating this element.
+            _owner: owner
+        };
+        // The validation flag is currently mutative. We put it on
+        // an external backing store so that we can freeze the whole object.
+        // This can be replaced with a WeakMap once they are implemented in
+        // commonly used development environments.
+        element._store = {}; // To make comparing ReactElements easier for testing purposes, we make
+        // the validation flag non-enumerable (where possible, which should
+        // include every environment we run tests in), so the test framework
+        // ignores it.
+        Object.defineProperty(element._store, "validated", {
+            configurable: false,
+            enumerable: false,
+            writable: true,
+            value: false
+        }); // self and source are DEV only properties.
+        Object.defineProperty(element, "_self", {
+            configurable: false,
+            enumerable: false,
+            writable: false,
+            value: self
+        }); // Two elements created in two different places should be considered
+        // equal for testing purposes and therefore we hide it from enumeration.
+        Object.defineProperty(element, "_source", {
+            configurable: false,
+            enumerable: false,
+            writable: false,
+            value: source
+        });
+        if (Object.freeze) {
+            Object.freeze(element.props);
+            Object.freeze(element);
+        }
+        return element;
+    };
+    /**
+ * https://github.com/reactjs/rfcs/pull/107
+ * @param {*} type
+ * @param {object} props
+ * @param {string} key
+ */ function jsxDEV(type, config, maybeKey, source, self) {
+        var propName; // Reserved names are extracted
+        var props = {};
+        var key = null;
+        var ref = null; // Currently, key can be spread in as a prop. This causes a potential
+        // issue if key is also explicitly declared (ie. <div {...props} key="Hi" />
+        // or <div key="Hi" {...props} /> ). We want to deprecate key spread,
+        // but as an intermediary step, we will use jsxDEV for everything except
+        // <div {...props} key="Hi" />, because we aren't currently able to tell if
+        // key is explicitly declared to be undefined or not.
+        if (maybeKey !== undefined) {
+            checkKeyStringCoercion(maybeKey);
+            key = "" + maybeKey;
+        }
+        if (hasValidKey(config)) {
+            checkKeyStringCoercion(config.key);
+            key = "" + config.key;
+        }
+        if (hasValidRef(config)) {
+            ref = config.ref;
+            warnIfStringRefCannotBeAutoConverted(config, self);
+        } // Remaining properties are added to a new props object
+        for(propName in config)if (hasOwnProperty.call(config, propName) && !RESERVED_PROPS.hasOwnProperty(propName)) props[propName] = config[propName];
+         // Resolve default props
+        if (type && type.defaultProps) {
+            var defaultProps = type.defaultProps;
+            for(propName in defaultProps)if (props[propName] === undefined) props[propName] = defaultProps[propName];
+        }
+        if (key || ref) {
+            var displayName = typeof type === "function" ? type.displayName || type.name || "Unknown" : type;
+            if (key) defineKeyPropWarningGetter(props, displayName);
+            if (ref) defineRefPropWarningGetter(props, displayName);
+        }
+        return ReactElement(type, key, ref, self, source, ReactCurrentOwner.current, props);
+    }
+    var ReactCurrentOwner$1 = ReactSharedInternals.ReactCurrentOwner;
+    var ReactDebugCurrentFrame$1 = ReactSharedInternals.ReactDebugCurrentFrame;
+    function setCurrentlyValidatingElement$1(element) {
+        if (element) {
+            var owner = element._owner;
+            var stack = describeUnknownElementTypeFrameInDEV(element.type, element._source, owner ? owner.type : null);
+            ReactDebugCurrentFrame$1.setExtraStackFrame(stack);
+        } else ReactDebugCurrentFrame$1.setExtraStackFrame(null);
+    }
+    var propTypesMisspellWarningShown;
+    propTypesMisspellWarningShown = false;
+    /**
+ * Verifies the object is a ReactElement.
+ * See https://reactjs.org/docs/react-api.html#isvalidelement
+ * @param {?object} object
+ * @return {boolean} True if `object` is a ReactElement.
+ * @final
+ */ function isValidElement(object) {
+        return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+    }
+    function getDeclarationErrorAddendum() {
+        if (ReactCurrentOwner$1.current) {
+            var name = getComponentNameFromType(ReactCurrentOwner$1.current.type);
+            if (name) return "\n\nCheck the render method of `" + name + "`.";
+        }
+        return "";
+    }
+    function getSourceInfoErrorAddendum(source) {
+        if (source !== undefined) {
+            var fileName = source.fileName.replace(/^.*[\\\/]/, "");
+            var lineNumber = source.lineNumber;
+            return "\n\nCheck your code at " + fileName + ":" + lineNumber + ".";
+        }
+        return "";
+    }
+    /**
+ * Warn if there's no key explicitly set on dynamic arrays of children or
+ * object keys are not valid. This allows us to keep track of children between
+ * updates.
+ */ var ownerHasKeyUseWarning = {};
+    function getCurrentComponentErrorInfo(parentType) {
+        var info = getDeclarationErrorAddendum();
+        if (!info) {
+            var parentName = typeof parentType === "string" ? parentType : parentType.displayName || parentType.name;
+            if (parentName) info = "\n\nCheck the top-level render call using <" + parentName + ">.";
+        }
+        return info;
+    }
+    /**
+ * Warn if the element doesn't have an explicit key assigned to it.
+ * This element is in an array. The array could grow and shrink or be
+ * reordered. All children that haven't already been validated are required to
+ * have a "key" property assigned to it. Error statuses are cached so a warning
+ * will only be shown once.
+ *
+ * @internal
+ * @param {ReactElement} element Element that requires a key.
+ * @param {*} parentType element's parent's type.
+ */ function validateExplicitKey(element, parentType) {
+        if (!element._store || element._store.validated || element.key != null) return;
+        element._store.validated = true;
+        var currentComponentErrorInfo = getCurrentComponentErrorInfo(parentType);
+        if (ownerHasKeyUseWarning[currentComponentErrorInfo]) return;
+        ownerHasKeyUseWarning[currentComponentErrorInfo] = true; // Usually the current owner is the offender, but if it accepts children as a
+        // property, it may be the creator of the child that's responsible for
+        // assigning it a key.
+        var childOwner = "";
+        if (element && element._owner && element._owner !== ReactCurrentOwner$1.current) // Give the component that originally created this child.
+        childOwner = " It was passed a child from " + getComponentNameFromType(element._owner.type) + ".";
+        setCurrentlyValidatingElement$1(element);
+        error('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.', currentComponentErrorInfo, childOwner);
+        setCurrentlyValidatingElement$1(null);
+    }
+    /**
+ * Ensure that every element either is passed in a static location, in an
+ * array with an explicit keys property defined, or in an object literal
+ * with valid key property.
+ *
+ * @internal
+ * @param {ReactNode} node Statically passed child of any type.
+ * @param {*} parentType node's parent's type.
+ */ function validateChildKeys(node, parentType) {
+        if (typeof node !== "object") return;
+        if (isArray(node)) for(var i = 0; i < node.length; i++){
+            var child = node[i];
+            if (isValidElement(child)) validateExplicitKey(child, parentType);
+        }
+        else if (isValidElement(node)) // This element was passed in a valid location.
+        {
+            if (node._store) node._store.validated = true;
+        } else if (node) {
+            var iteratorFn = getIteratorFn(node);
+            if (typeof iteratorFn === "function") // Entry iterators used to provide implicit keys,
+            // but now we print a separate warning for them later.
+            {
+                if (iteratorFn !== node.entries) {
+                    var iterator = iteratorFn.call(node);
+                    var step;
+                    while(!(step = iterator.next()).done)if (isValidElement(step.value)) validateExplicitKey(step.value, parentType);
+                }
+            }
+        }
+    }
+    /**
+ * Given an element, validate that its props follow the propTypes definition,
+ * provided by the type.
+ *
+ * @param {ReactElement} element
+ */ function validatePropTypes(element) {
+        var type = element.type;
+        if (type === null || type === undefined || typeof type === "string") return;
+        var propTypes;
+        if (typeof type === "function") propTypes = type.propTypes;
+        else if (typeof type === "object" && (type.$$typeof === REACT_FORWARD_REF_TYPE || // Inner props are checked in the reconciler.
+        type.$$typeof === REACT_MEMO_TYPE)) propTypes = type.propTypes;
+        else return;
+        if (propTypes) {
+            // Intentionally inside to avoid triggering lazy initializers:
+            var name = getComponentNameFromType(type);
+            checkPropTypes(propTypes, element.props, "prop", name, element);
+        } else if (type.PropTypes !== undefined && !propTypesMisspellWarningShown) {
+            propTypesMisspellWarningShown = true; // Intentionally inside to avoid triggering lazy initializers:
+            var _name = getComponentNameFromType(type);
+            error("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?", _name || "Unknown");
+        }
+        if (typeof type.getDefaultProps === "function" && !type.getDefaultProps.isReactClassApproved) error("getDefaultProps is only used on classic React.createClass definitions. Use a static property named `defaultProps` instead.");
+    }
+    /**
+ * Given a fragment, validate that it can only be provided with fragment props
+ * @param {ReactElement} fragment
+ */ function validateFragmentProps(fragment) {
+        var keys = Object.keys(fragment.props);
+        for(var i = 0; i < keys.length; i++){
+            var key = keys[i];
+            if (key !== "children" && key !== "key") {
+                setCurrentlyValidatingElement$1(fragment);
+                error("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", key);
+                setCurrentlyValidatingElement$1(null);
+                break;
+            }
+        }
+        if (fragment.ref !== null) {
+            setCurrentlyValidatingElement$1(fragment);
+            error("Invalid attribute `ref` supplied to `React.Fragment`.");
+            setCurrentlyValidatingElement$1(null);
+        }
+    }
+    function jsxWithValidation(type, props, key, isStaticChildren, source, self) {
+        var validType = isValidElementType(type); // We warn in this case but don't throw. We expect the element creation to
+        // succeed and there will likely be errors in render.
+        if (!validType) {
+            var info = "";
+            if (type === undefined || typeof type === "object" && type !== null && Object.keys(type).length === 0) info += " You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.";
+            var sourceInfo = getSourceInfoErrorAddendum(source);
+            if (sourceInfo) info += sourceInfo;
+            else info += getDeclarationErrorAddendum();
+            var typeString;
+            if (type === null) typeString = "null";
+            else if (isArray(type)) typeString = "array";
+            else if (type !== undefined && type.$$typeof === REACT_ELEMENT_TYPE) {
+                typeString = "<" + (getComponentNameFromType(type.type) || "Unknown") + " />";
+                info = " Did you accidentally export a JSX literal instead of a component?";
+            } else typeString = typeof type;
+            error("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", typeString, info);
+        }
+        var element = jsxDEV(type, props, key, source, self); // The result can be nullish if a mock or a custom function is used.
+        // TODO: Drop this when these are no longer allowed as the type argument.
+        if (element == null) return element;
+         // Skip key warning if the type isn't valid since our key validation logic
+        // doesn't expect a non-string/function type and can throw confusing errors.
+        // We don't want exception behavior to differ between dev and prod.
+        // (Rendering will throw with a helpful message and as soon as the type is
+        // fixed, the key warnings will appear.)
+        if (validType) {
+            var children = props.children;
+            if (children !== undefined) {
+                if (isStaticChildren) {
+                    if (isArray(children)) {
+                        for(var i = 0; i < children.length; i++)validateChildKeys(children[i], type);
+                        if (Object.freeze) Object.freeze(children);
+                    } else error("React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead.");
+                } else validateChildKeys(children, type);
+            }
+        }
+        if (type === REACT_FRAGMENT_TYPE) validateFragmentProps(element);
+        else validatePropTypes(element);
+        return element;
+    } // These two functions exist to still get child warnings in dev
+    var jsxDEV$1 = jsxWithValidation;
+    exports.Fragment = REACT_FRAGMENT_TYPE;
+    exports.jsxDEV = jsxDEV$1;
+})();
+
+},{"react":"21dqq"}],"21dqq":[function(require,module,exports) {
 "use strict";
 module.exports = require("./cjs/react.development.js");
 
@@ -26157,6 +26987,15 @@ var _editStaffMem = require("./Pages/EditStaffMem");
 var _editStaffMemDefault = parcelHelpers.interopDefault(_editStaffMem);
 var _staffMemberDet = require("./Pages/StaffMemberDet");
 var _staffMemberDetDefault = parcelHelpers.interopDefault(_staffMemberDet);
+//Student Group Details Pages
+var _viewStGroups = require("./Pages/ViewStGroups");
+var _viewStGroupsDefault = parcelHelpers.interopDefault(_viewStGroups);
+var _editStGroup = require("./Pages/EditStGroup");
+var _editStGroupDefault = parcelHelpers.interopDefault(_editStGroup);
+var _stGroup = require("./Pages/StGroup");
+var _stGroupDefault = parcelHelpers.interopDefault(_stGroup);
+var _createStGroup = require("./Pages/CreateStGroup");
+var _createStGroupDefault = parcelHelpers.interopDefault(_createStGroup);
 class App extends (0, _react.Component) {
     render() {
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
@@ -26164,7 +27003,7 @@ class App extends (0, _react.Component) {
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navBarDefault.default), {}, void 0, false, {
                         fileName: "src/App.js",
-                        lineNumber: 32,
+                        lineNumber: 38,
                         columnNumber: 15
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Switch), {
@@ -26175,7 +27014,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _homeDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 34,
+                                lineNumber: 40,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26183,7 +27022,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _viewStudentsDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 36,
+                                lineNumber: 42,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26191,7 +27030,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _studentDetailsDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 37,
+                                lineNumber: 43,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26199,7 +27038,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _editStaffMemDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 38,
+                                lineNumber: 44,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26207,7 +27046,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _viewStaffDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 40,
+                                lineNumber: 46,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26215,7 +27054,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _staffMemberDetDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 41,
+                                lineNumber: 47,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26223,7 +27062,39 @@ class App extends (0, _react.Component) {
                                 component: (0, _editStudentDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 42,
+                                lineNumber: 48,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/viewstgroups",
+                                component: (0, _viewStGroupsDefault.default)
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 50,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/stgroup/:id",
+                                component: (0, _stGroupDefault.default)
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 51,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/editstgroup/:id",
+                                component: (0, _editStGroupDefault.default)
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 52,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/addstgroup",
+                                component: (0, _createStGroupDefault.default)
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 53,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26232,7 +27103,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _insertTopicDtlDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 44,
+                                lineNumber: 55,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26240,7 +27111,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _viewStTopicDtlDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 45,
+                                lineNumber: 56,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26248,7 +27119,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _superGetTopicDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 46,
+                                lineNumber: 57,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26256,7 +27127,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _superViewTopicDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 47,
+                                lineNumber: 58,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26264,7 +27135,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _viewSingleTopicDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 48,
+                                lineNumber: 59,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26272,7 +27143,7 @@ class App extends (0, _react.Component) {
                                 component: (0, _csuperGetDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 49,
+                                lineNumber: 60,
                                 columnNumber: 19
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -26280,24 +27151,24 @@ class App extends (0, _react.Component) {
                                 component: (0, _csuperViewDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 50,
+                                lineNumber: 61,
                                 columnNumber: 19
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/App.js",
-                        lineNumber: 33,
+                        lineNumber: 39,
                         columnNumber: 15
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/App.js",
-                lineNumber: 31,
+                lineNumber: 37,
                 columnNumber: 13
             }, this)
         }, void 0, false, {
             fileName: "src/App.js",
-            lineNumber: 30,
+            lineNumber: 36,
             columnNumber: 9
         }, this);
     }
@@ -26309,7 +27180,7 @@ exports.default = App;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","react-router-dom":"cHIiW","./Pages/Home":"3ABAM","./Pages/InsertTopicDtl":"8CjXa","./Pages/ViewStTopicDtl":"9sGNH","./Pages/SuperGetTopic":"hp91B","./Pages/SuperViewTopic":"8J7Kv","./Pages/ViewSingleTopic":"1iXc0","./Pages/ViewStudents":"3KRlG","./Pages/EditStudent":"hdVSo","./Pages/StudentDetails":"foIzQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj","./Pages/NavBar":"8ajGy","./Pages/CSuperGet":"izG8o","./Pages/CSuperView":"ij2Ae","./Pages/ViewStaff":"98fQf","./Pages/EditStaffMem":"b2VSX","./Pages/StaffMemberDet":"iuWnC"}],"cHIiW":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"cHIiW","./Pages/Home":"3ABAM","./Pages/NavBar":"8ajGy","./Pages/InsertTopicDtl":"8CjXa","./Pages/ViewStTopicDtl":"9sGNH","./Pages/SuperGetTopic":"hp91B","./Pages/SuperViewTopic":"8J7Kv","./Pages/ViewSingleTopic":"1iXc0","./Pages/CSuperGet":"izG8o","./Pages/CSuperView":"ij2Ae","./Pages/ViewStudents":"3KRlG","./Pages/EditStudent":"hdVSo","./Pages/StudentDetails":"foIzQ","./Pages/ViewStaff":"98fQf","./Pages/EditStaffMem":"b2VSX","./Pages/StaffMemberDet":"iuWnC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Pages/ViewStGroups":"kOQfn","./Pages/EditStGroup":"7qdhn","./Pages/StGroup":"l1uge","./Pages/CreateStGroup":"lJWz1"}],"cHIiW":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MemoryRouter", ()=>(0, _reactRouter.MemoryRouter));
@@ -29389,7 +30260,7 @@ exports.default = Home;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj"}],"km3Ru":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"km3Ru":[function(require,module,exports) {
 "use strict";
 var Refresh = require("react-refresh/runtime");
 function debounce(func, delay) {
@@ -29509,837 +30380,187 @@ function registerExportsForReactRefresh(module) {
     }
 }
 
-},{"react-refresh/runtime":"786KC"}],"iTorj":[function(require,module,exports) {
-"use strict";
-module.exports = require("./cjs/react-jsx-dev-runtime.development.js");
+},{"react-refresh/runtime":"786KC"}],"8ajGy":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$56c8 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$56c8.prelude(module);
 
-},{"./cjs/react-jsx-dev-runtime.development.js":"48uCM"}],"48uCM":[function(require,module,exports) {
-/**
- * @license React
- * react-jsx-dev-runtime.development.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */ "use strict";
-(function() {
-    "use strict";
-    var React = require("react");
-    // -----------------------------------------------------------------------------
-    var enableScopeAPI = false; // Experimental Create Event Handle API.
-    var enableCacheElement = false;
-    var enableTransitionTracing = false; // No known bugs, but needs performance testing
-    var enableLegacyHidden = false; // Enables unstable_avoidThisFallback feature in Fiber
-    // stuff. Intended to enable React core members to more easily debug scheduling
-    // issues in DEV builds.
-    var enableDebugTracing = false; // Track which Fiber(s) schedule render work.
-    // ATTENTION
-    var REACT_ELEMENT_TYPE = Symbol.for("react.element");
-    var REACT_PORTAL_TYPE = Symbol.for("react.portal");
-    var REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
-    var REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode");
-    var REACT_PROFILER_TYPE = Symbol.for("react.profiler");
-    var REACT_PROVIDER_TYPE = Symbol.for("react.provider");
-    var REACT_CONTEXT_TYPE = Symbol.for("react.context");
-    var REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref");
-    var REACT_SUSPENSE_TYPE = Symbol.for("react.suspense");
-    var REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list");
-    var REACT_MEMO_TYPE = Symbol.for("react.memo");
-    var REACT_LAZY_TYPE = Symbol.for("react.lazy");
-    var REACT_OFFSCREEN_TYPE = Symbol.for("react.offscreen");
-    var MAYBE_ITERATOR_SYMBOL = Symbol.iterator;
-    var FAUX_ITERATOR_SYMBOL = "@@iterator";
-    function getIteratorFn(maybeIterable) {
-        if (maybeIterable === null || typeof maybeIterable !== "object") return null;
-        var maybeIterator = MAYBE_ITERATOR_SYMBOL && maybeIterable[MAYBE_ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL];
-        if (typeof maybeIterator === "function") return maybeIterator;
-        return null;
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRouterDom = require("react-router-dom");
+class NavBar extends (0, _react.Component) {
+    render() {
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                    children: "Project Management Tool"
+                }, void 0, false, {
+                    fileName: "src/Pages/NavBar.js",
+                    lineNumber: 8,
+                    columnNumber: 13
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
+                    className: "navbar navbar-expand-lg navbar-light bg-light",
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                        className: "navbar-nav mr-auto",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                    to: "/",
+                                    className: "nav-link",
+                                    children: " Home "
+                                }, void 0, false, {
+                                    fileName: "src/Pages/NavBar.js",
+                                    lineNumber: 11,
+                                    columnNumber: 21
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "src/Pages/NavBar.js",
+                                lineNumber: 11,
+                                columnNumber: 17
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                    to: "/viewstudents",
+                                    className: "nav-link",
+                                    children: "View Students"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/NavBar.js",
+                                    lineNumber: 12,
+                                    columnNumber: 21
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "src/Pages/NavBar.js",
+                                lineNumber: 12,
+                                columnNumber: 17
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                    to: "/viewstaff",
+                                    className: "nav-link",
+                                    children: "View Staff"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/NavBar.js",
+                                    lineNumber: 13,
+                                    columnNumber: 21
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "src/Pages/NavBar.js",
+                                lineNumber: 13,
+                                columnNumber: 17
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                    to: "/viewstgroups",
+                                    className: "nav-link",
+                                    children: "View Student Groups"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/NavBar.js",
+                                    lineNumber: 14,
+                                    columnNumber: 21
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "src/Pages/NavBar.js",
+                                lineNumber: 14,
+                                columnNumber: 17
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                    to: "/addTDtl",
+                                    className: "nav-link",
+                                    children: "Topic Details"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/NavBar.js",
+                                    lineNumber: 15,
+                                    columnNumber: 21
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "src/Pages/NavBar.js",
+                                lineNumber: 15,
+                                columnNumber: 17
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                    to: "/viewTDtl",
+                                    className: "nav-link",
+                                    children: "View Topic Details"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/NavBar.js",
+                                    lineNumber: 16,
+                                    columnNumber: 21
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "src/Pages/NavBar.js",
+                                lineNumber: 16,
+                                columnNumber: 17
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                    to: "/sgettopic",
+                                    className: "nav-link",
+                                    children: "Research Requests"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/NavBar.js",
+                                    lineNumber: 17,
+                                    columnNumber: 21
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "src/Pages/NavBar.js",
+                                lineNumber: 17,
+                                columnNumber: 17
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                    to: "/sviewtdtl",
+                                    className: "nav-link",
+                                    children: "View Research Requests"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/NavBar.js",
+                                    lineNumber: 18,
+                                    columnNumber: 21
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "src/Pages/NavBar.js",
+                                lineNumber: 18,
+                                columnNumber: 17
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/Pages/NavBar.js",
+                        lineNumber: 10,
+                        columnNumber: 15
+                    }, this)
+                }, void 0, false, {
+                    fileName: "src/Pages/NavBar.js",
+                    lineNumber: 9,
+                    columnNumber: 15
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                    fileName: "src/Pages/NavBar.js",
+                    lineNumber: 22,
+                    columnNumber: 15
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/Pages/NavBar.js",
+            lineNumber: 7,
+            columnNumber: 9
+        }, this);
     }
-    var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
-    function error(format) {
-        for(var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++)args[_key2 - 1] = arguments[_key2];
-        printWarning("error", format, args);
-    }
-    function printWarning(level, format, args) {
-        var ReactDebugCurrentFrame = ReactSharedInternals.ReactDebugCurrentFrame;
-        var stack = ReactDebugCurrentFrame.getStackAddendum();
-        if (stack !== "") {
-            format += "%s";
-            args = args.concat([
-                stack
-            ]);
-        } // eslint-disable-next-line react-internal/safe-string-coercion
-        var argsWithFormat = args.map(function(item) {
-            return String(item);
-        }); // Careful: RN currently depends on this prefix
-        argsWithFormat.unshift("Warning: " + format); // We intentionally don't use spread (or .apply) directly because it
-        // breaks IE9: https://github.com/facebook/react/issues/13610
-        // eslint-disable-next-line react-internal/no-production-logging
-        Function.prototype.apply.call(console[level], console, argsWithFormat);
-    }
-    var REACT_MODULE_REFERENCE;
-    REACT_MODULE_REFERENCE = Symbol.for("react.module.reference");
-    function isValidElementType(type) {
-        if (typeof type === "string" || typeof type === "function") return true;
-         // Note: typeof might be other than 'symbol' or 'number' (e.g. if it's a polyfill).
-        if (type === REACT_FRAGMENT_TYPE || type === REACT_PROFILER_TYPE || enableDebugTracing || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || enableLegacyHidden || type === REACT_OFFSCREEN_TYPE || enableScopeAPI || enableCacheElement || enableTransitionTracing) return true;
-        if (typeof type === "object" && type !== null) {
-            if (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || // types supported by any Flight configuration anywhere since
-            // we don't know which Flight build this will end up being used
-            // with.
-            type.$$typeof === REACT_MODULE_REFERENCE || type.getModuleId !== undefined) return true;
-        }
-        return false;
-    }
-    function getWrappedName(outerType, innerType, wrapperName) {
-        var displayName = outerType.displayName;
-        if (displayName) return displayName;
-        var functionName = innerType.displayName || innerType.name || "";
-        return functionName !== "" ? wrapperName + "(" + functionName + ")" : wrapperName;
-    } // Keep in sync with react-reconciler/getComponentNameFromFiber
-    function getContextName(type) {
-        return type.displayName || "Context";
-    } // Note that the reconciler package should generally prefer to use getComponentNameFromFiber() instead.
-    function getComponentNameFromType(type) {
-        if (type == null) // Host root, text node or just invalid type.
-        return null;
-        if (typeof type.tag === "number") error("Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue.");
-        if (typeof type === "function") return type.displayName || type.name || null;
-        if (typeof type === "string") return type;
-        switch(type){
-            case REACT_FRAGMENT_TYPE:
-                return "Fragment";
-            case REACT_PORTAL_TYPE:
-                return "Portal";
-            case REACT_PROFILER_TYPE:
-                return "Profiler";
-            case REACT_STRICT_MODE_TYPE:
-                return "StrictMode";
-            case REACT_SUSPENSE_TYPE:
-                return "Suspense";
-            case REACT_SUSPENSE_LIST_TYPE:
-                return "SuspenseList";
-        }
-        if (typeof type === "object") switch(type.$$typeof){
-            case REACT_CONTEXT_TYPE:
-                var context = type;
-                return getContextName(context) + ".Consumer";
-            case REACT_PROVIDER_TYPE:
-                var provider = type;
-                return getContextName(provider._context) + ".Provider";
-            case REACT_FORWARD_REF_TYPE:
-                return getWrappedName(type, type.render, "ForwardRef");
-            case REACT_MEMO_TYPE:
-                var outerName = type.displayName || null;
-                if (outerName !== null) return outerName;
-                return getComponentNameFromType(type.type) || "Memo";
-            case REACT_LAZY_TYPE:
-                var lazyComponent = type;
-                var payload = lazyComponent._payload;
-                var init = lazyComponent._init;
-                try {
-                    return getComponentNameFromType(init(payload));
-                } catch (x) {
-                    return null;
-                }
-        }
-        return null;
-    }
-    var assign = Object.assign;
-    // Helpers to patch console.logs to avoid logging during side-effect free
-    // replaying on render function. This currently only patches the object
-    // lazily which won't cover if the log function was extracted eagerly.
-    // We could also eagerly patch the method.
-    var disabledDepth = 0;
-    var prevLog;
-    var prevInfo;
-    var prevWarn;
-    var prevError;
-    var prevGroup;
-    var prevGroupCollapsed;
-    var prevGroupEnd;
-    function disabledLog() {}
-    disabledLog.__reactDisabledLog = true;
-    function disableLogs() {
-        if (disabledDepth === 0) {
-            /* eslint-disable react-internal/no-production-logging */ prevLog = console.log;
-            prevInfo = console.info;
-            prevWarn = console.warn;
-            prevError = console.error;
-            prevGroup = console.group;
-            prevGroupCollapsed = console.groupCollapsed;
-            prevGroupEnd = console.groupEnd; // https://github.com/facebook/react/issues/19099
-            var props = {
-                configurable: true,
-                enumerable: true,
-                value: disabledLog,
-                writable: true
-            }; // $FlowFixMe Flow thinks console is immutable.
-            Object.defineProperties(console, {
-                info: props,
-                log: props,
-                warn: props,
-                error: props,
-                group: props,
-                groupCollapsed: props,
-                groupEnd: props
-            });
-        /* eslint-enable react-internal/no-production-logging */ }
-        disabledDepth++;
-    }
-    function reenableLogs() {
-        disabledDepth--;
-        if (disabledDepth === 0) {
-            /* eslint-disable react-internal/no-production-logging */ var props = {
-                configurable: true,
-                enumerable: true,
-                writable: true
-            }; // $FlowFixMe Flow thinks console is immutable.
-            Object.defineProperties(console, {
-                log: assign({}, props, {
-                    value: prevLog
-                }),
-                info: assign({}, props, {
-                    value: prevInfo
-                }),
-                warn: assign({}, props, {
-                    value: prevWarn
-                }),
-                error: assign({}, props, {
-                    value: prevError
-                }),
-                group: assign({}, props, {
-                    value: prevGroup
-                }),
-                groupCollapsed: assign({}, props, {
-                    value: prevGroupCollapsed
-                }),
-                groupEnd: assign({}, props, {
-                    value: prevGroupEnd
-                })
-            });
-        /* eslint-enable react-internal/no-production-logging */ }
-        if (disabledDepth < 0) error("disabledDepth fell below zero. This is a bug in React. Please file an issue.");
-    }
-    var ReactCurrentDispatcher = ReactSharedInternals.ReactCurrentDispatcher;
-    var prefix;
-    function describeBuiltInComponentFrame(name, source, ownerFn) {
-        if (prefix === undefined) // Extract the VM specific prefix used by each line.
-        try {
-            throw Error();
-        } catch (x) {
-            var match = x.stack.trim().match(/\n( *(at )?)/);
-            prefix = match && match[1] || "";
-        }
-         // We use the prefix to ensure our stacks line up with native stack frames.
-        return "\n" + prefix + name;
-    }
-    var reentry = false;
-    var componentFrameCache;
-    var PossiblyWeakMap = typeof WeakMap === "function" ? WeakMap : Map;
-    componentFrameCache = new PossiblyWeakMap();
-    function describeNativeComponentFrame(fn, construct) {
-        // If something asked for a stack inside a fake render, it should get ignored.
-        if (!fn || reentry) return "";
-        var frame = componentFrameCache.get(fn);
-        if (frame !== undefined) return frame;
-        var control;
-        reentry = true;
-        var previousPrepareStackTrace = Error.prepareStackTrace; // $FlowFixMe It does accept undefined.
-        Error.prepareStackTrace = undefined;
-        var previousDispatcher;
-        previousDispatcher = ReactCurrentDispatcher.current; // Set the dispatcher in DEV because this might be call in the render function
-        // for warnings.
-        ReactCurrentDispatcher.current = null;
-        disableLogs();
-        try {
-            // This should throw.
-            if (construct) {
-                // Something should be setting the props in the constructor.
-                var Fake = function() {
-                    throw Error();
-                }; // $FlowFixMe
-                Object.defineProperty(Fake.prototype, "props", {
-                    set: function() {
-                        // We use a throwing setter instead of frozen or non-writable props
-                        // because that won't throw in a non-strict mode function.
-                        throw Error();
-                    }
-                });
-                if (typeof Reflect === "object" && Reflect.construct) {
-                    // We construct a different control for this case to include any extra
-                    // frames added by the construct call.
-                    try {
-                        Reflect.construct(Fake, []);
-                    } catch (x) {
-                        control = x;
-                    }
-                    Reflect.construct(fn, [], Fake);
-                } else {
-                    try {
-                        Fake.call();
-                    } catch (x) {
-                        control = x;
-                    }
-                    fn.call(Fake.prototype);
-                }
-            } else {
-                try {
-                    throw Error();
-                } catch (x) {
-                    control = x;
-                }
-                fn();
-            }
-        } catch (sample) {
-            // This is inlined manually because closure doesn't do it for us.
-            if (sample && control && typeof sample.stack === "string") {
-                // This extracts the first frame from the sample that isn't also in the control.
-                // Skipping one frame that we assume is the frame that calls the two.
-                var sampleLines = sample.stack.split("\n");
-                var controlLines = control.stack.split("\n");
-                var s = sampleLines.length - 1;
-                var c = controlLines.length - 1;
-                while(s >= 1 && c >= 0 && sampleLines[s] !== controlLines[c])// We expect at least one stack frame to be shared.
-                // Typically this will be the root most one. However, stack frames may be
-                // cut off due to maximum stack limits. In this case, one maybe cut off
-                // earlier than the other. We assume that the sample is longer or the same
-                // and there for cut off earlier. So we should find the root most frame in
-                // the sample somewhere in the control.
-                c--;
-                for(; s >= 1 && c >= 0; s--, c--)// Next we find the first one that isn't the same which should be the
-                // frame that called our sample function and the control.
-                if (sampleLines[s] !== controlLines[c]) {
-                    // In V8, the first line is describing the message but other VMs don't.
-                    // If we're about to return the first line, and the control is also on the same
-                    // line, that's a pretty good indicator that our sample threw at same line as
-                    // the control. I.e. before we entered the sample frame. So we ignore this result.
-                    // This can happen if you passed a class to function component, or non-function.
-                    if (s !== 1 || c !== 1) do {
-                        s--;
-                        c--; // We may still have similar intermediate frames from the construct call.
-                        // The next one that isn't the same should be our match though.
-                        if (c < 0 || sampleLines[s] !== controlLines[c]) {
-                            // V8 adds a "new" prefix for native classes. Let's remove it to make it prettier.
-                            var _frame = "\n" + sampleLines[s].replace(" at new ", " at "); // If our component frame is labeled "<anonymous>"
-                            // but we have a user-provided "displayName"
-                            // splice it in to make the stack more readable.
-                            if (fn.displayName && _frame.includes("<anonymous>")) _frame = _frame.replace("<anonymous>", fn.displayName);
-                            if (typeof fn === "function") componentFrameCache.set(fn, _frame);
-                            return _frame;
-                        }
-                    }while (s >= 1 && c >= 0);
-                    break;
-                }
-            }
-        } finally{
-            reentry = false;
-            ReactCurrentDispatcher.current = previousDispatcher;
-            reenableLogs();
-            Error.prepareStackTrace = previousPrepareStackTrace;
-        } // Fallback to just using the name if we couldn't make it throw.
-        var name = fn ? fn.displayName || fn.name : "";
-        var syntheticFrame = name ? describeBuiltInComponentFrame(name) : "";
-        if (typeof fn === "function") componentFrameCache.set(fn, syntheticFrame);
-        return syntheticFrame;
-    }
-    function describeFunctionComponentFrame(fn, source, ownerFn) {
-        return describeNativeComponentFrame(fn, false);
-    }
-    function shouldConstruct(Component) {
-        var prototype = Component.prototype;
-        return !!(prototype && prototype.isReactComponent);
-    }
-    function describeUnknownElementTypeFrameInDEV(type, source, ownerFn) {
-        if (type == null) return "";
-        if (typeof type === "function") return describeNativeComponentFrame(type, shouldConstruct(type));
-        if (typeof type === "string") return describeBuiltInComponentFrame(type);
-        switch(type){
-            case REACT_SUSPENSE_TYPE:
-                return describeBuiltInComponentFrame("Suspense");
-            case REACT_SUSPENSE_LIST_TYPE:
-                return describeBuiltInComponentFrame("SuspenseList");
-        }
-        if (typeof type === "object") switch(type.$$typeof){
-            case REACT_FORWARD_REF_TYPE:
-                return describeFunctionComponentFrame(type.render);
-            case REACT_MEMO_TYPE:
-                // Memo may contain any component type so we recursively resolve it.
-                return describeUnknownElementTypeFrameInDEV(type.type, source, ownerFn);
-            case REACT_LAZY_TYPE:
-                var lazyComponent = type;
-                var payload = lazyComponent._payload;
-                var init = lazyComponent._init;
-                try {
-                    // Lazy may contain any component type so we recursively resolve it.
-                    return describeUnknownElementTypeFrameInDEV(init(payload), source, ownerFn);
-                } catch (x) {}
-        }
-        return "";
-    }
-    var hasOwnProperty = Object.prototype.hasOwnProperty;
-    var loggedTypeFailures = {};
-    var ReactDebugCurrentFrame1 = ReactSharedInternals.ReactDebugCurrentFrame;
-    function setCurrentlyValidatingElement(element) {
-        if (element) {
-            var owner = element._owner;
-            var stack = describeUnknownElementTypeFrameInDEV(element.type, element._source, owner ? owner.type : null);
-            ReactDebugCurrentFrame1.setExtraStackFrame(stack);
-        } else ReactDebugCurrentFrame1.setExtraStackFrame(null);
-    }
-    function checkPropTypes(typeSpecs, values, location, componentName, element) {
-        // $FlowFixMe This is okay but Flow doesn't know it.
-        var has = Function.call.bind(hasOwnProperty);
-        for(var typeSpecName in typeSpecs)if (has(typeSpecs, typeSpecName)) {
-            var error$1 = void 0; // Prop type validation may throw. In case they do, we don't want to
-            // fail the render phase where it didn't fail before. So we log it.
-            // After these have been cleaned up, we'll let them throw.
-            try {
-                // This is intentionally an invariant that gets caught. It's the same
-                // behavior as without this statement except with a better message.
-                if (typeof typeSpecs[typeSpecName] !== "function") {
-                    // eslint-disable-next-line react-internal/prod-error-codes
-                    var err = Error((componentName || "React class") + ": " + location + " type `" + typeSpecName + "` is invalid; " + "it must be a function, usually from the `prop-types` package, but received `" + typeof typeSpecs[typeSpecName] + "`." + "This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.");
-                    err.name = "Invariant Violation";
-                    throw err;
-                }
-                error$1 = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
-            } catch (ex) {
-                error$1 = ex;
-            }
-            if (error$1 && !(error$1 instanceof Error)) {
-                setCurrentlyValidatingElement(element);
-                error("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", componentName || "React class", location, typeSpecName, typeof error$1);
-                setCurrentlyValidatingElement(null);
-            }
-            if (error$1 instanceof Error && !(error$1.message in loggedTypeFailures)) {
-                // Only monitor this failure once because there tends to be a lot of the
-                // same error.
-                loggedTypeFailures[error$1.message] = true;
-                setCurrentlyValidatingElement(element);
-                error("Failed %s type: %s", location, error$1.message);
-                setCurrentlyValidatingElement(null);
-            }
-        }
-    }
-    var isArrayImpl = Array.isArray; // eslint-disable-next-line no-redeclare
-    function isArray(a) {
-        return isArrayImpl(a);
-    }
-    /*
- * The `'' + value` pattern (used in in perf-sensitive code) throws for Symbol
- * and Temporal.* types. See https://github.com/facebook/react/pull/22064.
- *
- * The functions in this module will throw an easier-to-understand,
- * easier-to-debug exception with a clear errors message message explaining the
- * problem. (Instead of a confusing exception thrown inside the implementation
- * of the `value` object).
- */ // $FlowFixMe only called in DEV, so void return is not possible.
-    function typeName(value) {
-        // toStringTag is needed for namespaced types like Temporal.Instant
-        var hasToStringTag = typeof Symbol === "function" && Symbol.toStringTag;
-        var type = hasToStringTag && value[Symbol.toStringTag] || value.constructor.name || "Object";
-        return type;
-    } // $FlowFixMe only called in DEV, so void return is not possible.
-    function willCoercionThrow(value) {
-        try {
-            testStringCoercion(value);
-            return false;
-        } catch (e) {
-            return true;
-        }
-    }
-    function testStringCoercion(value) {
-        // If you ended up here by following an exception call stack, here's what's
-        // happened: you supplied an object or symbol value to React (as a prop, key,
-        // DOM attribute, CSS property, string ref, etc.) and when React tried to
-        // coerce it to a string using `'' + value`, an exception was thrown.
-        //
-        // The most common types that will cause this exception are `Symbol` instances
-        // and Temporal objects like `Temporal.Instant`. But any object that has a
-        // `valueOf` or `[Symbol.toPrimitive]` method that throws will also cause this
-        // exception. (Library authors do this to prevent users from using built-in
-        // numeric operators like `+` or comparison operators like `>=` because custom
-        // methods are needed to perform accurate arithmetic or comparison.)
-        //
-        // To fix the problem, coerce this object or symbol value to a string before
-        // passing it to React. The most reliable way is usually `String(value)`.
-        //
-        // To find which value is throwing, check the browser or debugger console.
-        // Before this exception was thrown, there should be `console.error` output
-        // that shows the type (Symbol, Temporal.PlainDate, etc.) that caused the
-        // problem and how that type was used: key, atrribute, input value prop, etc.
-        // In most cases, this console output also shows the component and its
-        // ancestor components where the exception happened.
-        //
-        // eslint-disable-next-line react-internal/safe-string-coercion
-        return "" + value;
-    }
-    function checkKeyStringCoercion(value) {
-        if (willCoercionThrow(value)) {
-            error("The provided key is an unsupported type %s. This value must be coerced to a string before before using it here.", typeName(value));
-            return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
-        }
-    }
-    var ReactCurrentOwner = ReactSharedInternals.ReactCurrentOwner;
-    var RESERVED_PROPS = {
-        key: true,
-        ref: true,
-        __self: true,
-        __source: true
-    };
-    var specialPropKeyWarningShown;
-    var specialPropRefWarningShown;
-    var didWarnAboutStringRefs;
-    didWarnAboutStringRefs = {};
-    function hasValidRef(config) {
-        if (hasOwnProperty.call(config, "ref")) {
-            var getter = Object.getOwnPropertyDescriptor(config, "ref").get;
-            if (getter && getter.isReactWarning) return false;
-        }
-        return config.ref !== undefined;
-    }
-    function hasValidKey(config) {
-        if (hasOwnProperty.call(config, "key")) {
-            var getter = Object.getOwnPropertyDescriptor(config, "key").get;
-            if (getter && getter.isReactWarning) return false;
-        }
-        return config.key !== undefined;
-    }
-    function warnIfStringRefCannotBeAutoConverted(config, self) {
-        if (typeof config.ref === "string" && ReactCurrentOwner.current && self && ReactCurrentOwner.current.stateNode !== self) {
-            var componentName = getComponentNameFromType(ReactCurrentOwner.current.type);
-            if (!didWarnAboutStringRefs[componentName]) {
-                error('Component "%s" contains the string ref "%s". Support for string refs will be removed in a future major release. This case cannot be automatically converted to an arrow function. We ask you to manually fix this case by using useRef() or createRef() instead. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-string-ref', getComponentNameFromType(ReactCurrentOwner.current.type), config.ref);
-                didWarnAboutStringRefs[componentName] = true;
-            }
-        }
-    }
-    function defineKeyPropWarningGetter(props, displayName) {
-        var warnAboutAccessingKey = function() {
-            if (!specialPropKeyWarningShown) {
-                specialPropKeyWarningShown = true;
-                error("%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", displayName);
-            }
-        };
-        warnAboutAccessingKey.isReactWarning = true;
-        Object.defineProperty(props, "key", {
-            get: warnAboutAccessingKey,
-            configurable: true
-        });
-    }
-    function defineRefPropWarningGetter(props, displayName) {
-        var warnAboutAccessingRef = function() {
-            if (!specialPropRefWarningShown) {
-                specialPropRefWarningShown = true;
-                error("%s: `ref` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)", displayName);
-            }
-        };
-        warnAboutAccessingRef.isReactWarning = true;
-        Object.defineProperty(props, "ref", {
-            get: warnAboutAccessingRef,
-            configurable: true
-        });
-    }
-    /**
- * Factory method to create a new React element. This no longer adheres to
- * the class pattern, so do not use new to call it. Also, instanceof check
- * will not work. Instead test $$typeof field against Symbol.for('react.element') to check
- * if something is a React Element.
- *
- * @param {*} type
- * @param {*} props
- * @param {*} key
- * @param {string|object} ref
- * @param {*} owner
- * @param {*} self A *temporary* helper to detect places where `this` is
- * different from the `owner` when React.createElement is called, so that we
- * can warn. We want to get rid of owner and replace string `ref`s with arrow
- * functions, and as long as `this` and owner are the same, there will be no
- * change in behavior.
- * @param {*} source An annotation object (added by a transpiler or otherwise)
- * indicating filename, line number, and/or other information.
- * @internal
- */ var ReactElement = function(type, key, ref, self, source, owner, props) {
-        var element = {
-            // This tag allows us to uniquely identify this as a React Element
-            $$typeof: REACT_ELEMENT_TYPE,
-            // Built-in properties that belong on the element
-            type: type,
-            key: key,
-            ref: ref,
-            props: props,
-            // Record the component responsible for creating this element.
-            _owner: owner
-        };
-        // The validation flag is currently mutative. We put it on
-        // an external backing store so that we can freeze the whole object.
-        // This can be replaced with a WeakMap once they are implemented in
-        // commonly used development environments.
-        element._store = {}; // To make comparing ReactElements easier for testing purposes, we make
-        // the validation flag non-enumerable (where possible, which should
-        // include every environment we run tests in), so the test framework
-        // ignores it.
-        Object.defineProperty(element._store, "validated", {
-            configurable: false,
-            enumerable: false,
-            writable: true,
-            value: false
-        }); // self and source are DEV only properties.
-        Object.defineProperty(element, "_self", {
-            configurable: false,
-            enumerable: false,
-            writable: false,
-            value: self
-        }); // Two elements created in two different places should be considered
-        // equal for testing purposes and therefore we hide it from enumeration.
-        Object.defineProperty(element, "_source", {
-            configurable: false,
-            enumerable: false,
-            writable: false,
-            value: source
-        });
-        if (Object.freeze) {
-            Object.freeze(element.props);
-            Object.freeze(element);
-        }
-        return element;
-    };
-    /**
- * https://github.com/reactjs/rfcs/pull/107
- * @param {*} type
- * @param {object} props
- * @param {string} key
- */ function jsxDEV(type, config, maybeKey, source, self) {
-        var propName; // Reserved names are extracted
-        var props = {};
-        var key = null;
-        var ref = null; // Currently, key can be spread in as a prop. This causes a potential
-        // issue if key is also explicitly declared (ie. <div {...props} key="Hi" />
-        // or <div key="Hi" {...props} /> ). We want to deprecate key spread,
-        // but as an intermediary step, we will use jsxDEV for everything except
-        // <div {...props} key="Hi" />, because we aren't currently able to tell if
-        // key is explicitly declared to be undefined or not.
-        if (maybeKey !== undefined) {
-            checkKeyStringCoercion(maybeKey);
-            key = "" + maybeKey;
-        }
-        if (hasValidKey(config)) {
-            checkKeyStringCoercion(config.key);
-            key = "" + config.key;
-        }
-        if (hasValidRef(config)) {
-            ref = config.ref;
-            warnIfStringRefCannotBeAutoConverted(config, self);
-        } // Remaining properties are added to a new props object
-        for(propName in config)if (hasOwnProperty.call(config, propName) && !RESERVED_PROPS.hasOwnProperty(propName)) props[propName] = config[propName];
-         // Resolve default props
-        if (type && type.defaultProps) {
-            var defaultProps = type.defaultProps;
-            for(propName in defaultProps)if (props[propName] === undefined) props[propName] = defaultProps[propName];
-        }
-        if (key || ref) {
-            var displayName = typeof type === "function" ? type.displayName || type.name || "Unknown" : type;
-            if (key) defineKeyPropWarningGetter(props, displayName);
-            if (ref) defineRefPropWarningGetter(props, displayName);
-        }
-        return ReactElement(type, key, ref, self, source, ReactCurrentOwner.current, props);
-    }
-    var ReactCurrentOwner$1 = ReactSharedInternals.ReactCurrentOwner;
-    var ReactDebugCurrentFrame$1 = ReactSharedInternals.ReactDebugCurrentFrame;
-    function setCurrentlyValidatingElement$1(element) {
-        if (element) {
-            var owner = element._owner;
-            var stack = describeUnknownElementTypeFrameInDEV(element.type, element._source, owner ? owner.type : null);
-            ReactDebugCurrentFrame$1.setExtraStackFrame(stack);
-        } else ReactDebugCurrentFrame$1.setExtraStackFrame(null);
-    }
-    var propTypesMisspellWarningShown;
-    propTypesMisspellWarningShown = false;
-    /**
- * Verifies the object is a ReactElement.
- * See https://reactjs.org/docs/react-api.html#isvalidelement
- * @param {?object} object
- * @return {boolean} True if `object` is a ReactElement.
- * @final
- */ function isValidElement(object) {
-        return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
-    }
-    function getDeclarationErrorAddendum() {
-        if (ReactCurrentOwner$1.current) {
-            var name = getComponentNameFromType(ReactCurrentOwner$1.current.type);
-            if (name) return "\n\nCheck the render method of `" + name + "`.";
-        }
-        return "";
-    }
-    function getSourceInfoErrorAddendum(source) {
-        if (source !== undefined) {
-            var fileName = source.fileName.replace(/^.*[\\\/]/, "");
-            var lineNumber = source.lineNumber;
-            return "\n\nCheck your code at " + fileName + ":" + lineNumber + ".";
-        }
-        return "";
-    }
-    /**
- * Warn if there's no key explicitly set on dynamic arrays of children or
- * object keys are not valid. This allows us to keep track of children between
- * updates.
- */ var ownerHasKeyUseWarning = {};
-    function getCurrentComponentErrorInfo(parentType) {
-        var info = getDeclarationErrorAddendum();
-        if (!info) {
-            var parentName = typeof parentType === "string" ? parentType : parentType.displayName || parentType.name;
-            if (parentName) info = "\n\nCheck the top-level render call using <" + parentName + ">.";
-        }
-        return info;
-    }
-    /**
- * Warn if the element doesn't have an explicit key assigned to it.
- * This element is in an array. The array could grow and shrink or be
- * reordered. All children that haven't already been validated are required to
- * have a "key" property assigned to it. Error statuses are cached so a warning
- * will only be shown once.
- *
- * @internal
- * @param {ReactElement} element Element that requires a key.
- * @param {*} parentType element's parent's type.
- */ function validateExplicitKey(element, parentType) {
-        if (!element._store || element._store.validated || element.key != null) return;
-        element._store.validated = true;
-        var currentComponentErrorInfo = getCurrentComponentErrorInfo(parentType);
-        if (ownerHasKeyUseWarning[currentComponentErrorInfo]) return;
-        ownerHasKeyUseWarning[currentComponentErrorInfo] = true; // Usually the current owner is the offender, but if it accepts children as a
-        // property, it may be the creator of the child that's responsible for
-        // assigning it a key.
-        var childOwner = "";
-        if (element && element._owner && element._owner !== ReactCurrentOwner$1.current) // Give the component that originally created this child.
-        childOwner = " It was passed a child from " + getComponentNameFromType(element._owner.type) + ".";
-        setCurrentlyValidatingElement$1(element);
-        error('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.', currentComponentErrorInfo, childOwner);
-        setCurrentlyValidatingElement$1(null);
-    }
-    /**
- * Ensure that every element either is passed in a static location, in an
- * array with an explicit keys property defined, or in an object literal
- * with valid key property.
- *
- * @internal
- * @param {ReactNode} node Statically passed child of any type.
- * @param {*} parentType node's parent's type.
- */ function validateChildKeys(node, parentType) {
-        if (typeof node !== "object") return;
-        if (isArray(node)) for(var i = 0; i < node.length; i++){
-            var child = node[i];
-            if (isValidElement(child)) validateExplicitKey(child, parentType);
-        }
-        else if (isValidElement(node)) // This element was passed in a valid location.
-        {
-            if (node._store) node._store.validated = true;
-        } else if (node) {
-            var iteratorFn = getIteratorFn(node);
-            if (typeof iteratorFn === "function") // Entry iterators used to provide implicit keys,
-            // but now we print a separate warning for them later.
-            {
-                if (iteratorFn !== node.entries) {
-                    var iterator = iteratorFn.call(node);
-                    var step;
-                    while(!(step = iterator.next()).done)if (isValidElement(step.value)) validateExplicitKey(step.value, parentType);
-                }
-            }
-        }
-    }
-    /**
- * Given an element, validate that its props follow the propTypes definition,
- * provided by the type.
- *
- * @param {ReactElement} element
- */ function validatePropTypes(element) {
-        var type = element.type;
-        if (type === null || type === undefined || typeof type === "string") return;
-        var propTypes;
-        if (typeof type === "function") propTypes = type.propTypes;
-        else if (typeof type === "object" && (type.$$typeof === REACT_FORWARD_REF_TYPE || // Inner props are checked in the reconciler.
-        type.$$typeof === REACT_MEMO_TYPE)) propTypes = type.propTypes;
-        else return;
-        if (propTypes) {
-            // Intentionally inside to avoid triggering lazy initializers:
-            var name = getComponentNameFromType(type);
-            checkPropTypes(propTypes, element.props, "prop", name, element);
-        } else if (type.PropTypes !== undefined && !propTypesMisspellWarningShown) {
-            propTypesMisspellWarningShown = true; // Intentionally inside to avoid triggering lazy initializers:
-            var _name = getComponentNameFromType(type);
-            error("Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?", _name || "Unknown");
-        }
-        if (typeof type.getDefaultProps === "function" && !type.getDefaultProps.isReactClassApproved) error("getDefaultProps is only used on classic React.createClass definitions. Use a static property named `defaultProps` instead.");
-    }
-    /**
- * Given a fragment, validate that it can only be provided with fragment props
- * @param {ReactElement} fragment
- */ function validateFragmentProps(fragment) {
-        var keys = Object.keys(fragment.props);
-        for(var i = 0; i < keys.length; i++){
-            var key = keys[i];
-            if (key !== "children" && key !== "key") {
-                setCurrentlyValidatingElement$1(fragment);
-                error("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", key);
-                setCurrentlyValidatingElement$1(null);
-                break;
-            }
-        }
-        if (fragment.ref !== null) {
-            setCurrentlyValidatingElement$1(fragment);
-            error("Invalid attribute `ref` supplied to `React.Fragment`.");
-            setCurrentlyValidatingElement$1(null);
-        }
-    }
-    function jsxWithValidation(type, props, key, isStaticChildren, source, self) {
-        var validType = isValidElementType(type); // We warn in this case but don't throw. We expect the element creation to
-        // succeed and there will likely be errors in render.
-        if (!validType) {
-            var info = "";
-            if (type === undefined || typeof type === "object" && type !== null && Object.keys(type).length === 0) info += " You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.";
-            var sourceInfo = getSourceInfoErrorAddendum(source);
-            if (sourceInfo) info += sourceInfo;
-            else info += getDeclarationErrorAddendum();
-            var typeString;
-            if (type === null) typeString = "null";
-            else if (isArray(type)) typeString = "array";
-            else if (type !== undefined && type.$$typeof === REACT_ELEMENT_TYPE) {
-                typeString = "<" + (getComponentNameFromType(type.type) || "Unknown") + " />";
-                info = " Did you accidentally export a JSX literal instead of a component?";
-            } else typeString = typeof type;
-            error("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", typeString, info);
-        }
-        var element = jsxDEV(type, props, key, source, self); // The result can be nullish if a mock or a custom function is used.
-        // TODO: Drop this when these are no longer allowed as the type argument.
-        if (element == null) return element;
-         // Skip key warning if the type isn't valid since our key validation logic
-        // doesn't expect a non-string/function type and can throw confusing errors.
-        // We don't want exception behavior to differ between dev and prod.
-        // (Rendering will throw with a helpful message and as soon as the type is
-        // fixed, the key warnings will appear.)
-        if (validType) {
-            var children = props.children;
-            if (children !== undefined) {
-                if (isStaticChildren) {
-                    if (isArray(children)) {
-                        for(var i = 0; i < children.length; i++)validateChildKeys(children[i], type);
-                        if (Object.freeze) Object.freeze(children);
-                    } else error("React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead.");
-                } else validateChildKeys(children, type);
-            }
-        }
-        if (type === REACT_FRAGMENT_TYPE) validateFragmentProps(element);
-        else validatePropTypes(element);
-        return element;
-    } // These two functions exist to still get child warnings in dev
-    var jsxDEV$1 = jsxWithValidation;
-    exports.Fragment = REACT_FRAGMENT_TYPE;
-    exports.jsxDEV = jsxDEV$1;
-})();
+}
+exports.default = NavBar;
 
-},{"react":"21dqq"}],"8CjXa":[function(require,module,exports) {
+  $parcel$ReactRefreshHelpers$56c8.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"cHIiW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8CjXa":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$f1d5 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -30768,7 +30989,7 @@ exports.default = InsertTopicDtl;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj"}],"jo6P5":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"jo6P5":[function(require,module,exports) {
 module.exports = require("./lib/axios");
 
 },{"./lib/axios":"63MyY"}],"63MyY":[function(require,module,exports) {
@@ -34293,7 +34514,7 @@ exports.default = ViewStTopicDtl;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"axios":"jo6P5","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj"}],"hp91B":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","axios":"jo6P5","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"hp91B":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$371a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -34411,7 +34632,7 @@ exports.default = SuperGetTopic;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"axios":"jo6P5","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj"}],"8J7Kv":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","axios":"jo6P5","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8J7Kv":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$c5c1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -34671,7 +34892,7 @@ exports.default = SuperViewTopic;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"axios":"jo6P5","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj"}],"1iXc0":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","axios":"jo6P5","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"1iXc0":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$31dd = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -34848,883 +35069,7 @@ exports.default = ViewSingleTopic;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3KRlG":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$08f6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$08f6.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _reactRouterDom = require("react-router-dom");
-var _app = require("../App");
-var _appDefault = parcelHelpers.interopDefault(_app);
-var _axios = require("axios");
-var _axiosDefault = parcelHelpers.interopDefault(_axios);
-class ViewStudents extends (0, _react.Component) {
-    constructor(props){
-        super(props);
-        this.state = {
-            students: []
-        };
-    }
-    componentDidMount() {
-        this.retrieveStudents();
-    }
-    retrieveStudents() {
-        (0, _axiosDefault.default).get("http://localhost:8000/students").then((res)=>{
-            if (res.data.success) {
-                this.setState({
-                    students: res.data.existingStudents
-                });
-                console.log(this.state.students);
-            }
-        });
-    }
-    render() {
-        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "container",
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                    children: "Research Management Tool"
-                }, void 0, false, {
-                    fileName: "src/Pages/ViewStudents.js",
-                    lineNumber: 34,
-                    columnNumber: 21
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                    children: "All Students"
-                }, void 0, false, {
-                    fileName: "src/Pages/ViewStudents.js",
-                    lineNumber: 35,
-                    columnNumber: 21
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("table", {
-                    className: "table",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("thead", {
-                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
-                                        scope: "col",
-                                        children: "#"
-                                    }, void 0, false, {
-                                        fileName: "src/Pages/ViewStudents.js",
-                                        lineNumber: 39,
-                                        columnNumber: 33
-                                    }, this),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
-                                        scope: "col",
-                                        children: "Student Name"
-                                    }, void 0, false, {
-                                        fileName: "src/Pages/ViewStudents.js",
-                                        lineNumber: 40,
-                                        columnNumber: 33
-                                    }, this),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
-                                        scope: "col",
-                                        children: "Register Number"
-                                    }, void 0, false, {
-                                        fileName: "src/Pages/ViewStudents.js",
-                                        lineNumber: 41,
-                                        columnNumber: 33
-                                    }, this),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
-                                        scope: "col",
-                                        children: "Student Email"
-                                    }, void 0, false, {
-                                        fileName: "src/Pages/ViewStudents.js",
-                                        lineNumber: 42,
-                                        columnNumber: 33
-                                    }, this),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
-                                        scope: "col",
-                                        children: "Username"
-                                    }, void 0, false, {
-                                        fileName: "src/Pages/ViewStudents.js",
-                                        lineNumber: 43,
-                                        columnNumber: 33
-                                    }, this),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
-                                        scope: "col",
-                                        children: "Password"
-                                    }, void 0, false, {
-                                        fileName: "src/Pages/ViewStudents.js",
-                                        lineNumber: 44,
-                                        columnNumber: 33
-                                    }, this),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
-                                        scope: "col",
-                                        children: "Action"
-                                    }, void 0, false, {
-                                        fileName: "src/Pages/ViewStudents.js",
-                                        lineNumber: 45,
-                                        columnNumber: 33
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/Pages/ViewStudents.js",
-                                lineNumber: 38,
-                                columnNumber: 29
-                            }, this)
-                        }, void 0, false, {
-                            fileName: "src/Pages/ViewStudents.js",
-                            lineNumber: 37,
-                            columnNumber: 25
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tbody", {
-                            children: this.state.students.map((students, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
-                                            scope: "row",
-                                            children: index + 1
-                                        }, void 0, false, {
-                                            fileName: "src/Pages/ViewStudents.js",
-                                            lineNumber: 51,
-                                            columnNumber: 37
-                                        }, this),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
-                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                                href: `/student/${students._id}`,
-                                                style: {
-                                                    textDecoration: "none"
-                                                },
-                                                children: students.stname
-                                            }, void 0, false, {
-                                                fileName: "src/Pages/ViewStudents.js",
-                                                lineNumber: 52,
-                                                columnNumber: 41
-                                            }, this)
-                                        }, void 0, false, {
-                                            fileName: "src/Pages/ViewStudents.js",
-                                            lineNumber: 52,
-                                            columnNumber: 37
-                                        }, this),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
-                                            children: students.regNo
-                                        }, void 0, false, {
-                                            fileName: "src/Pages/ViewStudents.js",
-                                            lineNumber: 53,
-                                            columnNumber: 37
-                                        }, this),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
-                                            children: students.stemail
-                                        }, void 0, false, {
-                                            fileName: "src/Pages/ViewStudents.js",
-                                            lineNumber: 54,
-                                            columnNumber: 37
-                                        }, this),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
-                                            children: students.stuserName
-                                        }, void 0, false, {
-                                            fileName: "src/Pages/ViewStudents.js",
-                                            lineNumber: 55,
-                                            columnNumber: 37
-                                        }, this),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
-                                            children: students.stpwd
-                                        }, void 0, false, {
-                                            fileName: "src/Pages/ViewStudents.js",
-                                            lineNumber: 56,
-                                            columnNumber: 37
-                                        }, this),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
-                                            children: [
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                                    href: `/editStudents/${students._id}`,
-                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                                        className: "btn btn-warning btn-sm",
-                                                        children: [
-                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
-                                                                className: "fas fa-edit"
-                                                            }, void 0, false, {
-                                                                fileName: "src/Pages/ViewStudents.js",
-                                                                lineNumber: 58,
-                                                                columnNumber: 123
-                                                            }, this),
-                                                            "\xa0Edit"
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "src/Pages/ViewStudents.js",
-                                                        lineNumber: 58,
-                                                        columnNumber: 80
-                                                    }, this)
-                                                }, void 0, false, {
-                                                    fileName: "src/Pages/ViewStudents.js",
-                                                    lineNumber: 58,
-                                                    columnNumber: 37
-                                                }, this),
-                                                "\xa0",
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                                    className: "btn btn-danger btn-sm",
-                                                    onClick: ()=>onDeletePayment(students.id),
-                                                    children: [
-                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
-                                                            className: "far fa-trash-alt"
-                                                        }, void 0, false, {
-                                                            fileName: "src/Pages/ViewStudents.js",
-                                                            lineNumber: 61,
-                                                            columnNumber: 124
-                                                        }, this),
-                                                        "\xa0 Delete"
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "src/Pages/ViewStudents.js",
-                                                    lineNumber: 61,
-                                                    columnNumber: 37
-                                                }, this),
-                                                " \xa0",
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                                    href: `/student/${students._id}`,
-                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                                        className: "btn btn-secondary btn-sm",
-                                                        children: [
-                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
-                                                                className: "fa fa-info-circle"
-                                                            }, void 0, false, {
-                                                                fileName: "src/Pages/ViewStudents.js",
-                                                                lineNumber: 64,
-                                                                columnNumber: 120
-                                                            }, this),
-                                                            "\xa0View"
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "src/Pages/ViewStudents.js",
-                                                        lineNumber: 64,
-                                                        columnNumber: 75
-                                                    }, this)
-                                                }, void 0, false, {
-                                                    fileName: "src/Pages/ViewStudents.js",
-                                                    lineNumber: 64,
-                                                    columnNumber: 37
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "src/Pages/ViewStudents.js",
-                                            lineNumber: 57,
-                                            columnNumber: 37
-                                        }, this)
-                                    ]
-                                }, index, true, {
-                                    fileName: "src/Pages/ViewStudents.js",
-                                    lineNumber: 50,
-                                    columnNumber: 29
-                                }, this))
-                        }, void 0, false, {
-                            fileName: "src/Pages/ViewStudents.js",
-                            lineNumber: 48,
-                            columnNumber: 25
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/Pages/ViewStudents.js",
-                    lineNumber: 36,
-                    columnNumber: 21
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "src/Pages/ViewStudents.js",
-            lineNumber: 33,
-            columnNumber: 17
-        }, this);
-    }
-}
-exports.default = ViewStudents;
-
-  $parcel$ReactRefreshHelpers$08f6.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react":"21dqq","react-router-dom":"cHIiW","../App":"2kQhy","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj"}],"hdVSo":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$b64a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$b64a.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _axios = require("axios");
-var _axiosDefault = parcelHelpers.interopDefault(_axios);
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-class EditStudent extends (0, _react.Component) {
-    constructor(props){
-        super(props);
-        this.state = {
-            stname: "",
-            regNo: "",
-            stemail: "",
-            stuserName: "",
-            stpwd: ""
-        };
-    }
-    handleinputChange = (e)=>{
-        const { name , value  } = e.target;
-        this.setState({
-            ...this.state,
-            [name]: value
-        });
-    };
-    onSubmit = (e)=>{
-        e.preventDefault();
-        const id = this.props.match.params.id;
-        const { stname , regNo , stemail , stuserName , stpwd  } = this.state;
-        const data = {
-            stname: stname,
-            regNo: regNo,
-            stemail: stemail,
-            stuserName: stuserName,
-            stpwd: stpwd
-        };
-        console.log(data);
-        (0, _axiosDefault.default).put(`/students/update/${id}`, data).then((res)=>{
-            if (res.data.success) {
-                alert("Details Updated Successfully");
-                this.setState({
-                    stname: "",
-                    regNo: "",
-                    stemail: "",
-                    stuserName: "",
-                    stpwd: ""
-                });
-            }
-        });
-    };
-    componentDidMount() {
-        const id = this.props.match.params.id;
-        (0, _axiosDefault.default).get(`http://localhost:8000/students/${id}`).then((res)=>{
-            if (res.data.success) {
-                this.setState({
-                    stname: res.data.student.stname,
-                    regNo: res.data.student.regNo,
-                    stemail: res.data.student.stemail,
-                    stuserName: res.data.student.stuserName,
-                    stpwd: res.data.student.stpwd
-                });
-                console.log(this.state.student);
-            }
-        });
-    }
-    render() {
-        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "col-md-8 mt-4 mx-auto",
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                    className: "h3 mb-3 font-weight-normal",
-                    children: "Edit Student Details"
-                }, void 0, false, {
-                    fileName: "src/Pages/EditStudent.js",
-                    lineNumber: 80,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
-                    className: "needs-validation",
-                    noValidate: true,
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "form-group",
-                            style: {
-                                marginBottom: "15px"
-                            },
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                    style: {
-                                        marginBottom: "5px"
-                                    },
-                                    children: "Student Name"
-                                }, void 0, false, {
-                                    fileName: "src/Pages/EditStudent.js",
-                                    lineNumber: 83,
-                                    columnNumber: 25
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                    type: "text",
-                                    className: "form-control",
-                                    name: "stname",
-                                    placeholder: "Enter Name",
-                                    value: this.state.stname,
-                                    onChange: this.handleinputChange
-                                }, void 0, false, {
-                                    fileName: "src/Pages/EditStudent.js",
-                                    lineNumber: 84,
-                                    columnNumber: 25
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/Pages/EditStudent.js",
-                            lineNumber: 82,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "form-group",
-                            style: {
-                                marginBottom: "15px"
-                            },
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                    style: {
-                                        marginBottom: "5px"
-                                    },
-                                    children: "Register Number"
-                                }, void 0, false, {
-                                    fileName: "src/Pages/EditStudent.js",
-                                    lineNumber: 93,
-                                    columnNumber: 25
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                    type: "text",
-                                    className: "form-control",
-                                    name: "regNo",
-                                    placeholder: "ITxxxxxxxx",
-                                    value: this.state.regNo,
-                                    onChange: this.handleinputChange
-                                }, void 0, false, {
-                                    fileName: "src/Pages/EditStudent.js",
-                                    lineNumber: 94,
-                                    columnNumber: 25
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/Pages/EditStudent.js",
-                            lineNumber: 92,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "form-group",
-                            style: {
-                                marginBottom: "15px"
-                            },
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                    style: {
-                                        marginBottom: "5px"
-                                    },
-                                    children: "Email"
-                                }, void 0, false, {
-                                    fileName: "src/Pages/EditStudent.js",
-                                    lineNumber: 103,
-                                    columnNumber: 25
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                    type: "email",
-                                    className: "form-control",
-                                    name: "stemail",
-                                    placeholder: "itxxxxxxxx@my.sliit.lk",
-                                    value: this.state.stemail,
-                                    onChange: this.handleinputChange
-                                }, void 0, false, {
-                                    fileName: "src/Pages/EditStudent.js",
-                                    lineNumber: 104,
-                                    columnNumber: 25
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/Pages/EditStudent.js",
-                            lineNumber: 102,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "form-group",
-                            style: {
-                                marginBottom: "15px"
-                            },
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                    style: {
-                                        marginBottom: "5px"
-                                    },
-                                    children: "Username"
-                                }, void 0, false, {
-                                    fileName: "src/Pages/EditStudent.js",
-                                    lineNumber: 113,
-                                    columnNumber: 25
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                    type: "text",
-                                    className: "form-control",
-                                    name: "stuserName",
-                                    placeholder: "Enter a username",
-                                    value: this.state.stuserName,
-                                    onChange: this.handleinputChange
-                                }, void 0, false, {
-                                    fileName: "src/Pages/EditStudent.js",
-                                    lineNumber: 114,
-                                    columnNumber: 25
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/Pages/EditStudent.js",
-                            lineNumber: 112,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "form-group",
-                            style: {
-                                marginBottom: "15px"
-                            },
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                    style: {
-                                        marginBottom: "5px"
-                                    },
-                                    children: "Password"
-                                }, void 0, false, {
-                                    fileName: "src/Pages/EditStudent.js",
-                                    lineNumber: 123,
-                                    columnNumber: 25
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                    type: "password",
-                                    className: "form-control",
-                                    name: "stpwd",
-                                    placeholder: "at least 6 charactors",
-                                    value: this.state.stpwd,
-                                    onChange: this.handleinputChange
-                                }, void 0, false, {
-                                    fileName: "src/Pages/EditStudent.js",
-                                    lineNumber: 124,
-                                    columnNumber: 25
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/Pages/EditStudent.js",
-                            lineNumber: 122,
-                            columnNumber: 21
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/Pages/EditStudent.js",
-                    lineNumber: 81,
-                    columnNumber: 17
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "src/Pages/EditStudent.js",
-            lineNumber: 79,
-            columnNumber: 13
-        }, this);
-    }
-}
-exports.default = EditStudent;
-
-  $parcel$ReactRefreshHelpers$b64a.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj","axios":"jo6P5"}],"foIzQ":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$1e10 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$1e10.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _axios = require("axios");
-var _axiosDefault = parcelHelpers.interopDefault(_axios);
-class StudentDetails extends (0, _react.Component) {
-    constructor(props){
-        super(props);
-        this.state = {
-            student: {}
-        };
-    }
-    componentDidMount() {
-        const id = this.props.match.params.id;
-        (0, _axiosDefault.default).get(`http://localhost:8000/students/${id}`).then((res)=>{
-            if (res.data.success) {
-                this.setState({
-                    student: res.data.student
-                });
-                console.log(this.state.student);
-            }
-        });
-    }
-    render() {
-        const { stname , regNo , stemail , stuserName , stpwd  } = this.state.student;
-        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            style: {
-                marginTop: "20px"
-            },
-            className: "container",
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
-                    children: stname
-                }, void 0, false, {
-                    fileName: "src/Pages/StudentDetails.js",
-                    lineNumber: 34,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                    fileName: "src/Pages/StudentDetails.js",
-                    lineNumber: 35,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dl", {
-                    className: "row",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dt", {
-                            className: "col-sm-3",
-                            children: "Register Number"
-                        }, void 0, false, {
-                            fileName: "src/Pages/StudentDetails.js",
-                            lineNumber: 38,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
-                            className: "col-sm-9",
-                            children: regNo
-                        }, void 0, false, {
-                            fileName: "src/Pages/StudentDetails.js",
-                            lineNumber: 39,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dt", {
-                            className: "col-sm-3",
-                            children: "Email"
-                        }, void 0, false, {
-                            fileName: "src/Pages/StudentDetails.js",
-                            lineNumber: 41,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
-                            className: "col-sm-9",
-                            children: stemail
-                        }, void 0, false, {
-                            fileName: "src/Pages/StudentDetails.js",
-                            lineNumber: 42,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dt", {
-                            className: "col-sm-3",
-                            children: "Username"
-                        }, void 0, false, {
-                            fileName: "src/Pages/StudentDetails.js",
-                            lineNumber: 44,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
-                            className: "col-sm-9",
-                            children: stuserName
-                        }, void 0, false, {
-                            fileName: "src/Pages/StudentDetails.js",
-                            lineNumber: 45,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dt", {
-                            className: "col-sm-3",
-                            children: "Password"
-                        }, void 0, false, {
-                            fileName: "src/Pages/StudentDetails.js",
-                            lineNumber: 47,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
-                            className: "col-sm-9",
-                            children: stpwd
-                        }, void 0, false, {
-                            fileName: "src/Pages/StudentDetails.js",
-                            lineNumber: 48,
-                            columnNumber: 21
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/Pages/StudentDetails.js",
-                    lineNumber: 37,
-                    columnNumber: 17
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "src/Pages/StudentDetails.js",
-            lineNumber: 33,
-            columnNumber: 13
-        }, this);
-    }
-}
-exports.default = StudentDetails;
-
-  $parcel$ReactRefreshHelpers$1e10.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react":"21dqq","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj"}],"8ajGy":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$56c8 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$56c8.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _reactRouterDom = require("react-router-dom");
-class NavBar extends (0, _react.Component) {
-    render() {
-        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                    children: "Project Management Tool"
-                }, void 0, false, {
-                    fileName: "src/Pages/NavBar.js",
-                    lineNumber: 8,
-                    columnNumber: 13
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
-                    className: "navbar navbar-expand-lg navbar-light bg-light",
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                        className: "navbar-nav mr-auto",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                    to: "/",
-                                    className: "nav-link",
-                                    children: " Home "
-                                }, void 0, false, {
-                                    fileName: "src/Pages/NavBar.js",
-                                    lineNumber: 11,
-                                    columnNumber: 21
-                                }, this)
-                            }, void 0, false, {
-                                fileName: "src/Pages/NavBar.js",
-                                lineNumber: 11,
-                                columnNumber: 17
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                    to: "/viewstudents",
-                                    className: "nav-link",
-                                    children: "ViewStudents"
-                                }, void 0, false, {
-                                    fileName: "src/Pages/NavBar.js",
-                                    lineNumber: 12,
-                                    columnNumber: 21
-                                }, this)
-                            }, void 0, false, {
-                                fileName: "src/Pages/NavBar.js",
-                                lineNumber: 12,
-                                columnNumber: 17
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                    to: "/viewstaff",
-                                    className: "nav-link",
-                                    children: "ViewStaff"
-                                }, void 0, false, {
-                                    fileName: "src/Pages/NavBar.js",
-                                    lineNumber: 13,
-                                    columnNumber: 21
-                                }, this)
-                            }, void 0, false, {
-                                fileName: "src/Pages/NavBar.js",
-                                lineNumber: 13,
-                                columnNumber: 17
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                    to: "/addTDtl",
-                                    className: "nav-link",
-                                    children: "Topic Details"
-                                }, void 0, false, {
-                                    fileName: "src/Pages/NavBar.js",
-                                    lineNumber: 14,
-                                    columnNumber: 21
-                                }, this)
-                            }, void 0, false, {
-                                fileName: "src/Pages/NavBar.js",
-                                lineNumber: 14,
-                                columnNumber: 17
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                    to: "/viewTDtl",
-                                    className: "nav-link",
-                                    children: "View Topic Details"
-                                }, void 0, false, {
-                                    fileName: "src/Pages/NavBar.js",
-                                    lineNumber: 15,
-                                    columnNumber: 21
-                                }, this)
-                            }, void 0, false, {
-                                fileName: "src/Pages/NavBar.js",
-                                lineNumber: 15,
-                                columnNumber: 17
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                    to: "/sgettopic",
-                                    className: "nav-link",
-                                    children: "Research Requests"
-                                }, void 0, false, {
-                                    fileName: "src/Pages/NavBar.js",
-                                    lineNumber: 16,
-                                    columnNumber: 21
-                                }, this)
-                            }, void 0, false, {
-                                fileName: "src/Pages/NavBar.js",
-                                lineNumber: 16,
-                                columnNumber: 17
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                    to: "/sviewtdtl",
-                                    className: "nav-link",
-                                    children: "View Research Requests"
-                                }, void 0, false, {
-                                    fileName: "src/Pages/NavBar.js",
-                                    lineNumber: 17,
-                                    columnNumber: 21
-                                }, this)
-                            }, void 0, false, {
-                                fileName: "src/Pages/NavBar.js",
-                                lineNumber: 17,
-                                columnNumber: 17
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/Pages/NavBar.js",
-                        lineNumber: 10,
-                        columnNumber: 15
-                    }, this)
-                }, void 0, false, {
-                    fileName: "src/Pages/NavBar.js",
-                    lineNumber: 9,
-                    columnNumber: 15
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
-                    fileName: "src/Pages/NavBar.js",
-                    lineNumber: 21,
-                    columnNumber: 15
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "src/Pages/NavBar.js",
-            lineNumber: 7,
-            columnNumber: 9
-        }, this);
-    }
-}
-exports.default = NavBar;
-
-  $parcel$ReactRefreshHelpers$56c8.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"cHIiW"}],"izG8o":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"izG8o":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$1e0d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -36102,7 +35447,718 @@ exports.default = CSuperView;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","axios":"jo6P5","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"98fQf":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","axios":"jo6P5","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3KRlG":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$08f6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$08f6.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRouterDom = require("react-router-dom");
+var _app = require("../App");
+var _appDefault = parcelHelpers.interopDefault(_app);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+class ViewStudents extends (0, _react.Component) {
+    constructor(props){
+        super(props);
+        this.state = {
+            students: []
+        };
+    }
+    componentDidMount() {
+        this.retrieveStudents();
+    }
+    retrieveStudents() {
+        (0, _axiosDefault.default).get("http://localhost:8000/students").then((res)=>{
+            if (res.data.success) {
+                this.setState({
+                    students: res.data.existingStudents
+                });
+                console.log(this.state.students);
+            }
+        });
+    }
+    render() {
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "container",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                    children: "Research Management Tool"
+                }, void 0, false, {
+                    fileName: "src/Pages/ViewStudents.js",
+                    lineNumber: 34,
+                    columnNumber: 21
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                    children: "All Students"
+                }, void 0, false, {
+                    fileName: "src/Pages/ViewStudents.js",
+                    lineNumber: 35,
+                    columnNumber: 21
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("table", {
+                    className: "table",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("thead", {
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        scope: "col",
+                                        children: "#"
+                                    }, void 0, false, {
+                                        fileName: "src/Pages/ViewStudents.js",
+                                        lineNumber: 39,
+                                        columnNumber: 33
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        scope: "col",
+                                        children: "Student Name"
+                                    }, void 0, false, {
+                                        fileName: "src/Pages/ViewStudents.js",
+                                        lineNumber: 40,
+                                        columnNumber: 33
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        scope: "col",
+                                        children: "Register Number"
+                                    }, void 0, false, {
+                                        fileName: "src/Pages/ViewStudents.js",
+                                        lineNumber: 41,
+                                        columnNumber: 33
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        scope: "col",
+                                        children: "Student Email"
+                                    }, void 0, false, {
+                                        fileName: "src/Pages/ViewStudents.js",
+                                        lineNumber: 42,
+                                        columnNumber: 33
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        scope: "col",
+                                        children: "Username"
+                                    }, void 0, false, {
+                                        fileName: "src/Pages/ViewStudents.js",
+                                        lineNumber: 43,
+                                        columnNumber: 33
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        scope: "col",
+                                        children: "Password"
+                                    }, void 0, false, {
+                                        fileName: "src/Pages/ViewStudents.js",
+                                        lineNumber: 44,
+                                        columnNumber: 33
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        scope: "col",
+                                        children: "Action"
+                                    }, void 0, false, {
+                                        fileName: "src/Pages/ViewStudents.js",
+                                        lineNumber: 45,
+                                        columnNumber: 33
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/Pages/ViewStudents.js",
+                                lineNumber: 38,
+                                columnNumber: 29
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "src/Pages/ViewStudents.js",
+                            lineNumber: 37,
+                            columnNumber: 25
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tbody", {
+                            children: this.state.students.map((students, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                            scope: "row",
+                                            children: index + 1
+                                        }, void 0, false, {
+                                            fileName: "src/Pages/ViewStudents.js",
+                                            lineNumber: 51,
+                                            columnNumber: 37
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                                href: `/student/${students._id}`,
+                                                style: {
+                                                    textDecoration: "none"
+                                                },
+                                                children: students.stname
+                                            }, void 0, false, {
+                                                fileName: "src/Pages/ViewStudents.js",
+                                                lineNumber: 52,
+                                                columnNumber: 41
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "src/Pages/ViewStudents.js",
+                                            lineNumber: 52,
+                                            columnNumber: 37
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: students.regNo
+                                        }, void 0, false, {
+                                            fileName: "src/Pages/ViewStudents.js",
+                                            lineNumber: 53,
+                                            columnNumber: 37
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: students.stemail
+                                        }, void 0, false, {
+                                            fileName: "src/Pages/ViewStudents.js",
+                                            lineNumber: 54,
+                                            columnNumber: 37
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: students.stuserName
+                                        }, void 0, false, {
+                                            fileName: "src/Pages/ViewStudents.js",
+                                            lineNumber: 55,
+                                            columnNumber: 37
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: students.stpwd
+                                        }, void 0, false, {
+                                            fileName: "src/Pages/ViewStudents.js",
+                                            lineNumber: 56,
+                                            columnNumber: 37
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                                    href: `/editStudents/${students._id}`,
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                        className: "btn btn-warning btn-sm",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                                                                className: "fas fa-edit"
+                                                            }, void 0, false, {
+                                                                fileName: "src/Pages/ViewStudents.js",
+                                                                lineNumber: 58,
+                                                                columnNumber: 123
+                                                            }, this),
+                                                            "\xa0Edit"
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "src/Pages/ViewStudents.js",
+                                                        lineNumber: 58,
+                                                        columnNumber: 80
+                                                    }, this)
+                                                }, void 0, false, {
+                                                    fileName: "src/Pages/ViewStudents.js",
+                                                    lineNumber: 58,
+                                                    columnNumber: 37
+                                                }, this),
+                                                "\xa0",
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                    className: "btn btn-danger btn-sm",
+                                                    onClick: ()=>onDeletePayment(students.id),
+                                                    children: [
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                                                            className: "far fa-trash-alt"
+                                                        }, void 0, false, {
+                                                            fileName: "src/Pages/ViewStudents.js",
+                                                            lineNumber: 61,
+                                                            columnNumber: 124
+                                                        }, this),
+                                                        "\xa0 Delete"
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "src/Pages/ViewStudents.js",
+                                                    lineNumber: 61,
+                                                    columnNumber: 37
+                                                }, this),
+                                                " \xa0",
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                                    href: `/student/${students._id}`,
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                        className: "btn btn-secondary btn-sm",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                                                                className: "fa fa-info-circle"
+                                                            }, void 0, false, {
+                                                                fileName: "src/Pages/ViewStudents.js",
+                                                                lineNumber: 64,
+                                                                columnNumber: 120
+                                                            }, this),
+                                                            "\xa0View"
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "src/Pages/ViewStudents.js",
+                                                        lineNumber: 64,
+                                                        columnNumber: 75
+                                                    }, this)
+                                                }, void 0, false, {
+                                                    fileName: "src/Pages/ViewStudents.js",
+                                                    lineNumber: 64,
+                                                    columnNumber: 37
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/Pages/ViewStudents.js",
+                                            lineNumber: 57,
+                                            columnNumber: 37
+                                        }, this)
+                                    ]
+                                }, index, true, {
+                                    fileName: "src/Pages/ViewStudents.js",
+                                    lineNumber: 50,
+                                    columnNumber: 29
+                                }, this))
+                        }, void 0, false, {
+                            fileName: "src/Pages/ViewStudents.js",
+                            lineNumber: 48,
+                            columnNumber: 25
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/Pages/ViewStudents.js",
+                    lineNumber: 36,
+                    columnNumber: 21
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/Pages/ViewStudents.js",
+            lineNumber: 33,
+            columnNumber: 17
+        }, this);
+    }
+}
+exports.default = ViewStudents;
+
+  $parcel$ReactRefreshHelpers$08f6.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"cHIiW","../App":"2kQhy","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"hdVSo":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$b64a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$b64a.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+class EditStudent extends (0, _react.Component) {
+    constructor(props){
+        super(props);
+        this.state = {
+            stname: "",
+            regNo: "",
+            stemail: "",
+            stuserName: "",
+            stpwd: ""
+        };
+    }
+    handleinputChange = (e)=>{
+        const { name , value  } = e.target;
+        this.setState({
+            ...this.state,
+            [name]: value
+        });
+    };
+    onSubmit = (e)=>{
+        e.preventDefault();
+        const id = this.props.match.params.id;
+        const { stname , regNo , stemail , stuserName , stpwd  } = this.state;
+        const data = {
+            stname: stname,
+            regNo: regNo,
+            stemail: stemail,
+            stuserName: stuserName,
+            stpwd: stpwd
+        };
+        console.log(data);
+        (0, _axiosDefault.default).put(`/students/update/${id}`, data).then((res)=>{
+            if (res.data.success) {
+                alert("Details Updated Successfully");
+                this.setState({
+                    stname: "",
+                    regNo: "",
+                    stemail: "",
+                    stuserName: "",
+                    stpwd: ""
+                });
+            }
+        });
+    };
+    componentDidMount() {
+        const id = this.props.match.params.id;
+        (0, _axiosDefault.default).get(`http://localhost:8000/students/${id}`).then((res)=>{
+            if (res.data.success) {
+                this.setState({
+                    stname: res.data.student.stname,
+                    regNo: res.data.student.regNo,
+                    stemail: res.data.student.stemail,
+                    stuserName: res.data.student.stuserName,
+                    stpwd: res.data.student.stpwd
+                });
+                console.log(this.state.student);
+            }
+        });
+    }
+    render() {
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "col-md-8 mt-4 mx-auto",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                    className: "h3 mb-3 font-weight-normal",
+                    children: "Edit Student Details"
+                }, void 0, false, {
+                    fileName: "src/Pages/EditStudent.js",
+                    lineNumber: 80,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                    className: "needs-validation",
+                    noValidate: true,
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Student Name"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStudent.js",
+                                    lineNumber: 83,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    name: "stname",
+                                    placeholder: "Enter Name",
+                                    value: this.state.stname,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStudent.js",
+                                    lineNumber: 84,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStudent.js",
+                            lineNumber: 82,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Register Number"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStudent.js",
+                                    lineNumber: 93,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    name: "regNo",
+                                    placeholder: "ITxxxxxxxx",
+                                    value: this.state.regNo,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStudent.js",
+                                    lineNumber: 94,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStudent.js",
+                            lineNumber: 92,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Email"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStudent.js",
+                                    lineNumber: 103,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "email",
+                                    className: "form-control",
+                                    name: "stemail",
+                                    placeholder: "itxxxxxxxx@my.sliit.lk",
+                                    value: this.state.stemail,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStudent.js",
+                                    lineNumber: 104,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStudent.js",
+                            lineNumber: 102,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Username"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStudent.js",
+                                    lineNumber: 113,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    name: "stuserName",
+                                    placeholder: "Enter a username",
+                                    value: this.state.stuserName,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStudent.js",
+                                    lineNumber: 114,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStudent.js",
+                            lineNumber: 112,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Password"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStudent.js",
+                                    lineNumber: 123,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "password",
+                                    className: "form-control",
+                                    name: "stpwd",
+                                    placeholder: "at least 6 charactors",
+                                    value: this.state.stpwd,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStudent.js",
+                                    lineNumber: 124,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStudent.js",
+                            lineNumber: 122,
+                            columnNumber: 21
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/Pages/EditStudent.js",
+                    lineNumber: 81,
+                    columnNumber: 17
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/Pages/EditStudent.js",
+            lineNumber: 79,
+            columnNumber: 13
+        }, this);
+    }
+}
+exports.default = EditStudent;
+
+  $parcel$ReactRefreshHelpers$b64a.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","axios":"jo6P5","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"foIzQ":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$1e10 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$1e10.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+class StudentDetails extends (0, _react.Component) {
+    constructor(props){
+        super(props);
+        this.state = {
+            student: {}
+        };
+    }
+    componentDidMount() {
+        const id = this.props.match.params.id;
+        (0, _axiosDefault.default).get(`http://localhost:8000/students/${id}`).then((res)=>{
+            if (res.data.success) {
+                this.setState({
+                    student: res.data.student
+                });
+                console.log(this.state.student);
+            }
+        });
+    }
+    render() {
+        const { stname , regNo , stemail , stuserName , stpwd  } = this.state.student;
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            style: {
+                marginTop: "20px"
+            },
+            className: "container",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                    children: stname
+                }, void 0, false, {
+                    fileName: "src/Pages/StudentDetails.js",
+                    lineNumber: 34,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                    fileName: "src/Pages/StudentDetails.js",
+                    lineNumber: 35,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dl", {
+                    className: "row",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dt", {
+                            className: "col-sm-3",
+                            children: "Register Number"
+                        }, void 0, false, {
+                            fileName: "src/Pages/StudentDetails.js",
+                            lineNumber: 38,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
+                            className: "col-sm-9",
+                            children: regNo
+                        }, void 0, false, {
+                            fileName: "src/Pages/StudentDetails.js",
+                            lineNumber: 39,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dt", {
+                            className: "col-sm-3",
+                            children: "Email"
+                        }, void 0, false, {
+                            fileName: "src/Pages/StudentDetails.js",
+                            lineNumber: 41,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
+                            className: "col-sm-9",
+                            children: stemail
+                        }, void 0, false, {
+                            fileName: "src/Pages/StudentDetails.js",
+                            lineNumber: 42,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dt", {
+                            className: "col-sm-3",
+                            children: "Username"
+                        }, void 0, false, {
+                            fileName: "src/Pages/StudentDetails.js",
+                            lineNumber: 44,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
+                            className: "col-sm-9",
+                            children: stuserName
+                        }, void 0, false, {
+                            fileName: "src/Pages/StudentDetails.js",
+                            lineNumber: 45,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dt", {
+                            className: "col-sm-3",
+                            children: "Password"
+                        }, void 0, false, {
+                            fileName: "src/Pages/StudentDetails.js",
+                            lineNumber: 47,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
+                            className: "col-sm-9",
+                            children: stpwd
+                        }, void 0, false, {
+                            fileName: "src/Pages/StudentDetails.js",
+                            lineNumber: 48,
+                            columnNumber: 21
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/Pages/StudentDetails.js",
+                    lineNumber: 37,
+                    columnNumber: 17
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/Pages/StudentDetails.js",
+            lineNumber: 33,
+            columnNumber: 13
+        }, this);
+    }
+}
+exports.default = StudentDetails;
+
+  $parcel$ReactRefreshHelpers$1e10.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"98fQf":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$a1fc = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -36949,6 +37005,942 @@ exports.default = StaffMemberDet;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["1xC6H","85bBE","8lqZg"], "8lqZg", "parcelRequire2de7")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"kOQfn":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$1fe4 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$1fe4.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRouterDom = require("react-router-dom");
+var _app = require("../App");
+var _appDefault = parcelHelpers.interopDefault(_app);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+class ViewStGroups extends (0, _react.Component) {
+    constructor(props){
+        super(props);
+        this.state = {
+            stgroups: []
+        };
+    }
+    componentDidMount() {
+        this.retrieveStGroups();
+    }
+    retrieveStGroups() {
+        (0, _axiosDefault.default).get("http://localhost:8000/stgroups").then((res)=>{
+            if (res.data.success) {
+                this.setState({
+                    stgroups: res.data.existingStGroups
+                });
+                console.log(this.state.stgroups);
+            }
+        });
+    }
+    render() {
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "container",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                    children: "Research Management Tool"
+                }, void 0, false, {
+                    fileName: "src/Pages/ViewStGroups.js",
+                    lineNumber: 34,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                    children: "All Student Groups"
+                }, void 0, false, {
+                    fileName: "src/Pages/ViewStGroups.js",
+                    lineNumber: 35,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("table", {
+                    className: "table",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("thead", {
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        scope: "col",
+                                        children: "#"
+                                    }, void 0, false, {
+                                        fileName: "src/Pages/ViewStGroups.js",
+                                        lineNumber: 39,
+                                        columnNumber: 29
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        scope: "col",
+                                        children: "Leader ID"
+                                    }, void 0, false, {
+                                        fileName: "src/Pages/ViewStGroups.js",
+                                        lineNumber: 40,
+                                        columnNumber: 29
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        scope: "col",
+                                        children: "Leader Name"
+                                    }, void 0, false, {
+                                        fileName: "src/Pages/ViewStGroups.js",
+                                        lineNumber: 41,
+                                        columnNumber: 29
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        scope: "col",
+                                        children: "Member 1(ID)"
+                                    }, void 0, false, {
+                                        fileName: "src/Pages/ViewStGroups.js",
+                                        lineNumber: 42,
+                                        columnNumber: 29
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        scope: "col",
+                                        children: "Member 1(Name)"
+                                    }, void 0, false, {
+                                        fileName: "src/Pages/ViewStGroups.js",
+                                        lineNumber: 43,
+                                        columnNumber: 29
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        scope: "col",
+                                        children: "Member 2(ID)"
+                                    }, void 0, false, {
+                                        fileName: "src/Pages/ViewStGroups.js",
+                                        lineNumber: 44,
+                                        columnNumber: 29
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        scope: "col",
+                                        children: "Member 2(Name)"
+                                    }, void 0, false, {
+                                        fileName: "src/Pages/ViewStGroups.js",
+                                        lineNumber: 45,
+                                        columnNumber: 29
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        scope: "col",
+                                        children: "Member 3(ID)"
+                                    }, void 0, false, {
+                                        fileName: "src/Pages/ViewStGroups.js",
+                                        lineNumber: 46,
+                                        columnNumber: 29
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        scope: "col",
+                                        children: "Member 3(Name)"
+                                    }, void 0, false, {
+                                        fileName: "src/Pages/ViewStGroups.js",
+                                        lineNumber: 47,
+                                        columnNumber: 29
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        scope: "col",
+                                        children: "Action"
+                                    }, void 0, false, {
+                                        fileName: "src/Pages/ViewStGroups.js",
+                                        lineNumber: 48,
+                                        columnNumber: 29
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/Pages/ViewStGroups.js",
+                                lineNumber: 38,
+                                columnNumber: 25
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "src/Pages/ViewStGroups.js",
+                            lineNumber: 37,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tbody", {
+                            children: this.state.stgroups.map((stgroups, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                            scope: "row",
+                                            children: index + 1
+                                        }, void 0, false, {
+                                            fileName: "src/Pages/ViewStGroups.js",
+                                            lineNumber: 54,
+                                            columnNumber: 33
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                                href: `/stgroup/${stgroups._id}`,
+                                                style: {
+                                                    textDecoration: "none"
+                                                },
+                                                children: stgroups.gLeaderID
+                                            }, void 0, false, {
+                                                fileName: "src/Pages/ViewStGroups.js",
+                                                lineNumber: 55,
+                                                columnNumber: 37
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "src/Pages/ViewStGroups.js",
+                                            lineNumber: 55,
+                                            columnNumber: 33
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: stgroups.gLeaderName
+                                        }, void 0, false, {
+                                            fileName: "src/Pages/ViewStGroups.js",
+                                            lineNumber: 56,
+                                            columnNumber: 33
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: stgroups.mem1ID
+                                        }, void 0, false, {
+                                            fileName: "src/Pages/ViewStGroups.js",
+                                            lineNumber: 57,
+                                            columnNumber: 33
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: stgroups.mem1Name
+                                        }, void 0, false, {
+                                            fileName: "src/Pages/ViewStGroups.js",
+                                            lineNumber: 58,
+                                            columnNumber: 33
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: stgroups.mem2ID
+                                        }, void 0, false, {
+                                            fileName: "src/Pages/ViewStGroups.js",
+                                            lineNumber: 59,
+                                            columnNumber: 33
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: stgroups.mem2Name
+                                        }, void 0, false, {
+                                            fileName: "src/Pages/ViewStGroups.js",
+                                            lineNumber: 60,
+                                            columnNumber: 33
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: stgroups.mem3ID
+                                        }, void 0, false, {
+                                            fileName: "src/Pages/ViewStGroups.js",
+                                            lineNumber: 61,
+                                            columnNumber: 33
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: stgroups.mem3Name
+                                        }, void 0, false, {
+                                            fileName: "src/Pages/ViewStGroups.js",
+                                            lineNumber: 62,
+                                            columnNumber: 33
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                                    href: `/editstgroup/${stgroups._id}`,
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                        className: "btn btn-warning btn-sm",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                                                                className: "fas fa-edit"
+                                                            }, void 0, false, {
+                                                                fileName: "src/Pages/ViewStGroups.js",
+                                                                lineNumber: 64,
+                                                                columnNumber: 118
+                                                            }, this),
+                                                            "\xa0Edit"
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "src/Pages/ViewStGroups.js",
+                                                        lineNumber: 64,
+                                                        columnNumber: 75
+                                                    }, this)
+                                                }, void 0, false, {
+                                                    fileName: "src/Pages/ViewStGroups.js",
+                                                    lineNumber: 64,
+                                                    columnNumber: 33
+                                                }, this),
+                                                "\xa0",
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                    className: "btn btn-danger btn-sm",
+                                                    onClick: ()=>onDeletePayment(students.id),
+                                                    children: [
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                                                            className: "far fa-trash-alt"
+                                                        }, void 0, false, {
+                                                            fileName: "src/Pages/ViewStGroups.js",
+                                                            lineNumber: 67,
+                                                            columnNumber: 120
+                                                        }, this),
+                                                        "\xa0 Delete"
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "src/Pages/ViewStGroups.js",
+                                                    lineNumber: 67,
+                                                    columnNumber: 33
+                                                }, this),
+                                                " \xa0",
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                                    href: `/stgroup/${stgroups._id}`,
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                        className: "btn btn-secondary btn-sm",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                                                                className: "fa fa-info-circle"
+                                                            }, void 0, false, {
+                                                                fileName: "src/Pages/ViewStGroups.js",
+                                                                lineNumber: 70,
+                                                                columnNumber: 116
+                                                            }, this),
+                                                            "\xa0View"
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "src/Pages/ViewStGroups.js",
+                                                        lineNumber: 70,
+                                                        columnNumber: 71
+                                                    }, this)
+                                                }, void 0, false, {
+                                                    fileName: "src/Pages/ViewStGroups.js",
+                                                    lineNumber: 70,
+                                                    columnNumber: 33
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/Pages/ViewStGroups.js",
+                                            lineNumber: 63,
+                                            columnNumber: 33
+                                        }, this)
+                                    ]
+                                }, index, true, {
+                                    fileName: "src/Pages/ViewStGroups.js",
+                                    lineNumber: 53,
+                                    columnNumber: 25
+                                }, this))
+                        }, void 0, false, {
+                            fileName: "src/Pages/ViewStGroups.js",
+                            lineNumber: 51,
+                            columnNumber: 21
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/Pages/ViewStGroups.js",
+                    lineNumber: 36,
+                    columnNumber: 17
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/Pages/ViewStGroups.js",
+            lineNumber: 33,
+            columnNumber: 13
+        }, this);
+    }
+}
+exports.default = ViewStGroups;
+
+  $parcel$ReactRefreshHelpers$1fe4.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"21dqq","react-router-dom":"cHIiW","../App":"2kQhy","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj"}],"7qdhn":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$1ab3 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$1ab3.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+class EditStGroup extends (0, _react.Component) {
+    constructor(props){
+        super(props);
+        this.state = {
+            gLeaderID: "",
+            gLeaderName: "",
+            mem1ID: "",
+            mem1Name: "",
+            mem2ID: "",
+            mem2Name: "",
+            mem3ID: "",
+            mem3Name: ""
+        };
+    }
+    handleinputChange = (e)=>{
+        const { name , value  } = e.target;
+        this.setState({
+            ...this.state,
+            [name]: value
+        });
+    };
+    onSubmit = (e)=>{
+        e.preventDefault();
+        const id = this.props.match.params.id;
+        const { gLeaderID , gLeaderName , mem1ID , mem1Name , mem2ID , mem2Name , mem3ID , mem3Name  } = this.state;
+        const data = {
+            gLeaderID: gLeaderID,
+            gLeaderName: gLeaderName,
+            mem1ID: mem1ID,
+            mem1Name: mem1Name,
+            mem2ID: mem2ID,
+            mem2Name: mem2Name,
+            mem3ID: mem3ID,
+            mem3Name: mem3Name
+        };
+        console.log(data);
+        (0, _axiosDefault.default).put(`/stgroups/update/${id}`, data).then((res)=>{
+            if (res.data.success) {
+                alert("Details Updated Successfully");
+                this.setState({
+                    gLeaderID: "",
+                    gLeaderName: "",
+                    mem1ID: "",
+                    mem1Name: "",
+                    mem2ID: "",
+                    mem2Name: "",
+                    mem3ID: "",
+                    mem3Name: ""
+                });
+            }
+        });
+    };
+    componentDidMount() {
+        const id = this.props.match.params.id;
+        (0, _axiosDefault.default).get(`http://localhost:8000/stgroups/${id}`).then((res)=>{
+            if (res.data.success) {
+                this.setState({
+                    gLeaderID: res.data.stGroup.gLeaderID,
+                    gLeaderName: res.data.stGroup.gLeaderName,
+                    mem1ID: res.data.stGroup.mem1ID,
+                    mem1Name: res.data.stGroup.mem1Name,
+                    mem2ID: res.data.stGroup.mem2ID,
+                    mem2Name: res.data.stGroup.mem2Name,
+                    mem3ID: res.data.stGroup.mem3ID,
+                    mem3Name: res.data.stGroup.mem3Name
+                });
+                console.log(this.state.stGroup);
+            }
+        });
+    }
+    render() {
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "col-md-8 mt-4 mx-auto",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                    className: "h3 mb-3 font-weight-normal",
+                    children: "Edit Group Details"
+                }, void 0, false, {
+                    fileName: "src/Pages/EditStGroup.js",
+                    lineNumber: 91,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                    className: "needs-validation",
+                    noValidate: true,
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Leader ID"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStGroup.js",
+                                    lineNumber: 94,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    name: "gLeaderID",
+                                    placeholder: "ITxxxxxxxx",
+                                    value: this.state.gLeaderID,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStGroup.js",
+                                    lineNumber: 95,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStGroup.js",
+                            lineNumber: 93,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Leader Name"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStGroup.js",
+                                    lineNumber: 104,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    name: "gLeaderName",
+                                    placeholder: "Enter Name",
+                                    value: this.state.gLeaderName,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStGroup.js",
+                                    lineNumber: 105,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStGroup.js",
+                            lineNumber: 103,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Member1 ID"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStGroup.js",
+                                    lineNumber: 114,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    name: "mem1ID",
+                                    placeholder: "itxxxxxxxx",
+                                    value: this.state.mem1ID,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStGroup.js",
+                                    lineNumber: 115,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStGroup.js",
+                            lineNumber: 113,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Member1 Name"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStGroup.js",
+                                    lineNumber: 124,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    name: "mem1Name",
+                                    placeholder: "Enter Name",
+                                    value: this.state.mem1Name,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStGroup.js",
+                                    lineNumber: 125,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStGroup.js",
+                            lineNumber: 123,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Member2 ID"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStGroup.js",
+                                    lineNumber: 134,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    name: "mem2ID",
+                                    placeholder: "itxxxxxxxx",
+                                    value: this.state.mem2ID,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStGroup.js",
+                                    lineNumber: 135,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStGroup.js",
+                            lineNumber: 133,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Member2 Name"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStGroup.js",
+                                    lineNumber: 144,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    name: "mem2Name",
+                                    placeholder: "Enter Name",
+                                    value: this.state.mem2Name,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStGroup.js",
+                                    lineNumber: 145,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStGroup.js",
+                            lineNumber: 143,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Member3 ID"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStGroup.js",
+                                    lineNumber: 154,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    name: "mem3ID",
+                                    placeholder: "itxxxxxxxx",
+                                    value: this.state.mem3ID,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStGroup.js",
+                                    lineNumber: 155,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStGroup.js",
+                            lineNumber: 153,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-group",
+                            style: {
+                                marginBottom: "15px"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    style: {
+                                        marginBottom: "5px"
+                                    },
+                                    children: "Member3 Name"
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStGroup.js",
+                                    lineNumber: 164,
+                                    columnNumber: 25
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    name: "mem3Name",
+                                    placeholder: "Enter Name",
+                                    value: this.state.mem3Name,
+                                    onChange: this.handleinputChange
+                                }, void 0, false, {
+                                    fileName: "src/Pages/EditStGroup.js",
+                                    lineNumber: 165,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/Pages/EditStGroup.js",
+                            lineNumber: 163,
+                            columnNumber: 21
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/Pages/EditStGroup.js",
+                    lineNumber: 92,
+                    columnNumber: 17
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/Pages/EditStGroup.js",
+            lineNumber: 90,
+            columnNumber: 13
+        }, this);
+    }
+}
+exports.default = EditStGroup;
+
+  $parcel$ReactRefreshHelpers$1ab3.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"axios":"jo6P5","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj"}],"l1uge":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$c748 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$c748.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+class StGroup extends (0, _react.Component) {
+    constructor(props){
+        super(props);
+        this.state = {
+            stgroup: {}
+        };
+    }
+    componentDidMount() {
+        const id = this.props.match.params.id;
+        (0, _axiosDefault.default).get(`http://localhost:8000/stgroups/${id}`).then((res)=>{
+            if (res.data.success) {
+                this.setState({
+                    stgroup: res.data.stGroup
+                });
+                console.log(this.state.stgroup);
+            }
+        });
+    }
+    render() {
+        const { gLeaderID , gLeaderName , mem1ID , mem1Name , mem2ID , mem2Name , mem3ID , mem3Name  } = this.state.stgroup;
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            style: {
+                marginTop: "20px"
+            },
+            className: "container",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                    children: "Group Details"
+                }, void 0, false, {
+                    fileName: "src/Pages/StGroup.js",
+                    lineNumber: 32,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                    fileName: "src/Pages/StGroup.js",
+                    lineNumber: 33,
+                    columnNumber: 17
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dl", {
+                    className: "row",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dt", {
+                            className: "col-sm-3",
+                            children: "Leader ID"
+                        }, void 0, false, {
+                            fileName: "src/Pages/StGroup.js",
+                            lineNumber: 36,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
+                            className: "col-sm-9",
+                            children: gLeaderID
+                        }, void 0, false, {
+                            fileName: "src/Pages/StGroup.js",
+                            lineNumber: 37,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dt", {
+                            className: "col-sm-3",
+                            children: "Leader Name"
+                        }, void 0, false, {
+                            fileName: "src/Pages/StGroup.js",
+                            lineNumber: 39,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
+                            className: "col-sm-9",
+                            children: gLeaderName
+                        }, void 0, false, {
+                            fileName: "src/Pages/StGroup.js",
+                            lineNumber: 40,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dt", {
+                            className: "col-sm-3",
+                            children: "Member1 ID"
+                        }, void 0, false, {
+                            fileName: "src/Pages/StGroup.js",
+                            lineNumber: 42,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
+                            className: "col-sm-9",
+                            children: mem1ID
+                        }, void 0, false, {
+                            fileName: "src/Pages/StGroup.js",
+                            lineNumber: 43,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dt", {
+                            className: "col-sm-3",
+                            children: "Member1 Name"
+                        }, void 0, false, {
+                            fileName: "src/Pages/StGroup.js",
+                            lineNumber: 45,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
+                            className: "col-sm-9",
+                            children: mem1Name
+                        }, void 0, false, {
+                            fileName: "src/Pages/StGroup.js",
+                            lineNumber: 46,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dt", {
+                            className: "col-sm-3",
+                            children: "Member2 ID"
+                        }, void 0, false, {
+                            fileName: "src/Pages/StGroup.js",
+                            lineNumber: 48,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
+                            className: "col-sm-9",
+                            children: mem2ID
+                        }, void 0, false, {
+                            fileName: "src/Pages/StGroup.js",
+                            lineNumber: 49,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dt", {
+                            className: "col-sm-3",
+                            children: "Member2 Name"
+                        }, void 0, false, {
+                            fileName: "src/Pages/StGroup.js",
+                            lineNumber: 51,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
+                            className: "col-sm-9",
+                            children: mem2Name
+                        }, void 0, false, {
+                            fileName: "src/Pages/StGroup.js",
+                            lineNumber: 52,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dt", {
+                            className: "col-sm-3",
+                            children: "Member3 ID"
+                        }, void 0, false, {
+                            fileName: "src/Pages/StGroup.js",
+                            lineNumber: 54,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
+                            className: "col-sm-9",
+                            children: mem3ID
+                        }, void 0, false, {
+                            fileName: "src/Pages/StGroup.js",
+                            lineNumber: 55,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dt", {
+                            className: "col-sm-3",
+                            children: "Member3 Name"
+                        }, void 0, false, {
+                            fileName: "src/Pages/StGroup.js",
+                            lineNumber: 57,
+                            columnNumber: 21
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("dd", {
+                            className: "col-sm-9",
+                            children: mem3Name
+                        }, void 0, false, {
+                            fileName: "src/Pages/StGroup.js",
+                            lineNumber: 58,
+                            columnNumber: 21
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/Pages/StGroup.js",
+                    lineNumber: 35,
+                    columnNumber: 17
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/Pages/StGroup.js",
+            lineNumber: 31,
+            columnNumber: 13
+        }, this);
+    }
+}
+exports.default = StGroup;
+
+  $parcel$ReactRefreshHelpers$c748.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"21dqq","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj"}],"lJWz1":[function(require,module,exports) {
+
+},{}]},["1xC6H","85bBE","8lqZg"], "8lqZg", "parcelRequire2de7")
 
 //# sourceMappingURL=index.975ef6c8.js.map

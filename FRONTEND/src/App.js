@@ -23,6 +23,12 @@
     import ViewStaff from './Pages/ViewStaff';
     import EditStaffMem from './Pages/EditStaffMem';
     import StaffMemberDet from './Pages/StaffMemberDet';
+
+    //Student Group Details Pages
+    import ViewStGroups from './Pages/ViewStGroups';
+    import EditStGroup from './Pages/EditStGroup';
+    import StGroup from './Pages/StGroup';
+    import CreateStGroup from './Pages/CreateStGroup';
     
     class App extends Component {
       render() {
@@ -40,6 +46,11 @@
                   <Route path='/viewstaff' component={ViewStaff}/>
                   <Route path='/staffmem/:id' component={StaffMemberDet}/>
                   <Route path='/editStudents/:id' component={EditStudent}/>
+
+                  <Route path='/viewstgroups' component={ViewStGroups}/>
+                  <Route path='/stgroup/:id' component={StGroup}/>
+                  <Route path='/editstgroup/:id' component={EditStGroup}/>
+                  <Route path='/addstgroup' component={CreateStGroup}/>
 
                   <Route exact path='/addTDtl' component={InsertTopicDtl}/>
                   <Route path='/viewTDtl' component={ViewStTopicDtl}/>

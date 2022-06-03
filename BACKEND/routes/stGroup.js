@@ -29,7 +29,7 @@ router.get('/stgroups',(req,res)=>{
         }
         return res.status(200).json({
             success:true,
-            existingStudents:stgroups
+            existingStGroups:stgroups
         });
     });
 });
