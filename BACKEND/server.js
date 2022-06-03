@@ -2,12 +2,17 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const dotenv = require('dotenv').config()
+const dotenv = require('dotenv').config();
+const {errorHandler} = require('./middleware/errorMiddleware')
 
 const app = express();
 
-app.use('/api/goals', require('./routes/goalRoutes'))
+//Hansaka
+app.use(express.json())
+app.use(express.urlencoded({extended: false }))
 
+app.use('/api/goals', require('./routes/goalRoutes'))
+app.use(errorHandler)
 
 //import routes
 const studentRoutes = require('./routes/students');
