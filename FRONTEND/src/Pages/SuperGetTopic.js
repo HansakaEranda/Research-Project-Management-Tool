@@ -48,18 +48,21 @@ class SuperGetTopic extends Component{
     
     render(){
         return(
-            
+            <div className="addtopic">
+                <div className="ish" style={{padding:"80px"}}> 
                 <div >
                     <div class="cont"><h2>Research Requests</h2></div>
                     {this.state.topics.map((topics,index) => (
                  
-                <div>                       
-                <label><b>Group ID</b></label>{topics.gId}<button type="button" name="vi" id="vi" onClick={this.action}><a href={`/sviewtdtl/${topics._id}`}>View</a></button>
+                <div class="dis" style={{padding:"120px"}}>                       
+                <label><b>Group ID</b></label> {topics.gId} <button className="vbtn" type="button" name="vi" id="vi" onClick={this.action}><a href={`/sviewtdtl/${topics._id}`}><b>View</b></a></button>
                 <b style={{color: "red"}}>{this.state.viewed}</b>
-                    </div>
-                    ))} 
+                </div>
+                ))} 
                 <br/>
                 <br/>
+            </div>
+            </div>
             </div>
                              
         ); 

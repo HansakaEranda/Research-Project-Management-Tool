@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import '../index.css';
 
 const dState = {
     gId:"",
@@ -15,7 +16,7 @@ const dState = {
     mem2Error:"",
     mem3Error:"",
     topicError:"",
-    supervisorError:""
+    //supervisorError:""
 }
 
 export default class InsertTopicDtl extends Component{
@@ -28,7 +29,7 @@ export default class InsertTopicDtl extends Component{
         let mem2Error = "";
         let mem3Error = "";
         let topicError = "";
-        let supervisorError = "";
+        //let supervisorError = "";
 
         if(!this.state.gId){
             gIdError = 'Group ID field cannot be empty!';
@@ -54,12 +55,8 @@ export default class InsertTopicDtl extends Component{
             topicError = 'Topic field cannot be empty!';
         }
 
-        if(!this.state.supervisor){
-            topicError = 'Supervisor field cannot be empty!';
-        }
-
-        if(gIdError || gLeaderError || mem1Error || mem2Error ||mem3Error || topicError || supervisorError){
-            this.setState({gIdError, gLeaderError, mem1Error, mem2Error, mem3Error, topicError, supervisorError});
+        if(gIdError || gLeaderError || mem1Error || mem2Error ||mem3Error || topicError ){
+            this.setState({gIdError, gLeaderError, mem1Error, mem2Error, mem3Error, topicError});
             return false;
         }
 
@@ -101,12 +98,12 @@ export default class InsertTopicDtl extends Component{
             if(res.data.success){
                 this.setState({
                     gId:"",
-                        gLeader:"",
-                        mem1:"",
-                        mem2:"",
-                        mem3:"",
-                        topic:"",
-                        supervisor:""
+                    gLeader:"",
+                    mem1:"",
+                    mem2:"",
+                    mem3:"",
+                    topic:"",
+                    supervisor:""
                 })
             }
         }).catch((err)=>{
@@ -117,9 +114,11 @@ export default class InsertTopicDtl extends Component{
 
     render(){
         return (
-            <div>
-                <form class="container">
-                    <button className="abtn" type="button"><a href="/viewTDtl" style={{textDecoration:'none',color:'black'}} required>View Details</a></button>
+            <div className="addtopic">
+                <div className="ish">
+                <button className="abtn" type="button"><a href="/viewTDtl" style={{textDecoration:'none',color:'black'}} required><b>View Details</b></a></button>
+                <form style={{margin: "auto", padding: "15px", maxWidth: "400px", alignContent: "center", }}>
+                    <div >
                     <h2>Insert Topic Details</h2>
 
                     <div>
@@ -190,7 +189,7 @@ export default class InsertTopicDtl extends Component{
 
                     <div>
                         <label name="supervisor">Supervisor</label><br/>
-                        <select>
+                        <select id="supervisor" name="supervisor">
                                 <option value="0">Select Supervisor</option>
                                 <option value="1">Prof. Sarath Gunawardhane</option>
                                 <option value="2">Prof. Prageeth Wijayawardhane</option>
@@ -202,9 +201,10 @@ export default class InsertTopicDtl extends Component{
                     </div>
 
                     <br/><br/>
-                    <button type="submit" onClick={this.onSubmit} >Save</button><br/>
-                           
+                    <button className="sbtn" type="submit" onClick={this.onSubmit} ><b>Save</b></button><br/>
+                    </div>
                 </form> 
+                </div>
             </div>
         )
     }

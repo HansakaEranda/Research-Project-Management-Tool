@@ -49,13 +49,14 @@ class ViewStTopicDtl extends Component{
     render(){
         return(
             
-                <div className="container">
+                <div className="addtopic" >
+                <div className="ish">
                 <div >
                 <h2>All Topic Details</h2>                        
                 <div>
                 <input className="search" type="search" placeholder="Search" name="searchQuery" onChange={this.handleSearchArea}>
-            </input>
-                <table className="table">
+            </input><br/><br/>
+                <table className="table" style={{margin: "auto", padding: "15px", maxWidth: "1000px", alignContent: "center", }}>
                     <thead>
                         <tr>
                             <th scope="col"></th>
@@ -85,9 +86,10 @@ class ViewStTopicDtl extends Component{
                             </tr>
                         ))}
                     </tbody>
-                </table>
-                <button type="button" ><a href="/addtdtl" style={{textDecoration:'none',color:'black'}}>Add new</a></button><br/>
+                </table><br/><br/>
+                <button className="sbtn" type="button" ><a href="/addtdtl" style={{textDecoration:'none',color:'black'}}>Add new</a></button><br/>
                 <br/><br/></div>
+            </div>
             </div>
             </div>
         ); 

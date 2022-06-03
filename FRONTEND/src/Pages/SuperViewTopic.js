@@ -68,11 +68,11 @@ export default class SuperViewTopic extends Component{
         const {gId, gLeader, mem1, mem2, mem3, topic, supervisor} = this.state.topics;
         return(
             
-                <div >
-                <div >
-                <div class="cont"><h2>Topic Details</h2></div>
+                <div className="addtopic">
+                <div className="ish">
+                <div class="cont" style={{textAlign:"center"}}><h2>Topic Details</h2></div>
                                                  
-           <div>
+           <div class="dis">
                <label><b>Group ID - </b></label> {gId}<br/>
 
                <label><b>Group Leader - </b></label> {gLeader}<br/>
@@ -85,14 +85,14 @@ export default class SuperViewTopic extends Component{
 
                <label><b>Topic - </b></label> {topic}<br/>
 
-               <label><b>Supervisor - </b></label> {supervisor}<br/>
+               <label><b>Supervisor - </b></label> {supervisor}<br/><br/><br/>
 
            </div>
-                <button name="ac" id="ac" onClick={this.decision1}>Accept</button>
-                <button name="dc" id="dc" onClick={this.decision2}>Decline</button><br/><br/>
+                <button className="vbtn" name="ac" id="ac" onClick={this.decision1}><b>Accept</b></button> &nbsp;
+                <button className="vbtn" name="dc" id="dc" onClick={this.decision2}><b>Decline</b></button><br/><br/>
                 <div style={{color: "red"}}><b>{this.state.accepted}</b></div>
                 <div style={{color: "red"}}><b>{this.state.declined}</b></div>
-                <button type="button"><a href="/sgettopic" style={{textDecoration:'none',color:'black'}}>Back</a></button><br/>
+                <button className="vbtn" type="button"><a href="/sgettopic" style={{textDecoration:'none',color:'black'}}><b>Back</b></a></button><br/>
                 <br/><br/></div>
             </div>
         ); 

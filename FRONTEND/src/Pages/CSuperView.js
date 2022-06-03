@@ -29,11 +29,11 @@ class CSuperView extends Component{
         const {gId, gLeader, mem1, mem2, mem3, topic, supervisor} = this.state.topics;
         return(
             
-                <div >
-                <div >
+                <div className="addtopic">
+                <div className="ish">
                 <div class="cont"><h2>Topic Details</h2></div>
                                                  
-           <div>
+           <div class="dis">
                <label><b>Group ID - </b></label> {gId}<br/>
 
                <label><b>Group Leader - </b></label> {gLeader}<br/>
@@ -49,7 +49,7 @@ class CSuperView extends Component{
                <label><b>Supervisor - </b></label> {supervisor}<br/>
 
            </div>
-                <button>Accept    </button><button>Decline</button><br/><br/>
+                <button>Accept</button>&nbsp;<button>Decline</button><br/><br/>
                 <button type="button" ><a href="/csgtdtl" style={{textDecoration:'none',color:'black'}}>Back</a></button><br/>
                 <br/><br/></div>
             </div>

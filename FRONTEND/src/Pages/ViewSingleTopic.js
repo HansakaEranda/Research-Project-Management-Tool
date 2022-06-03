@@ -24,9 +24,10 @@ export default class ViewSingleTopic extends Component{
         const {gId, gLeader, mem1, mem2, mem3, topic, supervisor} = this.state.topics;
       return(
         
-        <div>                    
+        <div className="addtopic">                    
 
-           <div>
+           <div className="ish"style={{padding:"50px"}}>
+               <div class="dis" style={{padding:"80px"}}>
                <label><b>Group ID - </b></label> {gId}<br/>
 
                <label><b>Group Leader - </b></label> {gLeader}<br/>
@@ -40,7 +41,8 @@ export default class ViewSingleTopic extends Component{
                <label><b>Topic - </b></label> {topic}<br/>
 
                <label><b>Supervisor - </b></label> {supervisor}<br/>
-
+               </div>
+               <button className="vbtn" type="button"><a href="/viewTDtl"><b>Back</b></a></button><br/>
            </div>
   
         </div>
