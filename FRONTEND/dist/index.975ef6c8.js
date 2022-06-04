@@ -2876,12 +2876,11 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactDom = require("react-dom");
 var _reactDomDefault = parcelHelpers.interopDefault(_reactDom);
-var _indexCss = require("./index.css");
 var _app = require("./App");
 var _appDefault = parcelHelpers.interopDefault(_app);
 (0, _reactDomDefault.default).render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _appDefault.default), {}, void 0, false, {
     fileName: "src/index.js",
-    lineNumber: 6,
+    lineNumber: 5,
     columnNumber: 17
 }, undefined), document.getElementById("root"));
 
@@ -2890,7 +2889,7 @@ var _appDefault = parcelHelpers.interopDefault(_app);
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom":"j6uA9","./App":"2kQhy","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./index.css":"irmnC"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom":"j6uA9","./App":"2kQhy","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("./cjs/react-jsx-dev-runtime.development.js");
 
@@ -26955,6 +26954,8 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
+var _home = require("./Pages/Home");
+var _homeDefault = parcelHelpers.interopDefault(_home);
 var _navBar = require("./Pages/NavBar");
 var _navBarDefault = parcelHelpers.interopDefault(_navBar);
 //Topic Details Pages
@@ -26995,238 +26996,191 @@ var _stGroup = require("./Pages/StGroup");
 var _stGroupDefault = parcelHelpers.interopDefault(_stGroup);
 var _createStGroup = require("./Pages/CreateStGroup");
 var _createStGroupDefault = parcelHelpers.interopDefault(_createStGroup);
-//loginpages
-var _login = require("./Pages/Login");
-var _loginDefault = parcelHelpers.interopDefault(_login);
-var _register = require("./Pages/Register");
-var _registerDefault = parcelHelpers.interopDefault(_register);
-var _home = require("./Pages/Home");
-var _homeDefault = parcelHelpers.interopDefault(_home);
-var _s = $RefreshSig$();
-//class App extends Component {
-function App() {
-    _s();
-    const [students, setLoginUser] = (0, _react.useState)({});
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navBarDefault.default), {}, void 0, false, {
-                    fileName: "src/App.js",
-                    lineNumber: 46,
-                    columnNumber: 11
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Switch), {
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                            exact: true,
-                            path: "/",
-                            children: students && students._id ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _homeDefault.default), {
-                                setLoginUser: setLoginUser
+class App extends (0, _react.Component) {
+    render() {
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navBarDefault.default), {}, void 0, false, {
+                        fileName: "src/App.js",
+                        lineNumber: 38,
+                        columnNumber: 15
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Switch), {
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                exact: true,
+                                path: "/",
+                                component: (0, _homeDefault.default)
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 40,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/viewstudents",
+                                component: (0, _viewStudentsDefault.default)
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 42,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/student/:id",
+                                component: (0, _studentDetailsDefault.default)
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 43,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/editStaff/:id",
+                                component: (0, _editStaffMemDefault.default)
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 44,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/viewstaff",
+                                component: (0, _viewStaffDefault.default)
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 46,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/staffmem/:id",
+                                component: (0, _staffMemberDetDefault.default)
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 47,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/editStudents/:id",
+                                component: (0, _editStudentDefault.default)
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 48,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/viewstgroups",
+                                component: (0, _viewStGroupsDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
                                 lineNumber: 50,
-                                columnNumber: 46
-                            }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginDefault.default), {
-                                setLoginUser: setLoginUser
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/stgroup/:id",
+                                component: (0, _stGroupDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 50,
-                                columnNumber: 85
-                            }, this)
-                        }, void 0, false, {
-                            fileName: "src/App.js",
-                            lineNumber: 48,
-                            columnNumber: 15
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                            path: "/login",
-                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginDefault.default), {
-                                setLoginUser: setLoginUser
+                                lineNumber: 51,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/editstgroup/:id",
+                                component: (0, _editStGroupDefault.default)
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 52,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/addstgroup",
+                                component: (0, _createStGroupDefault.default)
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 53,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                exact: true,
+                                path: "/addTDtl",
+                                component: (0, _insertTopicDtlDefault.default)
                             }, void 0, false, {
                                 fileName: "src/App.js",
                                 lineNumber: 55,
-                                columnNumber: 15
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/viewTDtl",
+                                component: (0, _viewStTopicDtlDefault.default)
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 56,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/sgettopic",
+                                component: (0, _superGetTopicDefault.default)
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 57,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/sviewtdtl/:id",
+                                component: (0, _superViewTopicDefault.default)
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 58,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/sinviewtdtl/:id",
+                                component: (0, _viewSingleTopicDefault.default)
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 59,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/csgtdtl",
+                                component: (0, _csuperGetDefault.default)
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 60,
+                                columnNumber: 19
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                                path: "/csvtdtl/:id",
+                                component: (0, _csuperViewDefault.default)
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 61,
+                                columnNumber: 19
                             }, this)
-                        }, void 0, false, {
-                            fileName: "src/App.js",
-                            lineNumber: 54,
-                            columnNumber: 15
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                            path: "/register",
-                            component: (0, _registerDefault.default)
-                        }, void 0, false, {
-                            fileName: "src/App.js",
-                            lineNumber: 57,
-                            columnNumber: 15
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                            path: "/viewstudents",
-                            component: (0, _viewStudentsDefault.default)
-                        }, void 0, false, {
-                            fileName: "src/App.js",
-                            lineNumber: 59,
-                            columnNumber: 15
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                            path: "/student/:id",
-                            component: (0, _studentDetailsDefault.default)
-                        }, void 0, false, {
-                            fileName: "src/App.js",
-                            lineNumber: 60,
-                            columnNumber: 15
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                            path: "/editStaff/:id",
-                            component: (0, _editStaffMemDefault.default)
-                        }, void 0, false, {
-                            fileName: "src/App.js",
-                            lineNumber: 61,
-                            columnNumber: 15
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                            path: "/viewstaff",
-                            component: (0, _viewStaffDefault.default)
-                        }, void 0, false, {
-                            fileName: "src/App.js",
-                            lineNumber: 63,
-                            columnNumber: 15
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                            path: "/staffmem/:id",
-                            component: (0, _staffMemberDetDefault.default)
-                        }, void 0, false, {
-                            fileName: "src/App.js",
-                            lineNumber: 64,
-                            columnNumber: 15
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                            path: "/editStudents/:id",
-                            component: (0, _editStudentDefault.default)
-                        }, void 0, false, {
-                            fileName: "src/App.js",
-                            lineNumber: 65,
-                            columnNumber: 15
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                            path: "/viewstgroups",
-                            component: (0, _viewStGroupsDefault.default)
-                        }, void 0, false, {
-                            fileName: "src/App.js",
-                            lineNumber: 67,
-                            columnNumber: 15
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                            path: "/stgroup/:id",
-                            component: (0, _stGroupDefault.default)
-                        }, void 0, false, {
-                            fileName: "src/App.js",
-                            lineNumber: 68,
-                            columnNumber: 15
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                            path: "/editstgroup/:id",
-                            component: (0, _editStGroupDefault.default)
-                        }, void 0, false, {
-                            fileName: "src/App.js",
-                            lineNumber: 69,
-                            columnNumber: 15
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                            path: "/addstgroup",
-                            component: (0, _createStGroupDefault.default)
-                        }, void 0, false, {
-                            fileName: "src/App.js",
-                            lineNumber: 70,
-                            columnNumber: 15
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                            exact: true,
-                            path: "/addTDtl",
-                            component: (0, _insertTopicDtlDefault.default)
-                        }, void 0, false, {
-                            fileName: "src/App.js",
-                            lineNumber: 72,
-                            columnNumber: 15
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                            path: "/viewTDtl",
-                            component: (0, _viewStTopicDtlDefault.default)
-                        }, void 0, false, {
-                            fileName: "src/App.js",
-                            lineNumber: 73,
-                            columnNumber: 15
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                            path: "/sgettopic",
-                            component: (0, _superGetTopicDefault.default)
-                        }, void 0, false, {
-                            fileName: "src/App.js",
-                            lineNumber: 74,
-                            columnNumber: 15
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                            path: "/sviewtdtl/:id",
-                            component: (0, _superViewTopicDefault.default)
-                        }, void 0, false, {
-                            fileName: "src/App.js",
-                            lineNumber: 75,
-                            columnNumber: 15
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                            path: "/sinviewtdtl/:id",
-                            component: (0, _viewSingleTopicDefault.default)
-                        }, void 0, false, {
-                            fileName: "src/App.js",
-                            lineNumber: 76,
-                            columnNumber: 15
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                            path: "/csgtdtl",
-                            component: (0, _csuperGetDefault.default)
-                        }, void 0, false, {
-                            fileName: "src/App.js",
-                            lineNumber: 77,
-                            columnNumber: 15
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                            path: "/csvtdtl/:id",
-                            component: (0, _csuperViewDefault.default)
-                        }, void 0, false, {
-                            fileName: "src/App.js",
-                            lineNumber: 78,
-                            columnNumber: 15
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/App.js",
-                    lineNumber: 47,
-                    columnNumber: 11
-                }, this)
-            ]
-        }, void 0, true, {
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/App.js",
+                        lineNumber: 39,
+                        columnNumber: 15
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/App.js",
+                lineNumber: 37,
+                columnNumber: 13
+            }, this)
+        }, void 0, false, {
             fileName: "src/App.js",
-            lineNumber: 45,
+            lineNumber: 36,
             columnNumber: 9
-        }, this)
-    }, void 0, false, {
-        fileName: "src/App.js",
-        lineNumber: 44,
-        columnNumber: 5
-    }, this);
+        }, this);
+    }
 }
-_s(App, "7GL0ocefDDVDI4CjC8NQ8Mx+NF0=");
-_c = App;
 exports.default = App;
-var _c;
-$RefreshReg$(_c, "App");
 
   $parcel$ReactRefreshHelpers$f00f.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"cHIiW","./Pages/Home":"3ABAM","./Pages/NavBar":"8ajGy","./Pages/InsertTopicDtl":"8CjXa","./Pages/ViewStTopicDtl":"9sGNH","./Pages/SuperGetTopic":"hp91B","./Pages/SuperViewTopic":"8J7Kv","./Pages/ViewSingleTopic":"1iXc0","./Pages/CSuperGet":"izG8o","./Pages/CSuperView":"ij2Ae","./Pages/ViewStudents":"3KRlG","./Pages/EditStudent":"hdVSo","./Pages/StudentDetails":"foIzQ","./Pages/ViewStaff":"98fQf","./Pages/EditStaffMem":"b2VSX","./Pages/StaffMemberDet":"iuWnC","./Pages/ViewStGroups":"kOQfn","./Pages/EditStGroup":"7qdhn","./Pages/StGroup":"l1uge","./Pages/CreateStGroup":"lJWz1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Pages/Login":"8Zy7Y","./Pages/Register":"kZlMR"}],"cHIiW":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"cHIiW","./Pages/Home":"3ABAM","./Pages/NavBar":"8ajGy","./Pages/InsertTopicDtl":"8CjXa","./Pages/ViewStTopicDtl":"9sGNH","./Pages/SuperGetTopic":"hp91B","./Pages/SuperViewTopic":"8J7Kv","./Pages/ViewSingleTopic":"1iXc0","./Pages/CSuperGet":"izG8o","./Pages/CSuperView":"ij2Ae","./Pages/ViewStudents":"3KRlG","./Pages/EditStudent":"hdVSo","./Pages/StudentDetails":"foIzQ","./Pages/ViewStaff":"98fQf","./Pages/EditStaffMem":"b2VSX","./Pages/StaffMemberDet":"iuWnC","./Pages/ViewStGroups":"kOQfn","./Pages/EditStGroup":"7qdhn","./Pages/StGroup":"l1uge","./Pages/CreateStGroup":"lJWz1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"cHIiW":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MemoryRouter", ()=>(0, _reactRouter.MemoryRouter));
@@ -30282,45 +30236,31 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _homeCss = require("./Home.css");
-const Home = ({ setLoginUser  })=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "homepage",
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                children: "Hello Homepage"
+class Home extends (0, _react.Component) {
+    render() {
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                children: "Home"
             }, void 0, false, {
                 fileName: "src/Pages/Home.js",
                 lineNumber: 7,
                 columnNumber: 11
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "button",
-                onClick: ()=>setLoginUser({}),
-                children: "Logout"
-            }, void 0, false, {
-                fileName: "src/Pages/Home.js",
-                lineNumber: 8,
-                columnNumber: 11
-            }, undefined)
-        ]
-    }, void 0, true, {
-        fileName: "src/Pages/Home.js",
-        lineNumber: 6,
-        columnNumber: 7
-    }, undefined);
-};
-_c = Home;
+            }, this)
+        }, void 0, false, {
+            fileName: "src/Pages/Home.js",
+            lineNumber: 6,
+            columnNumber: 9
+        }, this);
+    }
+}
 exports.default = Home;
-var _c;
-$RefreshReg$(_c, "Home");
 
   $parcel$ReactRefreshHelpers$d586.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Home.css":"dPtM0"}],"km3Ru":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"km3Ru":[function(require,module,exports) {
 "use strict";
 var Refresh = require("react-refresh/runtime");
 function debounce(func, delay) {
@@ -30440,7 +30380,7 @@ function registerExportsForReactRefresh(module) {
     }
 }
 
-},{"react-refresh/runtime":"786KC"}],"dPtM0":[function() {},{}],"8ajGy":[function(require,module,exports) {
+},{"react-refresh/runtime":"786KC"}],"8ajGy":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$56c8 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -38596,278 +38536,6 @@ exports.default = CreateStGroup;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"8Zy7Y":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$ddea = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$ddea.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _loginCss = require("./login.css");
-var _axios = require("axios");
-var _axiosDefault = parcelHelpers.interopDefault(_axios);
-var _reactRouterDom = require("react-router-dom");
-var _s = $RefreshSig$();
-const Login = ({ setLoginUser  })=>{
-    _s();
-    const history = (0, _reactRouterDom.useHistory)();
-    const [students, setStudent] = (0, _react.useState)({
-        stuserName: "",
-        stpwd: ""
-    });
-    const handleChange = (e)=>{
-        const { name , value  } = e.target;
-        setStudent({
-            ...students,
-            [name]: value
-        });
-    };
-    const login = ()=>{
-        (0, _axiosDefault.default).post("http://localhost:8000/stlogin", students).then((res)=>{
-            alert(res.data.message);
-            setLoginUser(res.data.students);
-            history.push("/");
-        });
-    };
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "login",
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                children: "Login"
-            }, void 0, false, {
-                fileName: "src/Pages/Login.js",
-                lineNumber: 35,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                type: "text",
-                name: "stuserName",
-                value: students.stuserName,
-                onChange: handleChange,
-                placeholder: "Enter your UserName"
-            }, void 0, false, {
-                fileName: "src/Pages/Login.js",
-                lineNumber: 36,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                type: "password",
-                name: "stpwd",
-                value: students.stpwd,
-                onChange: handleChange,
-                placeholder: "Enter your Password"
-            }, void 0, false, {
-                fileName: "src/Pages/Login.js",
-                lineNumber: 37,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "button",
-                onClick: login,
-                children: "Login"
-            }, void 0, false, {
-                fileName: "src/Pages/Login.js",
-                lineNumber: 38,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                children: "or"
-            }, void 0, false, {
-                fileName: "src/Pages/Login.js",
-                lineNumber: 39,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "button",
-                onClick: ()=>history.push("/register"),
-                children: "Register"
-            }, void 0, false, {
-                fileName: "src/Pages/Login.js",
-                lineNumber: 40,
-                columnNumber: 13
-            }, undefined)
-        ]
-    }, void 0, true, {
-        fileName: "src/Pages/Login.js",
-        lineNumber: 34,
-        columnNumber: 9
-    }, undefined);
-};
-_s(Login, "P0r0Suja9T3AUuUZLlAJaZKBS6A=", false, function() {
-    return [
-        (0, _reactRouterDom.useHistory)
-    ];
-});
-_c = Login;
-exports.default = Login;
-var _c;
-$RefreshReg$(_c, "Login");
-
-  $parcel$ReactRefreshHelpers$ddea.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./login.css":"1RyBo","axios":"jo6P5","react-router-dom":"cHIiW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"1RyBo":[function() {},{}],"kZlMR":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$2525 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$2525.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _registerCss = require("./register.css");
-var _axios = require("axios");
-var _axiosDefault = parcelHelpers.interopDefault(_axios);
-var _reactRouterDom = require("react-router-dom");
-var _s = $RefreshSig$();
-const Register = ()=>{
-    _s();
-    const history = (0, _reactRouterDom.useHistory)();
-    const [students, setStudents] = (0, _react.useState)({
-        stname: "",
-        regNo: "",
-        stemail: "",
-        stuserName: "",
-        stpwd: ""
-    });
-    const handleChange = (e)=>{
-        const { name , value  } = e.target;
-        setStudents({
-            ...students,
-            [name]: value
-        });
-    };
-    const register = ()=>{
-        const { stname , regNo , stemail , stuserName , stpwd  } = students;
-        if (stname && regNo && stemail && stuserName && stpwd) (0, _axiosDefault.default).post("http://localhost:8000/students/save", students).then((res)=>{
-            alert(res.data.message);
-            history.push("/login");
-        });
-        else alert("invlid input");
-    };
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "register",
-        children: [
-            console.log("Students", students),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                children: "Register"
-            }, void 0, false, {
-                fileName: "src/Pages/Register.js",
-                lineNumber: 42,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                type: "text",
-                name: "stname",
-                value: students.stname,
-                placeholder: "Your Name",
-                onChange: handleChange
-            }, void 0, false, {
-                fileName: "src/Pages/Register.js",
-                lineNumber: 43,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                type: "text",
-                name: "regNo",
-                value: students.regNo,
-                placeholder: "Your Name",
-                onChange: handleChange
-            }, void 0, false, {
-                fileName: "src/Pages/Register.js",
-                lineNumber: 44,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                type: "text",
-                name: "stemail",
-                value: students.stemail,
-                placeholder: "Your Email",
-                onChange: handleChange
-            }, void 0, false, {
-                fileName: "src/Pages/Register.js",
-                lineNumber: 45,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                type: "text",
-                name: "stuserName",
-                value: students.stuserName,
-                placeholder: "Your Password",
-                onChange: handleChange
-            }, void 0, false, {
-                fileName: "src/Pages/Register.js",
-                lineNumber: 46,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                type: "password",
-                name: "stpwd",
-                value: students.stpwd,
-                placeholder: "Re-enter Password",
-                onChange: handleChange
-            }, void 0, false, {
-                fileName: "src/Pages/Register.js",
-                lineNumber: 47,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "button",
-                onClick: register,
-                children: "Register"
-            }, void 0, false, {
-                fileName: "src/Pages/Register.js",
-                lineNumber: 48,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                children: "or"
-            }, void 0, false, {
-                fileName: "src/Pages/Register.js",
-                lineNumber: 49,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "button",
-                onClick: ()=>history.push("/login"),
-                children: "Login"
-            }, void 0, false, {
-                fileName: "src/Pages/Register.js",
-                lineNumber: 50,
-                columnNumber: 13
-            }, undefined)
-        ]
-    }, void 0, true, {
-        fileName: "src/Pages/Register.js",
-        lineNumber: 40,
-        columnNumber: 9
-    }, undefined);
-};
-_s(Register, "UqmAg2ONUmwOmd9RZaoZqSn49PI=", false, function() {
-    return [
-        (0, _reactRouterDom.useHistory)
-    ];
-});
-_c = Register;
-exports.default = Register;
-var _c;
-$RefreshReg$(_c, "Register");
-
-  $parcel$ReactRefreshHelpers$2525.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./register.css":"bnXmb","axios":"jo6P5","react-router-dom":"cHIiW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bnXmb":[function() {},{}],"irmnC":[function() {},{}]},["1xC6H","85bBE","8lqZg"], "8lqZg", "parcelRequire2de7")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["1xC6H","85bBE","8lqZg"], "8lqZg", "parcelRequire2de7")
 
 //# sourceMappingURL=index.975ef6c8.js.map
