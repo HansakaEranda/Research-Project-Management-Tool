@@ -4,20 +4,36 @@ const Students = require('../models/students');
 
 const router = express.Router();
 
-//save students 
-router.post('/students/save',(req,res)=>{
-    let newStudent = new Students(req.body);
-
-    newStudent.save((err) => {
-        if(err){
-            return res.status(400).json({
-                error:err
+//register students 
+router.post('/register',(req,res)=>{
+    const { stname, regNo, stemail, stuserName, stpwd} = req.body
+    Students.findOne({stuserName:stuserName}, (err,student) =>{
+        if(student){
+            res.send({message:"User already registered"})
+        } else {
+            const newStudent = new Students({
+                stname,
+                regNo,
+                stemail,
+                stuserName,
+                stpwd
+            })
+            newStudent.save((err) => {
+                if(err){
+                    return res.status(400).json({
+                        error:err
+                    });
+                }else{
+                    return res.status(200).json({
+                        message: "Successfully Registered, Please login now." 
+                    });
+                }
+                
             });
         }
-        return res.status(200).json({
-            success:"Student registered successfully"
-        });
-    });
+    })
+
+    
 });
 
 //get students
@@ -34,6 +50,7 @@ router.get('/students',(req,res)=>{
         });
     });
 });
+
 
 //get a specific student details
 router.get('/students/:id',(req,res) => {
@@ -79,6 +96,24 @@ router.delete('/students/delete/:id',(req,res)=>{
         });
     });
 });
+
+
+
+//login
+router.post("/stlogin",(req,res) => {
+    const {stuserName, stpwd} = req.body
+    Students.findOne({stuserName:stuserName}, (err, students) => {
+        if (students) {
+            if(stpwd === students.stpwd) {
+                res.send({message :"Login Successful", students:students})
+            } else {
+                res.send({message : "Password didn't match"})
+            }
+        } else {
+            res.send({message:"User not registered"})
+        }
+    })
+})
 
 
 
