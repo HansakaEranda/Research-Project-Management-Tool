@@ -4,6 +4,6 @@ const { registerUser, loginUser, getMe } = require('../controllers/userControlle
 
 router.post('/', registerUser)
 router.post('/login', loginUser)
-router.get('/me', getMe)
+router.post('/me', getMe)
 
 module.exports = router
