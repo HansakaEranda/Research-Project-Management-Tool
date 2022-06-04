@@ -1,6 +1,5 @@
 import React,{ Component } from "react";
 import { Link } from "react-router-dom";
-import {FaSignInAlt, FaSignOutAlt, FaUser} from "react-icons/fa";
 
 export default class NavBar extends Component{
     render(){
@@ -9,8 +8,7 @@ export default class NavBar extends Component{
             <h1>Project Management Tool</h1>
               <nav className="navbar navbar-expand-lg navbar-light bg-light">
               <ul className="navbar-nav mr-auto">
-                <div className="logo"><li><Link to={'/'} className="nav-link"> <b>RPMT</b> </Link></li></div>
-                <li><Link to={'/home'} className="nav-link"> Home </Link></li>
+                <li><Link to={'/'} className="nav-link"> Home </Link></li>
                 <li><Link to={'/viewstudents'} className="nav-link">View Students</Link></li>
                 <li><Link to={'/viewstaff'} className="nav-link">View Staff</Link></li>
                 <li><Link to={'/viewstgroups'} className="nav-link">View Student Groups</Link></li>
@@ -18,8 +16,6 @@ export default class NavBar extends Component{
                 <li><Link to={'/viewTDtl'} className="nav-link">View Topic Details</Link></li>
                 <li><Link to={'/sgettopic'} className="nav-link">Research Requests</Link></li>
                 <li><Link to={'/sviewtdtl'} className="nav-link">View Research Requests</Link></li>
-                <li><Link to={'/login'} className="nav-link"><FaSignInAlt /> Login</Link></li>
-                <li><Link to={'/register'} className="nav-link"><FaUser /> Register</Link></li>
                 
               </ul>
               </nav>
