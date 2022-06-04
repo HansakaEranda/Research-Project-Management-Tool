@@ -79,6 +79,7 @@ router.delete('/staff/delete/:id',(req,res)=>{
     });
 });
 
+<<<<<<< Updated upstream
 
 //register staff 
 router.post('/lcregister',(req,res)=>{
@@ -128,6 +129,22 @@ router.post("/lclogin",(req,res) => {
             res.send({message:"User not registered"})
         }
     })
+=======
+//get specific details of staff members
+router.get("/getstaff",(req,res) => {
+
+    Staff.find({},{_id:0,lname:1,lemail:2,lcontactNo:3,staff:4}).exec((err,staff) =>{
+        if(err){
+            return res.status(400).json({
+                error:err
+            });
+        }
+        return res.status(200).json({
+            success:true,
+            staff
+        });
+    });
+>>>>>>> Stashed changes
 });
 
 module.exports = router;
