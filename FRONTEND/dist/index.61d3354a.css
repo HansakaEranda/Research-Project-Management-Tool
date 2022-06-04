@@ -256,7 +256,6 @@ input[type="search"] {
   background-size: auto;
 }
 
-<<<<<<< Updated upstream
 .sbtn1 {
   width: 200px;
   height: 40px;
@@ -266,8 +265,6 @@ input[type="search"] {
   margin: 8px 0 8px 800px;
 }
 
-=======
->>>>>>> Stashed changes
 .sbtn {
   width: 370px;
   cursor: pointer;
@@ -277,11 +274,7 @@ input[type="search"] {
   padding: 14px 20px;
 }
 
-<<<<<<< Updated upstream
 .sbtn1:hover, .sbtn:hover {
-=======
-.sbtn:hover {
->>>>>>> Stashed changes
   background-color: #45a049;
 }
 
@@ -304,7 +297,6 @@ table {
   cursor: pointer;
   background-color: #187002;
   border-radius: 4px;
-<<<<<<< Updated upstream
   margin: 8px 0 8px 550px;
 }
 
@@ -327,12 +319,6 @@ table {
 }
 
 .vbtn:hover, .vbtn1:hover .vbtn2:hover {
-=======
-  margin: 8px 0;
-}
-
-.vbtn:hover {
->>>>>>> Stashed changes
   background-color: #45a049;
 }
 
@@ -341,18 +327,12 @@ table {
   background-color: #f7edea6b;
   border-radius: 10px;
   margin-top: 30px;
-<<<<<<< Updated upstream
   margin-left: 400px;
-=======
-  margin-left: 350px;
->>>>>>> Stashed changes
   margin-right: 350px;
   padding-bottom: 20px;
   box-shadow: 5px 10px 18px #075311;
 }
 
-<<<<<<< Updated upstream
-=======
 .login {
   width: 400px;
   text-align: center;
@@ -446,5 +426,4 @@ table {
   font-size: 1.25rem;
 }
 
->>>>>>> Stashed changes
 /*# sourceMappingURL=index.61d3354a.css.map */

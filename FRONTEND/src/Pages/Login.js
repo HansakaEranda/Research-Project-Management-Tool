@@ -31,6 +31,7 @@ const Login = ({ setLoginUser}) => {
     }
 
     return (
+        <div className="container">
         <div className="login">
             <h1>Login</h1>
             <input type="text" name="stuserName" value={students.stuserName} onChange={handleChange} placeholder="Enter your UserName"></input>
@@ -38,6 +39,7 @@ const Login = ({ setLoginUser}) => {
             <div className="button" onClick={login}>Login</div>
             <div>or</div>
             <div className="button" onClick={() => history.push("/register")}>Register</div>
+        </div>
         </div>
     )
 }

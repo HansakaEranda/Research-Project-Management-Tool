@@ -37,17 +37,19 @@ const Register = () => {
     }
 
     return (
+        <div className="container">
         <div className="register">
             {console.log("Students", students)}
             <h1>Register</h1>
-            <input type="text" name="stname" value={students.stname} placeholder="Your Name" onChange={ handleChange }></input>
-            <input type="text" name="regNo" value={students.regNo} placeholder="Your Reg No" onChange={ handleChange }></input>
-            <input type="text" name="stemail" value={students.stemail} placeholder="Your Email" onChange={ handleChange }></input>
-            <input type="text" name="stuserName" value={students.stuserName} placeholder="Your UserName" onChange={ handleChange }></input>
-            <input type="password" name="stpwd" value={students.stpwd} placeholder="Re-enter Password" onChange={ handleChange }></input>
+            <input type="text" name="stname" value={students.stname} placeholder="Enter Your Name" onChange={ handleChange }></input>
+            <input type="text" name="regNo" value={students.regNo} placeholder="Enter Your Register Number" onChange={ handleChange }></input>
+            <input type="text" name="stemail" value={students.stemail} placeholder="Enter Your Email" onChange={ handleChange }></input>
+            <input type="text" name="stuserName" value={students.stuserName} placeholder="Enter UserName" onChange={ handleChange }></input>
+            <input type="password" name="stpwd" value={students.stpwd} placeholder="Enter Password" onChange={ handleChange }></input>
             <div className="button" onClick={register} >Register</div>
             <div>or</div>
             <div className="button" onClick={() => history.push("/login")}>Login</div>
+        </div>
         </div>
     )
 }
