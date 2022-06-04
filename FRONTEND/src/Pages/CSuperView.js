@@ -78,7 +78,7 @@ export default class CSuperView extends Component{
     }
     
     render(){
-        const {gId, gLeader, mem1, mem2, mem3, topic, supervisor} = this.state.topics;
+        const {gId, gLeader, mem1, mem2, mem3, topic, supervisor, csupervisor} = this.state.topics;
         return(
             
                 <div className="addtopic">
@@ -96,9 +96,11 @@ export default class CSuperView extends Component{
 
                <label><b>Member 3 - </b></label> {mem3}<br/>
 
-               <label><b>Topic - </b></label> {topic}
+               <label><b>Topic - </b></label> {topic}<br/>
 
-               {/*<label><b>Supervisor - </b></label> {supervisor}<br/><br/><br/>*/}
+               <label><b>Supervisor - </b></label> {supervisor}<br/>
+
+               <label><b>Co-Supervisor - </b></label> {csupervisor}<br/><br/><br/>
 
            </div>
            <br/>

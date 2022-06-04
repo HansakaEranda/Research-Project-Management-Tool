@@ -9,19 +9,73 @@ const dState = {
     mem2:"",
     mem3:"",
     topic:"",
-    //supervisor:"",
+    supervisor:"",
+    csupervisor:"",
     gIdError:"",
     gLeaderError:"",
     mem1Error:"",
     mem2Error:"",
     mem3Error:"",
     topicError:"",
-    //supervisorError:""
+    supervisorError:"",
+    csupervisorError:"",
 }
 
 export default class InsertTopicDtl extends Component{
     state = dState;
+
+    constructor(props){
+        super(props);
     
+        this.state={
+            staff:[],
+            staff1:[]
+        };
+    }
+
+    componentDidMount(){
+        this.redtrievedata();
+        this.redtrievedata1();
+    }
+
+    filterData(staff){
+        const result = staff.filter((staffmem) =>
+            staffmem.staff === "Supervisor"
+        )
+
+        this.setState({staff:result})
+    }
+
+    filterData1(staff1){
+        const result = staff1.filter((staffmem) =>
+            staffmem.staff === "Co-supervisor"
+        )
+
+        this.setState({staff1:result})
+    }
+    
+    redtrievedata(){
+        axios.get("http://localhost:8000/getstaff").then(res => {
+            if (res.data.success) {
+                this.setState({
+                    specstaff:this.filterData(res.data.staff)
+                })
+                console.log(this.state.specstaff)
+            }
+        });
+    }
+
+    redtrievedata1(){
+        axios.get("http://localhost:8000/getstaff").then(res => {
+            if (res.data.success) {
+                this.setState({
+                    specstaff:this.filterData1(res.data.staff)
+                })
+                console.log(this.state.specstaff)
+            }
+        });
+    }
+
     validate = () => {
         let gIdError = "";
         let gLeaderError = "";
@@ -29,7 +83,8 @@ export default class InsertTopicDtl extends Component{
         let mem2Error = "";
         let mem3Error = "";
         let topicError = "";
-        //let supervisorError = "";
+        let supervisorError = "";
+        let csupervisorError = "";
 
         if(!this.state.gId){
             gIdError = 'Group ID field cannot be empty!';
@@ -55,8 +110,16 @@ export default class InsertTopicDtl extends Component{
             topicError = 'Topic field cannot be empty!';
         }
 
-        if(gIdError || gLeaderError || mem1Error || mem2Error ||mem3Error || topicError ){
-            this.setState({gIdError, gLeaderError, mem1Error, mem2Error, mem3Error, topicError});
+        if(!this.state.supervisor){
+            topicError = 'Supervisor field cannot be empty!';
+        }
+
+        if(!this.state.csupervisor){
+            topicError = 'Co-Supervisor field cannot be empty!';
+        }
+
+        if(gIdError || gLeaderError || mem1Error || mem2Error ||mem3Error || topicError || supervisorError || csupervisorError){
+            this.setState({gIdError, gLeaderError, mem1Error, mem2Error, mem3Error, topicError, supervisorError, csupervisorError});
             return false;
         }
 
@@ -75,7 +138,7 @@ export default class InsertTopicDtl extends Component{
 
     onSubmit = (e) =>{
         e.preventDefault();
-        const{gId, gLeader, mem1, mem2, mem3, topic, /*supervisor*/} = this.state;
+        const{gId, gLeader, mem1, mem2, mem3, topic, supervisor, csupervisor} = this.state;
 
         const tpDtl = {
             gId:gId,
@@ -84,7 +147,8 @@ export default class InsertTopicDtl extends Component{
             mem2:mem2,
             mem3:mem3,
             topic:topic,
-            //supervisor:supervisor,
+            supervisor:supervisor,
+            csupervisor:csupervisor
         }
 
         //console.log(customer)
@@ -103,7 +167,8 @@ export default class InsertTopicDtl extends Component{
                     mem2:"",
                     mem3:"",
                     topic:"",
-                    //supervisor:"",
+                    supervisor:"",
+                    csupervisor:"",
                 })
             }
         }).catch((err)=>{
@@ -185,20 +250,72 @@ export default class InsertTopicDtl extends Component{
                             value={this.state.topic} 
                             onChange={this.InputChange}/>
                     </div>
-                    <div style={{color: "red"}}>{this.state.topicError}</div>
+                    <div style={{color: "red"}}>{this.state.topicError}</div><br/>
 
-                    {/*<div>
-                        <label name="supervisor">Supervisor</label><br/>
-                        <select type="select" id="supervisor" name="supervisor">
-                                <option value="0">Select Supervisor</option>
-                                <option value="1">Prof. Sarath Gunawardhane</option>
-                                <option value="2">Prof. Prageeth Wijayawardhane</option>
-                                <option value="3">Prof. Anjaleena Fernandez</option>
-                                <option value="4">Prof. Kamal Rajasooriya</option>
-                                <option value="5">Prof. Bimal Perera</option>
-                                <option value="6">Prof. Gihan Satharasinghe</option>
-                        </select>
-                    </div>*/}
+
+                    <div>
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                <th scope="col">Reg.No</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Type</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.state.staff.map((staff,index) => (
+                                    <tr key={index}>
+                                    <th>{staff.lregNo}</th>
+                                    <td>{staff.lname}</td>
+                                    <td>{staff.staff}</td>   
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div>
+                        <label name="supervisor">Supervisor (Enter ID of the supervisor you are requesting by searching above details) </label><br/>
+                        <input type="text" 
+                            name='supervisor' 
+                            id='supervisor' 
+                            placeholder="Eg:Perera M.F." 
+                            value={this.state.supervisor} 
+                            onChange={this.InputChange}/>
+                    </div>
+                    <div style={{color: "red"}}>{this.state.supervisorError}</div>
+
+                    <div>
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                <th scope="col">Reg.No</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Type</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.state.staff1.map((staff,index) => (
+                                    <tr key={index}>
+                                    <th>{staff.lregNo}</th>
+                                    <td>{staff.lname}</td>
+                                    <td>{staff.staff}</td>   
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div>
+                        <label name="csupervisor">Co-Supervisor (Enter ID of the co-supervisor you are requesting by searching above details)</label><br/>
+                        <input type="text" 
+                            name='csupervisor' 
+                            id='csupervisor' 
+                            placeholder="Eg:Perera M.F." 
+                            value={this.state.csupervisor} 
+                            onChange={this.InputChange}/>
+                    </div>
+                    <div style={{color: "red"}}>{this.state.csupervisorError}</div>
 
                     <br/><br/>
                     <button className="sbtn" type="submit" onClick={this.onSubmit} ><b>Save</b></button><br/>

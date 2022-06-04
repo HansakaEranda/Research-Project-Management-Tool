@@ -55,7 +55,9 @@ class CSuperGet extends Component{
                     {this.state.topics.map((topics,index) => (
                 
                 <div >                       
-                <label><b>Group ID</b></label> {topics.gId} <button className="vbtn1" type="button" name="vi" id="vi" onClick={this.action}><a href={`/csvtdtl/${topics._id}`}><b>View</b></a></button>
+                <label><b>Group ID</b></label> {topics.gId}<br/>
+                <label><b>Co-Supervisor ID</b></label> {topics.csupervisor}<br/>
+                <button className="vbtn1" type="button" name="vi" id="vi" onClick={this.action}><a href={`/csvtdtl/${topics._id}`}><b>View</b></a></button><br/><br/>
                 </div>
                 ))} 
                 <br/>

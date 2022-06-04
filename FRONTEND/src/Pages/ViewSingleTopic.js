@@ -21,7 +21,7 @@ export default class ViewSingleTopic extends Component{
         });
     }
     render(){
-        const {gId, gLeader, mem1, mem2, mem3, topic, supervisor} = this.state.topics;
+        const {gId, gLeader, mem1, mem2, mem3, topic, supervisor, csupervisor} = this.state.topics;
       return(
         
         <div className="addtopic">                    
@@ -41,7 +41,9 @@ export default class ViewSingleTopic extends Component{
 
                <label><b>Topic - </b></label> {topic}<br/>
 
-               {/*<label><b>Supervisor - </b></label> {supervisor}<br/>*/}
+               <label><b>Supervisor - </b></label> {supervisor}<br/>
+
+               <label><b>Co-Supervisor - </b></label> {csupervisor}<br/>
                </div>
                <br/>
 

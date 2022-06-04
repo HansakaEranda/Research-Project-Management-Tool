@@ -31,8 +31,9 @@ class ViewStTopicDtl extends Component{
         topics.mem1.includes(searchKey)||
         topics.mem2.includes(searchKey)||
         topics.mem3.includes(searchKey)||
-        topics.topic.includes(searchKey)
-        //topics.supervisor.includes(searchKey)
+        topics.topic.includes(searchKey)||
+        topics.supervisor.includes(searchKey)||
+        topics.csupervisor.includes(searchKey)
         )
         this.setState({topics:result})
       }
@@ -66,8 +67,8 @@ class ViewStTopicDtl extends Component{
                             <th scope="col">Member 2</th>
                             <th scope="col">Member 3</th>
                             <th scope="col">Topic</th>
-                            {/*<th scope="col">Supervisor</th>*/}
-
+                            <th scope="col">Supervisor</th>
+                            <th scope="col">Co-Supervisor</th>
                             
                         </tr>
                     </thead>
@@ -81,7 +82,8 @@ class ViewStTopicDtl extends Component{
                                 <td><a href={`/sinviewtdtl/${topics._id}`}>{topics.mem2}</a></td>
                                 <td><a href={`/sinviewtdtl/${topics._id}`}>{topics.mem3}</a></td>
                                 <td><a href={`/sinviewtdtl/${topics._id}`}>{topics.topic}</a></td>
-                                {/*<td><a href={`/sinviewtdtl/${topics._id}`}>{topics.supervisor}</a></td>*/}
+                                <td><a href={`/sinviewtdtl/${topics._id}`}>{topics.supervisor}</a></td>
+                                <td><a href={`/sinviewtdtl/${topics._id}`}>{topics.csupervisor}</a></td>
 
                             </tr>
                         ))}

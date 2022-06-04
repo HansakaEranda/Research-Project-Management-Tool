@@ -298,8 +298,8 @@ input[type="search"]{
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-table{
-  background-color: rgb(9, 143, 49);
+.table{
+  background-color: rgb(15, 136, 51);
 }
 
 .vbtn {

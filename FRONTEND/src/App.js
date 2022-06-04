@@ -129,6 +129,7 @@ export default App;
     import ViewStaff from './Pages/ViewStaff';
     import EditStaffMem from './Pages/EditStaffMem';
     import StaffMemberDet from './Pages/StaffMemberDet';
+    import ViewSpecificStaff from './Pages/ViewSpecificStaff';
 
     //Student Group Details Pages
     import ViewStGroups from './Pages/ViewStGroups';
@@ -150,6 +151,7 @@ export default App;
                   <Route path='/viewstudents' component={ViewStudents}/>
                   <Route path='/student/:id' component={StudentDetails}/>
                   <Route path='/editStaff/:id' component={EditStaffMem}/>
+                  <Route path='/specStaff' component={ViewSpecificStaff}/>
 
                   <Route path='/viewstaff' component={ViewStaff}/>
                   <Route path='/staffmem/:id' component={StaffMemberDet}/>
