@@ -34,10 +34,16 @@ import Login from './Pages/Login';
 import Register from './Pages/register';
 import Home from './Pages/Home';
 
+//staff login pages
+import StaffLogin from './Pages/StaffLogin';
+import StaffRegister from './Pages/StaffRegister';
+import StaffHome from './Pages/StaffHome';
+
 
   function App(){
 
   const [ students, setLoginUser] = useState({});
+  const [ staff, setLoginStaff] = useState({});
     return (
       
     <Router>
@@ -54,6 +60,18 @@ import Home from './Pages/Home';
               <Login setLoginUser={setLoginUser}/>
               </Route>
               <Route path='/register' component={Register}/>
+
+
+              <Route path='/staffhome'>
+                {
+                  staff && staff._id ? <StaffHome setLoginStaff={setLoginStaff} /> : <StaffLogin setLoginStaff={setLoginStaff}/>
+                }
+              </Route>
+
+              <Route path='/lclogin'>
+              <Login setLoginStaff={setLoginStaff}/>
+              </Route>
+              <Route path='/lcregister' component={StaffRegister}/>
 
               <Route path='/viewstudents' component={ViewStudents}/>
               <Route path='/student/:id' component={StudentDetails}/>

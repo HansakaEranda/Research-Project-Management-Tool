@@ -27002,16 +27002,24 @@ var _register = require("./Pages/register");
 var _registerDefault = parcelHelpers.interopDefault(_register);
 var _home = require("./Pages/Home");
 var _homeDefault = parcelHelpers.interopDefault(_home);
+//staff login pages
+var _staffLogin = require("./Pages/StaffLogin");
+var _staffLoginDefault = parcelHelpers.interopDefault(_staffLogin);
+var _staffRegister = require("./Pages/StaffRegister");
+var _staffRegisterDefault = parcelHelpers.interopDefault(_staffRegister);
+var _staffHome = require("./Pages/StaffHome");
+var _staffHomeDefault = parcelHelpers.interopDefault(_staffHome);
 var _s = $RefreshSig$();
 function App() {
     _s();
     const [students, setLoginUser] = (0, _react.useState)({});
+    const [staff, setLoginStaff] = (0, _react.useState)({});
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navBarDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 45,
+                    lineNumber: 51,
                     columnNumber: 11
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Switch), {
@@ -27023,18 +27031,18 @@ function App() {
                                 setLoginUser: setLoginUser
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 49,
+                                lineNumber: 55,
                                 columnNumber: 46
                             }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginDefault.default), {
                                 setLoginUser: setLoginUser
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 49,
+                                lineNumber: 55,
                                 columnNumber: 85
                             }, this)
                         }, void 0, false, {
                             fileName: "src/App.js",
-                            lineNumber: 47,
+                            lineNumber: 53,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27043,12 +27051,12 @@ function App() {
                                 setLoginUser: setLoginUser
                             }, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 54,
+                                lineNumber: 60,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "src/App.js",
-                            lineNumber: 53,
+                            lineNumber: 59,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27056,7 +27064,49 @@ function App() {
                             component: (0, _registerDefault.default)
                         }, void 0, false, {
                             fileName: "src/App.js",
-                            lineNumber: 56,
+                            lineNumber: 62,
+                            columnNumber: 15
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                            path: "/staffhome",
+                            children: staff && staff._id ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _staffHomeDefault.default), {
+                                setLoginStaff: setLoginStaff
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 67,
+                                columnNumber: 40
+                            }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _staffLoginDefault.default), {
+                                setLoginStaff: setLoginStaff
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 67,
+                                columnNumber: 86
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "src/App.js",
+                            lineNumber: 65,
+                            columnNumber: 15
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                            path: "/lclogin",
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginDefault.default), {
+                                setLoginStaff: setLoginStaff
+                            }, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 72,
+                                columnNumber: 15
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "src/App.js",
+                            lineNumber: 71,
+                            columnNumber: 15
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                            path: "/lcregister",
+                            component: (0, _staffRegisterDefault.default)
+                        }, void 0, false, {
+                            fileName: "src/App.js",
+                            lineNumber: 74,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27064,7 +27114,7 @@ function App() {
                             component: (0, _viewStudentsDefault.default)
                         }, void 0, false, {
                             fileName: "src/App.js",
-                            lineNumber: 58,
+                            lineNumber: 76,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27072,7 +27122,7 @@ function App() {
                             component: (0, _studentDetailsDefault.default)
                         }, void 0, false, {
                             fileName: "src/App.js",
-                            lineNumber: 59,
+                            lineNumber: 77,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27080,7 +27130,7 @@ function App() {
                             component: (0, _editStaffMemDefault.default)
                         }, void 0, false, {
                             fileName: "src/App.js",
-                            lineNumber: 60,
+                            lineNumber: 78,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27088,7 +27138,7 @@ function App() {
                             component: (0, _viewStaffDefault.default)
                         }, void 0, false, {
                             fileName: "src/App.js",
-                            lineNumber: 62,
+                            lineNumber: 80,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27096,7 +27146,7 @@ function App() {
                             component: (0, _staffMemberDetDefault.default)
                         }, void 0, false, {
                             fileName: "src/App.js",
-                            lineNumber: 63,
+                            lineNumber: 81,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27104,7 +27154,7 @@ function App() {
                             component: (0, _editStudentDefault.default)
                         }, void 0, false, {
                             fileName: "src/App.js",
-                            lineNumber: 64,
+                            lineNumber: 82,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27112,7 +27162,7 @@ function App() {
                             component: (0, _viewStGroupsDefault.default)
                         }, void 0, false, {
                             fileName: "src/App.js",
-                            lineNumber: 66,
+                            lineNumber: 84,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27120,7 +27170,7 @@ function App() {
                             component: (0, _stGroupDefault.default)
                         }, void 0, false, {
                             fileName: "src/App.js",
-                            lineNumber: 67,
+                            lineNumber: 85,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27128,7 +27178,7 @@ function App() {
                             component: (0, _editStGroupDefault.default)
                         }, void 0, false, {
                             fileName: "src/App.js",
-                            lineNumber: 68,
+                            lineNumber: 86,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27136,7 +27186,7 @@ function App() {
                             component: (0, _createStGroupDefault.default)
                         }, void 0, false, {
                             fileName: "src/App.js",
-                            lineNumber: 69,
+                            lineNumber: 87,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27145,7 +27195,7 @@ function App() {
                             component: (0, _insertTopicDtlDefault.default)
                         }, void 0, false, {
                             fileName: "src/App.js",
-                            lineNumber: 71,
+                            lineNumber: 89,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27153,7 +27203,7 @@ function App() {
                             component: (0, _viewStTopicDtlDefault.default)
                         }, void 0, false, {
                             fileName: "src/App.js",
-                            lineNumber: 72,
+                            lineNumber: 90,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27161,7 +27211,7 @@ function App() {
                             component: (0, _superGetTopicDefault.default)
                         }, void 0, false, {
                             fileName: "src/App.js",
-                            lineNumber: 73,
+                            lineNumber: 91,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27169,7 +27219,7 @@ function App() {
                             component: (0, _superViewTopicDefault.default)
                         }, void 0, false, {
                             fileName: "src/App.js",
-                            lineNumber: 74,
+                            lineNumber: 92,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27177,7 +27227,7 @@ function App() {
                             component: (0, _viewSingleTopicDefault.default)
                         }, void 0, false, {
                             fileName: "src/App.js",
-                            lineNumber: 75,
+                            lineNumber: 93,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27185,7 +27235,7 @@ function App() {
                             component: (0, _csuperGetDefault.default)
                         }, void 0, false, {
                             fileName: "src/App.js",
-                            lineNumber: 76,
+                            lineNumber: 94,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27193,28 +27243,28 @@ function App() {
                             component: (0, _csuperViewDefault.default)
                         }, void 0, false, {
                             fileName: "src/App.js",
-                            lineNumber: 77,
+                            lineNumber: 95,
                             columnNumber: 15
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/App.js",
-                    lineNumber: 46,
+                    lineNumber: 52,
                     columnNumber: 11
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/App.js",
-            lineNumber: 44,
+            lineNumber: 50,
             columnNumber: 9
         }, this)
     }, void 0, false, {
         fileName: "src/App.js",
-        lineNumber: 43,
+        lineNumber: 49,
         columnNumber: 5
     }, this);
 }
-_s(App, "7GL0ocefDDVDI4CjC8NQ8Mx+NF0=");
+_s(App, "vXB9uFiYYs6LYHiMXFRi/qShaJ4=");
 _c = App;
 exports.default = App;
 var _c;
@@ -27225,7 +27275,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"cHIiW","./Pages/NavBar":"8ajGy","./Pages/InsertTopicDtl":"8CjXa","./Pages/ViewStTopicDtl":"9sGNH","./Pages/SuperGetTopic":"hp91B","./Pages/SuperViewTopic":"8J7Kv","./Pages/ViewSingleTopic":"1iXc0","./Pages/CSuperGet":"izG8o","./Pages/CSuperView":"ij2Ae","./Pages/ViewStudents":"3KRlG","./Pages/EditStudent":"hdVSo","./Pages/StudentDetails":"foIzQ","./Pages/ViewStaff":"98fQf","./Pages/EditStaffMem":"b2VSX","./Pages/StaffMemberDet":"iuWnC","./Pages/ViewStGroups":"kOQfn","./Pages/EditStGroup":"7qdhn","./Pages/StGroup":"l1uge","./Pages/CreateStGroup":"lJWz1","./Pages/Login":"8Zy7Y","./Pages/register":"cHzjZ","./Pages/Home":"3ABAM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"cHIiW":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"cHIiW","./Pages/NavBar":"8ajGy","./Pages/InsertTopicDtl":"8CjXa","./Pages/ViewStTopicDtl":"9sGNH","./Pages/SuperGetTopic":"hp91B","./Pages/SuperViewTopic":"8J7Kv","./Pages/ViewSingleTopic":"1iXc0","./Pages/CSuperGet":"izG8o","./Pages/CSuperView":"ij2Ae","./Pages/ViewStudents":"3KRlG","./Pages/EditStudent":"hdVSo","./Pages/StudentDetails":"foIzQ","./Pages/ViewStaff":"98fQf","./Pages/EditStaffMem":"b2VSX","./Pages/StaffMemberDet":"iuWnC","./Pages/ViewStGroups":"kOQfn","./Pages/EditStGroup":"7qdhn","./Pages/StGroup":"l1uge","./Pages/CreateStGroup":"lJWz1","./Pages/Login":"8Zy7Y","./Pages/register":"cHzjZ","./Pages/Home":"3ABAM","./Pages/StaffLogin":"uAhFY","./Pages/StaffRegister":"alqt8","./Pages/StaffHome":"jBL5k","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"cHIiW":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MemoryRouter", ()=>(0, _reactRouter.MemoryRouter));
@@ -30417,6 +30467,21 @@ class NavBar extends (0, _react.Component) {
                                 fileName: "src/Pages/NavBar.js",
                                 lineNumber: 18,
                                 columnNumber: 17
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                    to: "/staffhome",
+                                    className: "nav-link",
+                                    children: " StaffHome "
+                                }, void 0, false, {
+                                    fileName: "src/Pages/NavBar.js",
+                                    lineNumber: 19,
+                                    columnNumber: 21
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "src/Pages/NavBar.js",
+                                lineNumber: 19,
+                                columnNumber: 17
                             }, this)
                         ]
                     }, void 0, true, {
@@ -30431,7 +30496,7 @@ class NavBar extends (0, _react.Component) {
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                     fileName: "src/Pages/NavBar.js",
-                    lineNumber: 22,
+                    lineNumber: 23,
                     columnNumber: 15
                 }, this)
             ]
@@ -39382,6 +39447,361 @@ var _c;
 $RefreshReg$(_c, "Home");
 
   $parcel$ReactRefreshHelpers$d586.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../index.css":"irmnC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"irmnC":[function() {},{}],"uAhFY":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$040f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$040f.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _indexCss = require("../index.css");
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _reactRouterDom = require("react-router-dom");
+var _s = $RefreshSig$();
+const StaffLogin = ({ setLoginStaff  })=>{
+    _s();
+    const history = (0, _reactRouterDom.useHistory)();
+    const [staff, setStaff] = (0, _react.useState)({
+        luserName: "",
+        lpwd: ""
+    });
+    const handleChange = (e)=>{
+        const { name , value  } = e.target;
+        setStaff({
+            ...staff,
+            [name]: value
+        });
+    };
+    const lclogin = ()=>{
+        (0, _axiosDefault.default).post("http://localhost:8000/lclogin", staff).then((res)=>{
+            alert(res.data.message);
+            setLoginStaff(res.data.staff);
+            history.push("/");
+        });
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "container",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "login",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                    children: "Staff Login"
+                }, void 0, false, {
+                    fileName: "src/Pages/StaffLogin.js",
+                    lineNumber: 36,
+                    columnNumber: 13
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    type: "text",
+                    name: "luserName",
+                    value: staff.luserName,
+                    onChange: handleChange,
+                    placeholder: "Enter your UserName"
+                }, void 0, false, {
+                    fileName: "src/Pages/StaffLogin.js",
+                    lineNumber: 37,
+                    columnNumber: 13
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    type: "password",
+                    name: "lpwd",
+                    value: staff.lpwd,
+                    onChange: handleChange,
+                    placeholder: "Enter your Password"
+                }, void 0, false, {
+                    fileName: "src/Pages/StaffLogin.js",
+                    lineNumber: 38,
+                    columnNumber: 13
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "button",
+                    onClick: lclogin,
+                    children: "Login"
+                }, void 0, false, {
+                    fileName: "src/Pages/StaffLogin.js",
+                    lineNumber: 39,
+                    columnNumber: 13
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    children: "or"
+                }, void 0, false, {
+                    fileName: "src/Pages/StaffLogin.js",
+                    lineNumber: 40,
+                    columnNumber: 13
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "button",
+                    onClick: ()=>history.push("/lcregister"),
+                    children: "Register"
+                }, void 0, false, {
+                    fileName: "src/Pages/StaffLogin.js",
+                    lineNumber: 41,
+                    columnNumber: 13
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/Pages/StaffLogin.js",
+            lineNumber: 35,
+            columnNumber: 9
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/Pages/StaffLogin.js",
+        lineNumber: 34,
+        columnNumber: 9
+    }, undefined);
+};
+_s(StaffLogin, "p32XiU0B/qy150KatVIKIAx33d0=", false, function() {
+    return [
+        (0, _reactRouterDom.useHistory)
+    ];
+});
+_c = StaffLogin;
+exports.default = StaffLogin;
+var _c;
+$RefreshReg$(_c, "StaffLogin");
+
+  $parcel$ReactRefreshHelpers$040f.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../index.css":"irmnC","axios":"jo6P5","react-router-dom":"cHIiW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"irmnC":[function() {},{}],"alqt8":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$4030 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$4030.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _indexCss = require("../index.css");
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _reactRouterDom = require("react-router-dom");
+var _s = $RefreshSig$();
+const StaffRegister = ()=>{
+    _s();
+    const history = (0, _reactRouterDom.useHistory)();
+    const [staff, setStaff] = (0, _react.useState)({
+        lname: "",
+        lregNo: "",
+        lemail: "",
+        lcontactNo: "",
+        luserName: "",
+        lpwd: ""
+    });
+    const handleChange = (e)=>{
+        const { name , value  } = e.target;
+        setStaff({
+            ...staff,
+            [name]: value
+        });
+    };
+    const register = ()=>{
+        const { lname , lregNo , lemail , lcontactNo , luserName , lpwd  } = staff;
+        if (lname && lregNo && lemail && lcontactNo && luserName && lpwd) (0, _axiosDefault.default).post("http://localhost:8000/lcregister", staff).then((res)=>{
+            alert(res.data.message);
+            history.push("/lclogin");
+        });
+        else alert("invlid input");
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "container",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "register",
+            children: [
+                console.log("Staff", staff),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                    children: "staff Register"
+                }, void 0, false, {
+                    fileName: "src/Pages/StaffRegister.js",
+                    lineNumber: 44,
+                    columnNumber: 13
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    type: "text",
+                    name: "lname",
+                    value: staff.lname,
+                    placeholder: "Enter Your Name",
+                    onChange: handleChange
+                }, void 0, false, {
+                    fileName: "src/Pages/StaffRegister.js",
+                    lineNumber: 45,
+                    columnNumber: 13
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    type: "text",
+                    name: "lregNo",
+                    value: staff.lregNo,
+                    placeholder: "Enter Your Register Number",
+                    onChange: handleChange
+                }, void 0, false, {
+                    fileName: "src/Pages/StaffRegister.js",
+                    lineNumber: 46,
+                    columnNumber: 13
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    type: "text",
+                    name: "lemail",
+                    value: staff.lemail,
+                    placeholder: "Enter Your Email",
+                    onChange: handleChange
+                }, void 0, false, {
+                    fileName: "src/Pages/StaffRegister.js",
+                    lineNumber: 47,
+                    columnNumber: 13
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    type: "text",
+                    name: "lcontactNo",
+                    value: staff.lcontactNo,
+                    placeholder: "Enter Your Contact Number",
+                    onChange: handleChange
+                }, void 0, false, {
+                    fileName: "src/Pages/StaffRegister.js",
+                    lineNumber: 48,
+                    columnNumber: 13
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    type: "text",
+                    name: "luserName",
+                    value: staff.luserName,
+                    placeholder: "Enter UserName",
+                    onChange: handleChange
+                }, void 0, false, {
+                    fileName: "src/Pages/StaffRegister.js",
+                    lineNumber: 49,
+                    columnNumber: 13
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    type: "password",
+                    name: "lpwd",
+                    value: staff.lpwd,
+                    placeholder: "Enter Password",
+                    onChange: handleChange
+                }, void 0, false, {
+                    fileName: "src/Pages/StaffRegister.js",
+                    lineNumber: 50,
+                    columnNumber: 13
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "button",
+                    onClick: register,
+                    children: "Register"
+                }, void 0, false, {
+                    fileName: "src/Pages/StaffRegister.js",
+                    lineNumber: 51,
+                    columnNumber: 13
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    children: "or"
+                }, void 0, false, {
+                    fileName: "src/Pages/StaffRegister.js",
+                    lineNumber: 52,
+                    columnNumber: 13
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "button",
+                    onClick: ()=>history.push("/lclogin"),
+                    children: "Login"
+                }, void 0, false, {
+                    fileName: "src/Pages/StaffRegister.js",
+                    lineNumber: 53,
+                    columnNumber: 13
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/Pages/StaffRegister.js",
+            lineNumber: 42,
+            columnNumber: 9
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/Pages/StaffRegister.js",
+        lineNumber: 41,
+        columnNumber: 9
+    }, undefined);
+};
+_s(StaffRegister, "p3v6wCxyw1ZfRASPk2ZqjiNY2Lc=", false, function() {
+    return [
+        (0, _reactRouterDom.useHistory)
+    ];
+});
+_c = StaffRegister;
+exports.default = StaffRegister;
+var _c;
+$RefreshReg$(_c, "StaffRegister");
+
+  $parcel$ReactRefreshHelpers$4030.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../index.css":"irmnC","axios":"jo6P5","react-router-dom":"cHIiW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"irmnC":[function() {},{}],"jBL5k":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$c60d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$c60d.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _indexCss = require("../index.css");
+const StaffHome = ({ setLoginStaff  })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "container",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "homepage",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                    children: "Staff Homepage"
+                }, void 0, false, {
+                    fileName: "src/Pages/StaffHome.js",
+                    lineNumber: 8,
+                    columnNumber: 11
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "button",
+                    onClick: ()=>setLoginStaff({}),
+                    children: "Logout"
+                }, void 0, false, {
+                    fileName: "src/Pages/StaffHome.js",
+                    lineNumber: 9,
+                    columnNumber: 11
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/Pages/StaffHome.js",
+            lineNumber: 7,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/Pages/StaffHome.js",
+        lineNumber: 6,
+        columnNumber: 7
+    }, undefined);
+};
+_c = StaffHome;
+exports.default = StaffHome;
+var _c;
+$RefreshReg$(_c, "StaffHome");
+
+  $parcel$ReactRefreshHelpers$c60d.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;

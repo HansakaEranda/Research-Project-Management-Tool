@@ -16,6 +16,7 @@ export default class NavBar extends Component{
                 <li><Link to={'/viewTDtl'} className="nav-link">View Topic Details</Link></li>
                 <li><Link to={'/sgettopic'} className="nav-link">Research Requests</Link></li>
                 <li><Link to={'/sviewtdtl'} className="nav-link">View Research Requests</Link></li>
+                <li><Link to={'/staffhome'} className="nav-link"> StaffHome </Link></li>
                 
               </ul>
               </nav>

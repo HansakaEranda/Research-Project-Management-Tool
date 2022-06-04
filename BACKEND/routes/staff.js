@@ -81,7 +81,7 @@ router.delete('/staff/delete/:id',(req,res)=>{
 
 
 //register staff 
-router.post('/register',(req,res)=>{
+router.post('/lcregister',(req,res)=>{
     const { lname, lregNo, lemail, lcontactNo, luserName, lpwd} = req.body
     Staff.findOne({luserName:luserName}, (err,staff) =>{
         if(staff){
