@@ -298,9 +298,12 @@ input[type="search"]{
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
+<<<<<<< Updated upstream
 .table{
   background-color: rgb(15, 136, 51);
 }
+=======
+>>>>>>> Stashed changes
 
 .vbtn {
   width: 100px;

@@ -9,24 +9,24 @@ export default class ViewSpecificStaff extends Component {
         super(props);
     
         this.state={
-            staff1:[],
+            staff:[],
         };
     }
 
     
 
     componentDidMount(){
-        this.redtrievedata1();
+        this.redtrievedata();
     }
     
     
 
-    filterData1(staff1){
-        const result = staff1.filter((staffmem) =>
+    filterData1(staff){
+        const result = staff.filter((staffmem) =>
             staffmem.staff === "Supervisor"
         )
 
-        this.setState({staff1:result})
+        this.setState({staff:result})
     }
 
     redtrievedata1(){
@@ -56,7 +56,7 @@ export default class ViewSpecificStaff extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                    {this.state.staff1.map((staff,index) => (
+                    {this.state.staff.map((staff,index) => (
                         <tr key={index}>
                                 <th scope="row">{index+1}</th>
                                 <td>{staff.lname}</td>
