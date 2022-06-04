@@ -1,5 +1,4 @@
 const express = require('express');
-const colors = require('colors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
