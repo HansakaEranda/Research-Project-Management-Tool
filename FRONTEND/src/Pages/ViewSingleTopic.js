@@ -27,7 +27,8 @@ export default class ViewSingleTopic extends Component{
         <div className="addtopic">                    
 
            <div className="ish"style={{padding:"50px"}}>
-               <div class="dis" style={{padding:"80px"}}>
+           <div style={{paddingLeft:"550px", paddingTop:"20px"}}><h2>Saved Details</h2></div>
+               <div class="dis" style={{padding:"100px"}}>
                <label><b>Group ID - </b></label> {gId}<br/>
 
                <label><b>Group Leader - </b></label> {gLeader}<br/>
@@ -40,9 +41,11 @@ export default class ViewSingleTopic extends Component{
 
                <label><b>Topic - </b></label> {topic}<br/>
 
-               <label><b>Supervisor - </b></label> {supervisor}<br/>
+               {/*<label><b>Supervisor - </b></label> {supervisor}<br/>*/}
                </div>
-               <button className="vbtn" type="button"><a href="/viewTDtl"><b>Back</b></a></button><br/>
+               <br/>
+
+               <button className="vbtn" type="button" style={{marginLeft:"600px"}}><a href="/viewTDtl"><b>Back</b></a></button><br/>
            </div>
   
         </div>

@@ -265,6 +265,16 @@ input[type="search"]{
   background-color:  	#227e4885;
 }
 
+.sbtn1 {
+  width: 200px;
+	height: 40px;
+  background-color: rgb(24, 112, 2);
+  margin: 8px 0;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 800px;
+}
+
 .sbtn {
   width: 370px;
   background-color: rgb(24, 112, 2);
@@ -274,6 +284,7 @@ input[type="search"]{
   cursor: pointer;
 }
 
+.sbtn1:hover,
 .sbtn:hover {
   background-color: #45a049;
 }
@@ -298,16 +309,38 @@ table{
   margin: 8px 0;
   border-radius: 4px;
   cursor: pointer;
+  margin-left: 550px;
 }
 
-.vbtn:hover {
+.vbtn1{
+  width: 100px;
+	height: 30px;
+  background-color: rgb(24, 112, 2);
+  margin: 8px 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.vbtn2 {
+  width: 100px;
+	height: 30px;
+  background-color: rgb(24, 112, 2);
+  margin: 8px 0;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 600px;
+}
+
+.vbtn:hover,
+.vbtn1:hover
+.vbtn2:hover {
   background-color: #45a049;
 }
 
 .dis{
   box-shadow: 5px 10px 18px #075311;
   border-radius: 10px;
-  margin-left: 350px;
+  margin-left: 400px;
   margin-right: 350px;
   padding-bottom: 20px;
   margin-top: 30px;

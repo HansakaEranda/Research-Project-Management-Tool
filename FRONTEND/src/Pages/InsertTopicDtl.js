@@ -9,7 +9,7 @@ const dState = {
     mem2:"",
     mem3:"",
     topic:"",
-    supervisor:"",
+    //supervisor:"",
     gIdError:"",
     gLeaderError:"",
     mem1Error:"",
@@ -75,7 +75,7 @@ export default class InsertTopicDtl extends Component{
 
     onSubmit = (e) =>{
         e.preventDefault();
-        const{gId, gLeader, mem1, mem2, mem3, topic, supervisor} = this.state;
+        const{gId, gLeader, mem1, mem2, mem3, topic, /*supervisor*/} = this.state;
 
         const tpDtl = {
             gId:gId,
@@ -84,7 +84,7 @@ export default class InsertTopicDtl extends Component{
             mem2:mem2,
             mem3:mem3,
             topic:topic,
-            supervisor:supervisor
+            //supervisor:supervisor,
         }
 
         //console.log(customer)
@@ -103,7 +103,7 @@ export default class InsertTopicDtl extends Component{
                     mem2:"",
                     mem3:"",
                     topic:"",
-                    supervisor:""
+                    //supervisor:"",
                 })
             }
         }).catch((err)=>{
@@ -187,9 +187,9 @@ export default class InsertTopicDtl extends Component{
                     </div>
                     <div style={{color: "red"}}>{this.state.topicError}</div>
 
-                    <div>
+                    {/*<div>
                         <label name="supervisor">Supervisor</label><br/>
-                        <select id="supervisor" name="supervisor">
+                        <select type="select" id="supervisor" name="supervisor">
                                 <option value="0">Select Supervisor</option>
                                 <option value="1">Prof. Sarath Gunawardhane</option>
                                 <option value="2">Prof. Prageeth Wijayawardhane</option>
@@ -198,7 +198,7 @@ export default class InsertTopicDtl extends Component{
                                 <option value="5">Prof. Bimal Perera</option>
                                 <option value="6">Prof. Gihan Satharasinghe</option>
                         </select>
-                    </div>
+                    </div>*/}
 
                     <br/><br/>
                     <button className="sbtn" type="submit" onClick={this.onSubmit} ><b>Save</b></button><br/>

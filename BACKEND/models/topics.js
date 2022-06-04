@@ -26,10 +26,10 @@ const topicSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    supervisor:{
+    /*supervisor:{
         type:String,
         required:true
-    }
+    }*/
 
 });
 

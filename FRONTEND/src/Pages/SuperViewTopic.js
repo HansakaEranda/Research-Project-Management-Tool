@@ -46,7 +46,20 @@ export default class SuperViewTopic extends Component{
             return false;
         }
 
-        return true;
+
+        if(!id){
+            <p class="dis" style={{padding:"80px"}} id="ac"> Accepted Request</p>
+            setTimeout(() => push("/"), 400);
+            setTimeout(() => push('/sinviewtdtl/${id}'), 400);
+        }
+        else{
+            <p class="dis" style={{padding:"80px"}} id="dc"> Declined Request</p>
+            setTimeout(() => push("/"), 400);
+            setTimeout(() => push("/sinviewtdtl/:id"), 400);
+        }
+      
+
+       return true;
     }
 
     decision2 = () => {
@@ -70,9 +83,9 @@ export default class SuperViewTopic extends Component{
             
                 <div className="addtopic">
                 <div className="ish">
-                <div class="cont" style={{textAlign:"center"}}><h2>Topic Details</h2></div>
+                <div style={{textAlign:"center", paddingTop:"50px"}}><h2>Topic Details</h2></div>
                                                  
-           <div class="dis">
+           <div class="dis" style={{padding:"80px"}}>
                <label><b>Group ID - </b></label> {gId}<br/>
 
                <label><b>Group Leader - </b></label> {gLeader}<br/>
@@ -83,16 +96,17 @@ export default class SuperViewTopic extends Component{
 
                <label><b>Member 3 - </b></label> {mem3}<br/>
 
-               <label><b>Topic - </b></label> {topic}<br/>
+               <label><b>Topic - </b></label> {topic}
 
-               <label><b>Supervisor - </b></label> {supervisor}<br/><br/><br/>
+               {/*<label><b>Supervisor - </b></label> {supervisor}<br/><br/><br/>*/}
 
            </div>
+           <br/>
                 <button className="vbtn" name="ac" id="ac" onClick={this.decision1}><b>Accept</b></button> &nbsp;
-                <button className="vbtn" name="dc" id="dc" onClick={this.decision2}><b>Decline</b></button><br/><br/>
-                <div style={{color: "red"}}><b>{this.state.accepted}</b></div>
-                <div style={{color: "red"}}><b>{this.state.declined}</b></div>
-                <button className="vbtn" type="button"><a href="/sgettopic" style={{textDecoration:'none',color:'black'}}><b>Back</b></a></button><br/>
+                <button className="vbtn1" name="dc" id="dc" onClick={this.decision2}><b>Decline</b></button><br/><br/>
+                <div style={{color: "red", paddingLeft:"608px"}}><b>{this.state.accepted}</b></div>
+                <div style={{color: "red", paddingLeft:"608px"}}><b>{this.state.declined}</b></div>
+                <button className="vbtn2" type="button"><a href="/sgettopic" style={{textDecoration:'none',color:'black'}}><b>Back</b></a></button><br/>
                 <br/><br/></div>
             </div>
         ); 

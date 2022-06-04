@@ -31,8 +31,8 @@ class ViewStTopicDtl extends Component{
         topics.mem1.includes(searchKey)||
         topics.mem2.includes(searchKey)||
         topics.mem3.includes(searchKey)||
-        topics.topic.includes(searchKey)||
-        topics.supervisor.includes(searchKey)
+        topics.topic.includes(searchKey)
+        //topics.supervisor.includes(searchKey)
         )
         this.setState({topics:result})
       }
@@ -51,7 +51,7 @@ class ViewStTopicDtl extends Component{
             
                 <div className="addtopic" >
                 <div className="ish">
-                <div >
+                <div style={{textAlign:"center", paddingTop:"50px"}}>
                 <h2>All Topic Details</h2>                        
                 <div>
                 <input className="search" type="search" placeholder="Search" name="searchQuery" onChange={this.handleSearchArea}>
@@ -66,7 +66,7 @@ class ViewStTopicDtl extends Component{
                             <th scope="col">Member 2</th>
                             <th scope="col">Member 3</th>
                             <th scope="col">Topic</th>
-                            <th scope="col">Supervisor</th>
+                            {/*<th scope="col">Supervisor</th>*/}
 
                             
                         </tr>
@@ -81,13 +81,13 @@ class ViewStTopicDtl extends Component{
                                 <td><a href={`/sinviewtdtl/${topics._id}`}>{topics.mem2}</a></td>
                                 <td><a href={`/sinviewtdtl/${topics._id}`}>{topics.mem3}</a></td>
                                 <td><a href={`/sinviewtdtl/${topics._id}`}>{topics.topic}</a></td>
-                                <td>{topics.supervisor}</td>
+                                {/*<td><a href={`/sinviewtdtl/${topics._id}`}>{topics.supervisor}</a></td>*/}
 
                             </tr>
                         ))}
                     </tbody>
                 </table><br/><br/>
-                <button className="sbtn" type="button" ><a href="/addtdtl" style={{textDecoration:'none',color:'black'}}>Add new</a></button><br/>
+                <button className="sbtn1" type="button" ><a href="/addtdtl" style={{textDecoration:'none',color:'black'}}><b>Add new</b></a></button><br/>
                 <br/><br/></div>
             </div>
             </div>

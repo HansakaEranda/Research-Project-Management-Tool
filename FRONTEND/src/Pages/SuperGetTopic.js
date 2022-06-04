@@ -43,20 +43,19 @@ class SuperGetTopic extends Component{
             return false;
         }
 
-        return true;
     }
     
     render(){
         return(
             <div className="addtopic">
-                <div className="ish" style={{padding:"80px"}}> 
-                <div >
-                    <div class="cont"><h2>Research Requests</h2></div>
+                <div className="ish" style={{padding:"80px", textAlign:"center", paddingTop:"50px"}}> 
+                <h2 style={{paddingLeft:"100px"}}>Research Requests: Supervisor</h2> 
+                <div class="dis" style={{padding:"70px"}}>                       
+                
                     {this.state.topics.map((topics,index) => (
-                 
-                <div class="dis" style={{padding:"120px"}}>                       
-                <label><b>Group ID</b></label> {topics.gId} <button className="vbtn" type="button" name="vi" id="vi" onClick={this.action}><a href={`/sviewtdtl/${topics._id}`}><b>View</b></a></button>
-                <b style={{color: "red"}}>{this.state.viewed}</b>
+                
+                <div >                       
+                <label><b>Group ID</b></label> {topics.gId} <button className="vbtn1" type="button" name="vi" id="vi" onClick={this.action}><a href={`/sviewtdtl/${topics._id}`}><b>View</b></a></button>
                 </div>
                 ))} 
                 <br/>
