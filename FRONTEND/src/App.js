@@ -2,6 +2,12 @@
     import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
     import Home from './Pages/Home';
     import NavBar from './Pages/NavBar';
+
+
+    //Login Register pages
+    import Dashboard from './Pages/Dashboard';
+    import Login from './Pages/Login';
+    import Register from './Pages/Register';
     
 
     //Topic Details Pages
@@ -37,7 +43,12 @@
             <div>
               <NavBar />
               <Switch>
-                  <Route exact path='/' component={Home} />
+
+                  <Route exact path='/' component={Dashboard} />
+                  <Route path='/login' component={Login} />
+                  <Route path='/register' component={Register} />
+
+                  <Route path='/home' component={Home} />
 
                   <Route path='/viewstudents' component={ViewStudents}/>
                   <Route path='/student/:id' component={StudentDetails}/>
