@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
+import "../index.css";
 
-class Home extends Component {
-  render() {
-    return (
-        <div>
-          <h2>Home</h2>
-        </div>
-    );
-  }
+const Home = ({setLoginUser}) => {
+  return (
+      <div className="homepage">
+          <h1>Hello Homepage</h1>
+          <div className="button" onClick={() => setLoginUser({})} >Logout</div>
+      </div>
+  )
 }
 
 export default Home;
