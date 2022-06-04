@@ -6,8 +6,6 @@ const dotenv = require('dotenv').config()
 
 const app = express();
 
-app.use('/api/goals', require('./routes/goalRoutes'))
-
 
 //import routes
 const studentRoutes = require('./routes/students');
