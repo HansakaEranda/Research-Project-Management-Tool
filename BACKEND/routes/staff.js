@@ -79,4 +79,55 @@ router.delete('/staff/delete/:id',(req,res)=>{
     });
 });
 
+
+//register staff 
+router.post('/register',(req,res)=>{
+    const { lname, lregNo, lemail, lcontactNo, luserName, lpwd} = req.body
+    Staff.findOne({luserName:luserName}, (err,staff) =>{
+        if(staff){
+            res.send({message:"User already registered"})
+        } else {
+            const newStaff = new Staff({
+                lname,
+                lregNo,
+                lemail,
+                lcontactNo,
+                luserName,
+                lpwd
+            })
+            newStaff.save((err) => {
+                if(err){
+                    return res.status(400).json({
+                        error:err
+                    });
+                }else{
+                    return res.status(200).json({
+                        message: "Successfully Registered, Please login now." 
+                    });
+                }
+                
+            });
+        }
+    })
+
+    
+});
+
+
+//Staff login
+router.post("/lclogin",(req,res) => {
+    const {luserName, lpwd} = req.body
+    Staff.findOne({luserName:luserName}, (err, staff) => {
+        if (staff) {
+            if(lpwd === staff.lpwd) {
+                res.send({message :"Login Successful", staff:staff})
+            } else {
+                res.send({message : "Password didn't match"})
+            }
+        } else {
+            res.send({message:"User not registered"})
+        }
+    })
+});
+
 module.exports = router;

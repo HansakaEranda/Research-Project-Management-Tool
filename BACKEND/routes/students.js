@@ -49,7 +49,7 @@ router.post("/stlogin",(req,res) => {
             res.send({message:"User not registered"})
         }
     })
-})
+});
 
 //get students
 router.get('/students',(req,res)=>{
