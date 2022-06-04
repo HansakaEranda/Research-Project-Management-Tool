@@ -19,7 +19,7 @@ router.get('/staff',(req,res)=>{
     });
 });
 
-//get a specific student details
+//get a specific staff details
 router.get('/staff/:id',(req,res) => {
     let staffId = req.params.id;
 

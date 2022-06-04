@@ -103,5 +103,4 @@ import StaffHome from './Pages/StaffHome';
   }
 
 export default App;
-=======
->>>>>>> Stashed changes
+

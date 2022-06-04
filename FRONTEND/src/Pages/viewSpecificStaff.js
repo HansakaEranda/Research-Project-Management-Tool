@@ -21,7 +21,7 @@ export default class ViewSpecificStaff extends Component {
     
     
 
-    filterData1(staff){
+    filterData(staff){
         const result = staff.filter((staffmem) =>
             staffmem.staff === "Supervisor"
         )
@@ -29,11 +29,11 @@ export default class ViewSpecificStaff extends Component {
         this.setState({staff:result})
     }
 
-    redtrievedata1(){
+    redtrievedata(){
         axios.get("http://localhost:8000/getstaff").then(res => {
             if (res.data.success) {
                 this.setState({
-                    specstaff:this.filterData1(res.data.staff)
+                    specstaff:this.filterData(res.data.staff)
                 })
                 console.log(this.state.specstaff)
             }

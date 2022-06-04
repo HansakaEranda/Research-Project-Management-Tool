@@ -39,7 +39,7 @@ export default class EditStudent extends Component{
 
         console.log(data)
 
-        axios.put(`/students/update/${id}`,data).then((res) =>{
+        axios.put(`http://localhost:8000/students/update/${id}`,data).then((res) =>{
             if(res.data.success){
                 alert("Details Updated Successfully")
                 this.setState(

@@ -43,7 +43,7 @@ export default class EditStaffMem extends Component {
 
         console.log(data)
 
-        axios.put(`/staff/update/${id}`,data).then((res) =>{
+        axios.put(`http://localhost:8000/staff/update/${id}`,data).then((res) =>{
             if(res.data.success){
                 alert("Details Updated Successfully")
                 this.setState(
